@@ -22,12 +22,13 @@ public class ControlsState extends BasicGameState {
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
 		g.drawString("controls description", 50, 50);
+		g.drawString("press esc to return to the main menu", 50, 100);
 	}
 
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
-		if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
+		if (container.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
 		}
 	}
