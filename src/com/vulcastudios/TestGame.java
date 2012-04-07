@@ -12,6 +12,9 @@ import org.newdawn.slick.util.ResourceLoader;
 
 
 import com.vulcastudios.actors.Level;
+import com.vulcastudios.states.ControlsState;
+import com.vulcastudios.states.CreditsState;
+import com.vulcastudios.states.GameOptionsState;
 import com.vulcastudios.states.InGameState;
 import com.vulcastudios.states.LoadState;
 import com.vulcastudios.states.MainMenuState;
@@ -25,7 +28,9 @@ public class TestGame extends StateBasedGame {
 	public static final int LOAD_STATE_ID = 1;
 	public static final int MAIN_MENU_STATE_ID = 2;
 	public static final int IN_GAME_STATE = 3;
-	
+	public static final int CONTROLS_STATE = 4;
+	public static final int GAME_OPTIONS_STATE = 5;
+	public static final int CREDITS_STATE = 6;
 
 	public static LinkedList<Level> levels = new LinkedList<Level>();
 	public static Level currentLevel;
@@ -45,6 +50,9 @@ public class TestGame extends StateBasedGame {
 		this.addState(new LoadState(this.rm));
 		this.addState(new MainMenuState());
 		this.addState(new InGameState());
+		this.addState(new ControlsState());
+		this.addState(new GameOptionsState());
+		this.addState(new CreditsState());
 
 	}
 	
