@@ -13,6 +13,10 @@ public class SplashState extends BasicGameState {
 
 	public static final int NEXT_KEY = Input.KEY_ENTER;
 	
+	public static final int TRANSITION_TIME = 3000;
+	
+	private int timeOnSplash = 0;
+	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
@@ -31,7 +35,9 @@ public class SplashState extends BasicGameState {
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
 		
-		if(container.getInput().isKeyPressed(SplashState.NEXT_KEY)){
+		timeOnSplash += delta;
+		
+		if(timeOnSplash >= SplashState.TRANSITION_TIME || container.getInput().isKeyPressed(SplashState.NEXT_KEY)){
 			game.enterState(TestGame.LOAD_STATE_ID);
 		}
 
