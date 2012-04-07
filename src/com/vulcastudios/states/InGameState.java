@@ -26,7 +26,8 @@ public class InGameState extends BasicGameState {
 		//draw HUD
 		g.setColor(Color.green);
 		String score = ((TestGame)game).getCurrentLevel().getNumberOfZombies() + "";
-		g.drawString(score, 700, 20);
+		String parString = "Number of Zombies Used: " + score + "  Par: ";
+		g.drawString(parString, 600, 20);
 	}
 
 	@Override
