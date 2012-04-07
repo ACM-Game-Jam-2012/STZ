@@ -1,5 +1,7 @@
 package com.vulcastudios.actors;
 
+import java.util.ArrayList;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -13,6 +15,7 @@ public class Level {
 	public TiledMap map;
 	private ResourceManager resourceManager;
 	private Player player;
+	private ArrayList<Zombie> zombies = new ArrayList<Zombie>();
 	
 	public Level(String mapName, ResourceManager resourceManager){
 		this.resourceManager = resourceManager;
@@ -30,15 +33,33 @@ public class Level {
 		return this.map;
 	}
 	
-	public void update(GameContainer container, StateBasedGame game, int delta){
-		player.update(container, game, delta);
-
+	public void render(GameContainer container, StateBasedGame game, Graphics g){
+		map.render(20, 20, 0, 0, 100, 100);
+		
+		for (Zombie zombie : zombies) {
+			zombie.render(container, g);
+		}
+		
+		player.render(container, game, g);
+		
 	}
 	
-	public void render(GameContainer container, StateBasedGame game, Graphics g){
-			map.render(0, 0, 0, 0, 100, 100);
-			player.render(container, game, g);
+	public void initLevelWithNewZombie() {
+		initLevel();
 		
+		zombies.add(new Zombie(this.resourceManager, 0, 0));
+	}
+	
+	public void update(GameContainer container, StateBasedGame game, int delta){
+		player.update(container, game, delta);
+		
+		if (container.getInput().isKeyPressed(Input.KEY_SPACE)) {
+			initLevelWithNewZombie();
+		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
+			initLevel();
+			zombies.clear();
+		}
+
 	}
 	
 	
