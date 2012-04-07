@@ -1,3 +1,3 @@
 <resources>
-	<resource key="untitled" location="maps/untitled.tmx" />
+	<resource key="map1" location="maps/map1.tmx" />
 </resources>
