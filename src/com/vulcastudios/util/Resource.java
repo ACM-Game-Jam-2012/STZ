@@ -1,4 +1,4 @@
-package util;
+package com.vulcastudios.util;
 
 import javax.xml.bind.annotation.XmlAttribute;
 
