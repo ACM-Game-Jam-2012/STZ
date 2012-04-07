@@ -34,8 +34,8 @@ public class TestGame extends StateBasedGame {
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
 
-		this.addState(new SplashState());
-		this.addState(new LoadState(this.rm));
+//		this.addState(new SplashState());
+//		this.addState(new LoadState(this.rm));
 		this.addState(new MainMenuState());
 		this.addState(new InGameState());
 
