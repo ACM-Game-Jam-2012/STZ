@@ -33,12 +33,11 @@ public class TestGame extends StateBasedGame {
 	
 	public TestGame(String windowName){
 		super(windowName);
-		rm = new ResourceManager("images.xml", "animations.xml", "sounds.xml", "music.xml");
+		rm = new ResourceManager("images.xml", "animations.xml", "sounds.xml", "music.xml", "maps.xml");
 	}
 	
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
-
 		this.addState(new SplashState());
 		this.addState(new LoadState(this.rm));
 		this.addState(new MainMenuState());

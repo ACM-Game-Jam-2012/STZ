@@ -1,2 +1,3 @@
 <resources>
+	<resource key="map1" location="maps/map1.png" />
 </resources>

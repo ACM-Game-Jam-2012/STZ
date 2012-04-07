@@ -29,10 +29,15 @@ public class ResourceManager {
 	
 	BackgroundMusicLoader musicLoader;
 	
-	public ResourceManager(String imageLoc, String animationLoc, String soundLoc, String musicLoc){
+	public ResourceManager(String imageLoc, String animationLoc, String soundLoc, String musicLoc, String mapLoc){
 		Resources sources = JAXB.unmarshal(ResourceLoader.getResourceAsStream(imageLoc), Resources.class);
 		for(Resource r : sources.getResource()){
 			imageResources.put(r.getKey(), r);
+			
+		}
+		sources = JAXB.unmarshal(ResourceLoader.getResourceAsStream(mapLoc), Resources.class);
+		for(Resource r : sources.getResource()){
+			mapResources.put(r.getKey(), r);
 			
 		}
 		sources = JAXB.unmarshal(ResourceLoader.getResourceAsStream(animationLoc), Resources.class);
@@ -76,6 +81,10 @@ public class ResourceManager {
 	
 	public void load(String key, Animation i){
 		animations.put(key, i);
+	}
+	
+	public void load(String key, TiledMap i){
+		maps.put(key, i);
 	}
 	
 	/*
