@@ -18,6 +18,12 @@ public class MainMenuState extends BasicGameState {
 	private int selection;
 	private int x = 300;
 	private int startY = 200;
+	
+	// Selection constants for readability
+	private final int PLAY = 0;
+	private final int CONTROLS = 1;
+	private final int OPTIONS = 2;
+	private final int CREDITS = 3;
 
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
@@ -51,12 +57,31 @@ public class MainMenuState extends BasicGameState {
 			} else {
 				selection --;
 			}
+		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
+			this.enterSelection(game);
 		}
 	}
 
 	@Override
 	public int getID() {
 		return TestGame.MAIN_MENU_STATE_ID;
+	}
+	
+	public void enterSelection(StateBasedGame game) {
+		switch(selection) {
+			case PLAY:
+				System.out.println(menuStrings.get(PLAY));
+				break;
+			case CONTROLS:
+				System.out.println(menuStrings.get(CONTROLS));
+				break;
+			case OPTIONS:
+				System.out.println(menuStrings.get(OPTIONS));
+				break;
+			case CREDITS:
+				System.out.println(menuStrings.get(CREDITS));
+				break;
+		}
 	}
 
 	public void drawMenu(Graphics g) {
