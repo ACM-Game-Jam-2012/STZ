@@ -10,14 +10,14 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.util.ResourceLoader;
 
-import util.Config;
-import util.ResourceManager;
 
 import com.vulcastudios.actors.Level;
 import com.vulcastudios.states.InGameState;
 import com.vulcastudios.states.LoadState;
 import com.vulcastudios.states.MainMenuState;
 import com.vulcastudios.states.SplashState;
+import com.vulcastudios.util.Config;
+import com.vulcastudios.util.ResourceManager;
 
 public class TestGame extends StateBasedGame {
 

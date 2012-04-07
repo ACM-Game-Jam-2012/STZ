@@ -11,11 +11,11 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
-import util.Resource;
-import util.ResourceManager;
 
 import com.vulcastudios.TestGame;
 import com.vulcastudios.actors.Level;
+import com.vulcastudios.util.Resource;
+import com.vulcastudios.util.ResourceManager;
 
 public class LoadState extends BasicGameState {
 
