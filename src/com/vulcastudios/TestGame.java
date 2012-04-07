@@ -29,6 +29,7 @@ public class TestGame extends StateBasedGame {
 
 	public static LinkedList<Level> levels = new LinkedList<Level>();
 	public static Level currentLevel;
+	public static int currentLevelIndex = 0;
 	private ResourceManager rm;
 
 	
@@ -44,6 +45,12 @@ public class TestGame extends StateBasedGame {
 		this.addState(new MainMenuState());
 		this.addState(new InGameState());
 
+	}
+	
+	public void goToNextLevel(){
+		currentLevelIndex++;
+		currentLevel = levels.get(currentLevelIndex);
+		currentLevel.initLevel();
 	}
 	
 
