@@ -5,7 +5,8 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.tiled.TiledMap;
 
-import util.ResourceManager;
+import com.vulcastudios.util.ResourceManager;
+
 
 public class Level {
 	public TiledMap map;
