@@ -39,7 +39,9 @@ public class MainMenuState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		Color defaultColor = g.getColor();
 		this.drawMenu(g);
+		g.setColor(defaultColor);
 	}
 
 	@Override
@@ -75,12 +77,15 @@ public class MainMenuState extends BasicGameState {
 				break;
 			case CONTROLS:
 				System.out.println(menuStrings.get(CONTROLS));
+				game.enterState(TestGame.CONTROLS_STATE);
 				break;
 			case OPTIONS:
 				System.out.println(menuStrings.get(OPTIONS));
+				game.enterState(TestGame.GAME_OPTIONS_STATE);
 				break;
 			case CREDITS:
 				System.out.println(menuStrings.get(CREDITS));
+				game.enterState(TestGame.CREDITS_STATE);
 				break;
 		}
 	}
