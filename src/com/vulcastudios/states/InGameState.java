@@ -1,5 +1,6 @@
 package com.vulcastudios.states;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -21,6 +22,12 @@ public class InGameState extends BasicGameState {
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
 		((TestGame)game).getCurrentLevel().render(container, game, g);
+		
+		//draw HUD
+		g.setColor(Color.green);
+		String score = ((TestGame)game).getCurrentLevel().getNumberOfZombies() + "";
+		String parString = "Number of Zombies Used: " + score + "  Par: ";
+		g.drawString(parString, 600, 20);
 	}
 
 	@Override

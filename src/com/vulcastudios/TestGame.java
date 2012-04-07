@@ -24,7 +24,6 @@ import com.vulcastudios.util.Config;
 import com.vulcastudios.util.ResourceManager;
 
 public class TestGame extends StateBasedGame {
-
 	public static final int SPLASH_STATE_ID = 0;
 	public static final int LOAD_STATE_ID = 1;
 	public static final int MAIN_MENU_STATE_ID = 2;
