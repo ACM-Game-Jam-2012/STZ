@@ -1,6 +1,7 @@
 package com.vulcastudios;
 
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.Properties;
 
 import org.newdawn.slick.AppGameContainer;
@@ -11,6 +12,7 @@ import org.newdawn.slick.util.ResourceLoader;
 
 import util.Config;
 
+import com.vulcastudios.actors.Level;
 import com.vulcastudios.states.InGameState;
 import com.vulcastudios.states.LoadState;
 import com.vulcastudios.states.MainMenuState;
@@ -22,6 +24,8 @@ public class TestGame extends StateBasedGame {
 	public static final int LOAD_STATE_ID = 1;
 	public static final int MAIN_MENU_STATE_ID = 2;
 	public static final int IN_GAME_STATE = 3;
+	
+	public static LinkedList<Level> levels = new LinkedList<Level>();
 	
 	public TestGame(String windowName){
 		super(windowName);
@@ -35,6 +39,11 @@ public class TestGame extends StateBasedGame {
 		this.addState(new MainMenuState());
 		this.addState(new InGameState());
 
+	}
+	
+	public void initLevels(){
+		levels.add(new Level("map1", resourceManager));
+		
 	}
 	
 	public static void main(String[] args){

@@ -8,6 +8,7 @@ import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.Sound;
+import org.newdawn.slick.tiled.TiledMap;
 import org.newdawn.slick.util.ResourceLoader;
 
 public class ResourceManager {
@@ -16,11 +17,13 @@ public class ResourceManager {
 	HashMap<String, Resource> animationResources = new HashMap<String, Resource>();
 	HashMap<String, Resource> soundResources = new HashMap<String, Resource>();
 	HashMap<String, Resource> musicResources = new HashMap<String, Resource>();
+	HashMap<String, Resource> mapResources = new HashMap<String, Resource>();
 	
-	HashMap<String, Image> images = new HashMap<String, Image>();
-	HashMap<String, Animation> animations = new HashMap<String, Animation>();
-	HashMap<String, Sound> sounds = new HashMap<String, Sound>();
-	HashMap<String, Music> musics = new HashMap<String, Music>();
+	public HashMap<String, Image> images = new HashMap<String, Image>();
+	public HashMap<String, Animation> animations = new HashMap<String, Animation>();
+	public HashMap<String, Sound> sounds = new HashMap<String, Sound>();
+	public HashMap<String, Music> musics = new HashMap<String, Music>();
+	public HashMap<String, TiledMap> maps = new HashMap<String, TiledMap>();
 	
 	public ResourceManager(String images, String animation, String sound, String music){
 		Resources sources = JAXB.unmarshal(ResourceLoader.getResourceAsStream(images), Resources.class);
