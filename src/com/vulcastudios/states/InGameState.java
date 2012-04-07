@@ -7,26 +7,26 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import com.vulcastudios.TestGame;
-import com.vulcastudios.actors.Level;
+import com.vulcastudios.actors.Player;
 
 public class InGameState extends BasicGameState {
+	
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
-
 	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
-		TestGame.currentLevel.render(g);
+		TestGame.currentLevel.render(container, g);
 	}
 
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
-		// TODO Auto-generated method stub
+		TestGame.currentLevel.update(container, delta);
 
 	}
 
