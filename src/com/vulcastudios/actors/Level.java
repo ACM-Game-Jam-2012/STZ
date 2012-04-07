@@ -12,7 +12,8 @@ import com.vulcastudios.util.ResourceManager;
 
 
 public class Level {
-	public TiledMap map;
+	private TiledMap map;
+	private String par;
 	private ResourceManager resourceManager;
 	private Player player;
 	private ArrayList<Zombie> zombies = new ArrayList<Zombie>();
@@ -22,6 +23,7 @@ public class Level {
 		
 		System.out.println(this.resourceManager.maps.size());
 		map = this.resourceManager.maps.get(mapName);
+		par = map.getMapProperty("par", "3");
 	}
 	
 	public void initLevel(){
@@ -31,6 +33,10 @@ public class Level {
 	
 	public TiledMap getMap(){
 		return this.map;
+	}
+	
+	public String getPar() {
+		return this.par;
 	}
 	
 	public void render(GameContainer container, StateBasedGame game, Graphics g){
@@ -63,7 +69,7 @@ public class Level {
 	
 
 	public int getNumberOfZombies(){
-		return (zombies.size()+1);
+		return zombies.size();
 	}
 	
 }
