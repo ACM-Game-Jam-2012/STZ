@@ -37,8 +37,11 @@ public class Level {
 	public void update(GameContainer container, int delta){
 		player.update(container, delta);
 		
-		if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
+		if (container.getInput().isKeyPressed(Input.KEY_SPACE)) {
 			initLevelWithNewZombie();
+		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
+			initLevel();
+			zombies.clear();
 		}
 
 	}
