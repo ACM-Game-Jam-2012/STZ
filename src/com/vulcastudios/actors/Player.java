@@ -12,6 +12,9 @@ public class Player {
 	
 	public static final float DELTA_X = 0.25f;
 	public static final float DELTA_Y = 0.25f;
+
+	public static final int WIDTH = 50;
+	public static final int HEIGHT = 50;
 	
 	private float xPos = 0;
 	private float yPos = 0;
@@ -36,14 +39,25 @@ public class Player {
 		if(container.getInput().isKeyDown(Input.KEY_RIGHT))
 			this.setXPos(getXPos() + (Player.DELTA_Y * delta));
 
+		if(this.getXPos() < 0)
+			this.setXPos(0);
+
+		if(this.getYPos() < 0)
+			this.setYPos(0);
+
+		if(this.getXPos() > container.getWidth() - Player.WIDTH)
+			this.setXPos(container.getWidth() - Player.WIDTH);
+		
+		if(this.getYPos() > container.getHeight() - Player.HEIGHT)
+			this.setYPos(container.getHeight() - Player.HEIGHT);
+
 
 	}
 
 	public void render(GameContainer container, Graphics g){
-
 		g.setColor(Color.pink);
 
-		g.drawRect(this.getXPos(), this.getYPos(), 50, 50);
+		g.drawRect(this.getXPos(), this.getYPos(), Player.WIDTH, Player.HEIGHT);
 	}
 	
 
