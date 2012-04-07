@@ -23,10 +23,12 @@ public class InGameState extends BasicGameState {
 			throws SlickException {
 		((TestGame)game).getCurrentLevel().render(container, game, g);
 		
+		String par = ((TestGame)game).getCurrentLevel().getPar();
+		
 		//draw HUD
 		g.setColor(Color.green);
 		String score = ((TestGame)game).getCurrentLevel().getNumberOfZombies() + "";
-		String parString = "Number of Zombies Used: " + score + "  Par: ";
+		String parString = "Number of Zombies Used: " + score + "  Par: " + par;
 		g.drawString(parString, 600, 20);
 	}
 
