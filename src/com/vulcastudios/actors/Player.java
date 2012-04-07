@@ -5,7 +5,9 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.state.StateBasedGame;
 
+import com.vulcastudios.TestGame;
 import com.vulcastudios.util.ResourceManager;
 
 public class Player {
@@ -27,8 +29,11 @@ public class Player {
 		this.yPos = yPos;
 	}
 
-	public void update(GameContainer container, int delta){
+	public void update(GameContainer container, StateBasedGame game, int delta){
 
+		float oldX = this.getXPos();
+		float oldY = this.getYPos();
+		
 		// Handle player movement
 		if(container.getInput().isKeyDown(Input.KEY_UP))
 			this.setYPos(getYPos() - (Player.DELTA_Y * delta));
@@ -50,11 +55,16 @@ public class Player {
 		
 		if(this.getYPos() > container.getHeight() - Player.HEIGHT)
 			this.setYPos(container.getHeight() - Player.HEIGHT);
+		
+		if(((TestGame)game).checkCollision(this)){
+			this.setXPos(oldX);
+			this.setYPos(oldY);
+		}
 
 
 	}
 
-	public void render(GameContainer container, Graphics g){
+	public void render(GameContainer container, StateBasedGame game, Graphics g){
 		g.setColor(Color.pink);
 
 		g.drawRect(this.getXPos(), this.getYPos(), Player.WIDTH, Player.HEIGHT);

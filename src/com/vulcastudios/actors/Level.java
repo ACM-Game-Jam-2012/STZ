@@ -3,6 +3,7 @@ package com.vulcastudios.actors;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
 import com.vulcastudios.util.ResourceManager;
@@ -25,14 +26,18 @@ public class Level {
 		
 	}
 	
-	public void update(GameContainer container, int delta){
-		player.update(container, delta);
+	public TiledMap getMap(){
+		return this.map;
+	}
+	
+	public void update(GameContainer container, StateBasedGame game, int delta){
+		player.update(container, game, delta);
 
 	}
 	
-	public void render(GameContainer container, Graphics g){
-			map.render(20, 20, 0, 0, 100, 100);
-			player.render(container, g);
+	public void render(GameContainer container, StateBasedGame game, Graphics g){
+			map.render(0, 0, 0, 0, 100, 100);
+			player.render(container, game, g);
 		
 	}
 	
