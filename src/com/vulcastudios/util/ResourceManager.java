@@ -72,7 +72,7 @@ public class ResourceManager {
 	}
 	
 	public int getProgress(){
-		return (int)(((float)(images.size() + animations.size() + musicLoader.getLoaded()))/(imageResources.size() + animationResources.size() + musicLoader.getSize())*100);
+		return (int)(((float)(maps.size() + images.size() + animations.size() + musicLoader.getLoaded()))/( mapResources.size() + imageResources.size() + animationResources.size() + musicLoader.getSize())*100);
 	}
 	
 	public void load(String key, Image i){
