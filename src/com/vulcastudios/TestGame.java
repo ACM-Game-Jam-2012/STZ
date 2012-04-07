@@ -62,8 +62,6 @@ public class TestGame extends StateBasedGame {
 		currentLevel.initLevel();
 	}
 	
-
-	
 	public static void main(String[] args){
 		Properties props = new Properties();
 		try {

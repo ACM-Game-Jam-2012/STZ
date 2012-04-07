@@ -27,7 +27,6 @@ public class InGameState extends BasicGameState {
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
 		TestGame.currentLevel.update(container, delta);
-
 	}
 
 	@Override
