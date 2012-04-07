@@ -1,7 +1,7 @@
 package com.vulcastudios;
 
 import java.io.IOException;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import org.newdawn.slick.AppGameContainer;
@@ -9,7 +9,6 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.util.ResourceLoader;
-
 
 import com.vulcastudios.actors.Level;
 import com.vulcastudios.states.ControlsState;
@@ -32,20 +31,19 @@ public class TestGame extends StateBasedGame {
 	public static final int GAME_OPTIONS_STATE = 5;
 	public static final int CREDITS_STATE = 6;
 
-	public static LinkedList<Level> levels = new LinkedList<Level>();
-	public static Level currentLevel;
-	public static int currentLevelIndex = 0;
+	private ArrayList<Level> levels;
+	private int currentLevelIndex = 0;
 	private ResourceManager rm;
 
 	
 	public TestGame(String windowName){
 		super(windowName);
+		levels = new ArrayList<Level>();
 		rm = new ResourceManager("images.xml", "animations.xml", "sounds.xml", "music.xml", "maps.xml");
 	}
 	
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
-
 		this.addState(new SplashState());
 		this.addState(new LoadState(this.rm));
 		this.addState(new MainMenuState());
@@ -58,11 +56,21 @@ public class TestGame extends StateBasedGame {
 	
 	public void goToNextLevel(){
 		currentLevelIndex++;
-		currentLevel = levels.get(currentLevelIndex);
-		currentLevel.initLevel();
+		levels.get(currentLevelIndex).initLevel();
 	}
 	
+	public ArrayList<Level> getLevels() {
+		return levels;
+	}
 
+	public void addLevel(Level level) {
+		this.levels.add(level);
+	}
+
+	public Level getCurrentLevel() {
+		return levels.get(currentLevelIndex);
+	}
+	
 	
 	public static void main(String[] args){
 		Properties props = new Properties();
