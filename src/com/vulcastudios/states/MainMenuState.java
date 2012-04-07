@@ -102,6 +102,7 @@ public class MainMenuState extends BasicGameState {
 	}
 
 	public void drawMenu(Graphics g) {
+		Color prev = g.getColor();
 		for (int index = 0; index < menuStrings.size(); index++) {
 			if (index == selection) {
 				g.setColor(Color.green);
@@ -110,6 +111,7 @@ public class MainMenuState extends BasicGameState {
 			}
 			this.drawString(g, index);
 		}
+		g.setColor(prev);
 	}
 	
 	private void drawString(Graphics g, int index) {
