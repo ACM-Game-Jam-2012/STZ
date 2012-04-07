@@ -11,11 +11,11 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
-import util.Resource;
-import util.ResourceManager;
 
 import com.vulcastudios.TestGame;
 import com.vulcastudios.actors.Level;
+import com.vulcastudios.util.Resource;
+import com.vulcastudios.util.ResourceManager;
 
 public class LoadState extends BasicGameState {
 
@@ -47,6 +47,9 @@ public class LoadState extends BasicGameState {
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
+		if(this.rm.getProgress() == 100)
+			game.enterState(TestGame.MAIN_MENU_STATE_ID);
+		
 		if(images.hasNext()){
 			Resource r = images.next().getValue();
 			rm.load(r.getKey(), new Image(r.getLocation()));
