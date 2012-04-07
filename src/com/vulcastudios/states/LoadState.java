@@ -22,14 +22,14 @@ public class LoadState extends BasicGameState {
 	private ResourceManager rm;
 	private Iterator<Entry<String, Resource>> images, maps;
 	//private Iterator<Entry<String, Resource>> animations;
-	
+
 	public LoadState(ResourceManager rm){
 		this.rm = rm;
 		images = rm.imageResources.entrySet().iterator();
 		maps = rm.mapResources.entrySet().iterator();
 		//animations = rm.animationResources.entrySet().iterator();
 	}
-	
+
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
@@ -49,30 +49,31 @@ public class LoadState extends BasicGameState {
 			throws SlickException {
 		if(this.rm.getProgress() == 100)
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
-		
+
 		if(images.hasNext()){
 			Resource r = images.next().getValue();
 			rm.load(r.getKey(), new Image(r.getLocation()));
-		}
+		}else{
 
-		if(maps.hasNext()){
-			Resource r = maps.next().getValue();
-			rm.load(r.getKey(), new TiledMap(r.getLocation(), "tilesets/"));
-			if(game instanceof TestGame){
-				((TestGame)game).levels.add(new Level("map1", this.rm));
-				((TestGame)game).currentLevel = TestGame.levels.getFirst();
+			if(maps.hasNext()){
+				Resource r = maps.next().getValue();
+				rm.load(r.getKey(), new TiledMap(r.getLocation(), "tilesets/"));
+				if(game instanceof TestGame){
+					((TestGame)game).levels.add(new Level("map1", this.rm));
+					((TestGame)game).currentLevel = TestGame.levels.getFirst();
+				}
 			}
+
 		}
 
 		/*if(animations.hasNext()){
 			Resource r = animations.next().getValue();
 			rm.load(r.getKey(), new Image(r.getLocation()));
 		}*/
-		
-		
+
+
 		if(rm.getProgress() ==100){
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
-			
 		}
 
 	}
