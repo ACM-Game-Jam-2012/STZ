@@ -30,14 +30,14 @@ public class LoadState extends BasicGameState {
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
-		// TODO Auto-generated method stub
+		rm.startLoad();
 
 	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
-		// TODO Auto-generated method stub
+		g.drawString("Progress: "+this.rm.getProgress(), 50, 50);
 
 	}
 
@@ -48,6 +48,8 @@ public class LoadState extends BasicGameState {
 			Resource r = images.next().getValue();
 			rm.load(r.getKey(), new Image(r.getLocation()));
 		}
+		
+		
 		/*if(animations.hasNext()){
 			Resource r = animations.next().getValue();
 			rm.load(r.getKey(), new Image(r.getLocation()));
