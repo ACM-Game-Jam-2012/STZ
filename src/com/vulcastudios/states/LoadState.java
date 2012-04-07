@@ -41,8 +41,8 @@ public class LoadState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
-		g.drawString("Progress: "+this.rm.getProgress(), 50, 50);
-		LoadingBar lb = new LoadingBar(100,100,300,50);
+		//g.drawString("Progress: "+this.rm.getProgress(), 50, 50);
+		LoadingBar lb = new LoadingBar(5, container.getHeight()-35, container.getWidth()-10, 30);
 		lb.setProgress(this.rm.getProgress());
 		lb.render(container, game, g);
 
