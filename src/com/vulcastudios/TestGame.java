@@ -10,6 +10,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.util.ResourceLoader;
 
 import util.Config;
+import util.ResourceManager;
 
 import com.vulcastudios.states.InGameState;
 import com.vulcastudios.states.LoadState;
@@ -23,15 +24,18 @@ public class TestGame extends StateBasedGame {
 	public static final int MAIN_MENU_STATE_ID = 2;
 	public static final int IN_GAME_STATE = 3;
 	
+	private ResourceManager rm;
+	
 	public TestGame(String windowName){
 		super(windowName);
+		rm = new ResourceManager("images.xml", "animations.xml", "sounds.xml", "music.xml");
 	}
 	
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
 
 		this.addState(new SplashState());
-		this.addState(new LoadState());
+		this.addState(new LoadState(this.rm));
 		this.addState(new MainMenuState());
 		this.addState(new InGameState());
 
