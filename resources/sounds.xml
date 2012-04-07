@@ -1,2 +1,3 @@
 <resources>
+	<resource key="player_boost" location="sounds/tires_squal_loop.ogg" />
 </resources>
