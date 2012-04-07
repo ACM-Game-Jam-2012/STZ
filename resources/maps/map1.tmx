@@ -2,10 +2,33 @@
 <map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="4970956720_170df8b3c7_o" tilewidth="32" tileheight="32">
   <image source="4970956720_170df8b3c7_o.jpg" width="742" height="900"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="floor"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="645" name="futuramafry" tilewidth="32" tileheight="32">
+  <image source="futuramafry.jpg" width="300" height="300"/>
+  <tile id="0">
+   <properties>
+    <property name="name" value="wall"/>
+   </properties>
+  </tile>
+  <tile id="41">
+   <properties>
+    <property name="type" value="start"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="Tile Layer 1" width="100" height="100">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3DAQkAAAwEofv+pQfLoeCqqaqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq/wC5xd0EQJwAAA==
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="100" height="100">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3XsQ0AMAgDQZTdszcrUCTIxZ3kBfiKKgB4457Z2DG5tR579MiiRxY9suiRRY8semTxfwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/NdneHq5AnAAA
   </data>
  </layer>
 </map>
