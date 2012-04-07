@@ -8,26 +8,36 @@ import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.Sound;
+import org.newdawn.slick.tiled.TiledMap;
 import org.newdawn.slick.util.ResourceLoader;
 
 public class ResourceManager {
 
+
+	public HashMap<String, Resource> mapResources = new HashMap<String, Resource>();
 	public HashMap<String, Resource> imageResources = new HashMap<String, Resource>();
 	public HashMap<String, Resource> animationResources = new HashMap<String, Resource>();
 	public HashMap<String, Resource> soundResources = new HashMap<String, Resource>();
 	public HashMap<String, Resource> musicResources = new HashMap<String, Resource>();
-	
+
 	public HashMap<String, Image> images = new HashMap<String, Image>();
 	public HashMap<String, Animation> animations = new HashMap<String, Animation>();
 	public HashMap<String, Sound> sounds = new HashMap<String, Sound>();
+	public HashMap<String, TiledMap> maps = new HashMap<String, TiledMap>();
 	public HashMap<String, Music> music = new HashMap<String, Music>();
+
 	
 	BackgroundMusicLoader musicLoader;
 	
-	public ResourceManager(String imageLoc, String animationLoc, String soundLoc, String musicLoc){
+	public ResourceManager(String imageLoc, String animationLoc, String soundLoc, String musicLoc, String mapLoc){
 		Resources sources = JAXB.unmarshal(ResourceLoader.getResourceAsStream(imageLoc), Resources.class);
 		for(Resource r : sources.getResource()){
 			imageResources.put(r.getKey(), r);
+			
+		}
+		sources = JAXB.unmarshal(ResourceLoader.getResourceAsStream(mapLoc), Resources.class);
+		for(Resource r : sources.getResource()){
+			mapResources.put(r.getKey(), r);
 			
 		}
 		sources = JAXB.unmarshal(ResourceLoader.getResourceAsStream(animationLoc), Resources.class);
@@ -92,6 +102,11 @@ public class ResourceManager {
 			return this.music.get(key);
 		else
 			throw new RuntimeException("Music not found: "+key);
+
+	}
+	
+	public void load(String key, TiledMap i){
+		maps.put(key, i);
 	}
 	
 	/*

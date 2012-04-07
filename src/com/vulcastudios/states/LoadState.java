@@ -9,21 +9,24 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.tiled.TiledMap;
 
 import util.Resource;
 import util.ResourceManager;
 
 import com.vulcastudios.TestGame;
+import com.vulcastudios.actors.Level;
 
 public class LoadState extends BasicGameState {
 
 	private ResourceManager rm;
-	private Iterator<Entry<String, Resource>> images;
+	private Iterator<Entry<String, Resource>> images, maps;
 	//private Iterator<Entry<String, Resource>> animations;
 	
 	public LoadState(ResourceManager rm){
 		this.rm = rm;
 		images = rm.imageResources.entrySet().iterator();
+		maps = rm.mapResources.entrySet().iterator();
 		//animations = rm.animationResources.entrySet().iterator();
 	}
 	
@@ -51,12 +54,26 @@ public class LoadState extends BasicGameState {
 			Resource r = images.next().getValue();
 			rm.load(r.getKey(), new Image(r.getLocation()));
 		}
-		
-		
+
+		if(maps.hasNext()){
+			Resource r = maps.next().getValue();
+			rm.load(r.getKey(), new TiledMap(r.getLocation(), "tilesets/"));
+			if(game instanceof TestGame){
+				((TestGame)game).levels.add(new Level("map1", this.rm));
+				((TestGame)game).currentLevel = TestGame.levels.getFirst();
+			}
+		}
+
 		/*if(animations.hasNext()){
 			Resource r = animations.next().getValue();
 			rm.load(r.getKey(), new Image(r.getLocation()));
 		}*/
+		
+		
+		if(rm.getProgress() ==100){
+			game.enterState(TestGame.IN_GAME_STATE);
+			
+		}
 
 	}
 
