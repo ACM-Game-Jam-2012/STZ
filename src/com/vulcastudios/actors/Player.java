@@ -9,14 +9,14 @@ import org.newdawn.slick.Input;
 import com.vulcastudios.util.ResourceManager;
 
 public class Player {
+	
+	public static final float DELTA_X = 0.25f;
+	public static final float DELTA_Y = 0.25f;
+	
 	private float xPos = 0;
 	private float yPos = 0;
-	
-	public static final float DELTA_X = 0.2f;
-	public static final float DELTA_Y = 0.2f;
 
 	private ResourceManager rm;
-	
 	
 	public Player(ResourceManager rm, int xPos, int yPos){
 		this.rm = rm;
@@ -26,15 +26,15 @@ public class Player {
 
 	public void update(GameContainer container, int delta){
 
-		if(container.getInput().isKeyDown(Input.KEY_W))
-			this.setYPos(getYPos() - Player.DELTA_Y);
-		if(container.getInput().isKeyDown(Input.KEY_S))
-			this.setYPos(getYPos() + Player.DELTA_Y);
-
-		if(container.getInput().isKeyDown(Input.KEY_A))
-			this.setXPos(getXPos() - Player.DELTA_X);
-		if(container.getInput().isKeyDown(Input.KEY_D))
-			this.setXPos(getXPos() + Player.DELTA_Y);
+		// Handle player movement
+		if(container.getInput().isKeyDown(Input.KEY_UP))
+			this.setYPos(getYPos() - (Player.DELTA_Y * delta));
+		if(container.getInput().isKeyDown(Input.KEY_DOWN))
+			this.setYPos(getYPos() + (Player.DELTA_Y * delta));
+		if(container.getInput().isKeyDown(Input.KEY_LEFT))
+			this.setXPos(getXPos() - (Player.DELTA_X * delta));
+		if(container.getInput().isKeyDown(Input.KEY_RIGHT))
+			this.setXPos(getXPos() + (Player.DELTA_Y * delta));
 
 
 	}
