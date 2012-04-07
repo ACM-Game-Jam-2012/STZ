@@ -71,6 +71,7 @@ public class MainMenuState extends BasicGameState {
 		switch(selection) {
 			case PLAY:
 				System.out.println(menuStrings.get(PLAY));
+				game.enterState(TestGame.IN_GAME_STATE);
 				break;
 			case CONTROLS:
 				System.out.println(menuStrings.get(CONTROLS));
