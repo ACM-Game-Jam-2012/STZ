@@ -44,6 +44,9 @@ public class LoadState extends BasicGameState {
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
+		if(this.rm.getProgress() == 100)
+			game.enterState(TestGame.MAIN_MENU_STATE_ID);
+		
 		if(images.hasNext()){
 			Resource r = images.next().getValue();
 			rm.load(r.getKey(), new Image(r.getLocation()));
