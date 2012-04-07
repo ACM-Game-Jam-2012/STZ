@@ -1,2 +1,4 @@
 <resources>
+	<resource key="Toccata_et_Fugue" location="music/Toccata_et_Fugue_BWV565.ogg"/>
+	<resource key="eva_2.0_destiny" location="music/eva_2.0_destiny.ogg"/>
 </resources>
