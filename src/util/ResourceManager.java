@@ -73,6 +73,27 @@ public class ResourceManager {
 		animations.put(key, i);
 	}
 	
+	public Image getImage(String key){
+		if(this.images.containsKey(key))
+			return this.images.get(key);
+		else
+			throw new RuntimeException("Image not found: "+key);
+	}
+	
+	public Sound getSound(String key){
+		if(this.sounds.containsKey(key))
+			return this.sounds.get(key);
+		else
+			throw new RuntimeException("Sound not found: "+key);
+	}
+	
+	public Music getMusic(String key){
+		if(this.music.containsKey(key))
+			return this.music.get(key);
+		else
+			throw new RuntimeException("Music not found: "+key);
+	}
+	
 	/*
 	public static void main(String[] args){
 		
