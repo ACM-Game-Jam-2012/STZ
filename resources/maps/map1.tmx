@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="100" height="100" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="par" value="5"/>
+ </properties>
  <tileset firstgid="1" name="4970956720_170df8b3c7_o" tilewidth="32" tileheight="32">
   <image source="4970956720_170df8b3c7_o.jpg" width="742" height="900"/>
   <tile id="0">

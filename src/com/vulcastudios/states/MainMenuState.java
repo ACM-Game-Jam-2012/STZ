@@ -25,6 +25,11 @@ public class MainMenuState extends BasicGameState {
 	private final int OPTIONS = 2;
 	private final int CREDITS = 3;
 
+	public MainMenuState(int x, int y){
+		this.x = x;
+		this.startY = y;
+	}
+	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
