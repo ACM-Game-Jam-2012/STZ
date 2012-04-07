@@ -11,6 +11,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.util.ResourceLoader;
 
 import util.Config;
+import util.ResourceManager;
 
 import com.vulcastudios.actors.Level;
 import com.vulcastudios.states.InGameState;
@@ -25,24 +26,28 @@ public class TestGame extends StateBasedGame {
 	public static final int MAIN_MENU_STATE_ID = 2;
 	public static final int IN_GAME_STATE = 3;
 	
+
 	public static LinkedList<Level> levels = new LinkedList<Level>();
+	private ResourceManager rm;
+
 	
 	public TestGame(String windowName){
 		super(windowName);
+		rm = new ResourceManager("images.xml", "animations.xml", "sounds.xml", "music.xml");
 	}
 	
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
 
 		this.addState(new SplashState());
-		this.addState(new LoadState());
+		this.addState(new LoadState(this.rm));
 		this.addState(new MainMenuState());
 		this.addState(new InGameState());
 
 	}
 	
 	public void initLevels(){
-		levels.add(new Level("map1", resourceManager));
+		levels.add(new Level("map1", this.rm));
 		
 	}
 	
