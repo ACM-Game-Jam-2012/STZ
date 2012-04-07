@@ -28,6 +28,7 @@ public class TestGame extends StateBasedGame {
 	
 
 	public static LinkedList<Level> levels = new LinkedList<Level>();
+	public static Level currentLevel;
 	private ResourceManager rm;
 
 	
@@ -45,10 +46,7 @@ public class TestGame extends StateBasedGame {
 
 	}
 	
-	public void initLevels(){
-		levels.add(new Level("map1", this.rm));
-		
-	}
+
 	
 	public static void main(String[] args){
 		Properties props = new Properties();

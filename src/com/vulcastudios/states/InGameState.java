@@ -11,19 +11,16 @@ import com.vulcastudios.actors.Level;
 
 public class InGameState extends BasicGameState {
 	
-	private Level currentLevel;
-
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
-		currentLevel = TestGame.levels.getFirst();
 
 	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
-		this.currentLevel.render(g);
+		TestGame.currentLevel.render(g);
 	}
 
 	@Override

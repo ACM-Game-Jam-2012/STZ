@@ -15,6 +15,7 @@ import util.Resource;
 import util.ResourceManager;
 
 import com.vulcastudios.TestGame;
+import com.vulcastudios.actors.Level;
 
 public class LoadState extends BasicGameState {
 
@@ -53,13 +54,23 @@ public class LoadState extends BasicGameState {
 
 		if(maps.hasNext()){
 			Resource r = maps.next().getValue();
-			rm.load(r.getKey(), new TiledMap(r.getLocation()));
+			rm.load(r.getKey(), new TiledMap(r.getLocation(), "tilesets/"));
+			if(game instanceof TestGame){
+				((TestGame)game).levels.add(new Level("map1", this.rm));
+				((TestGame)game).currentLevel = TestGame.levels.getFirst();
+			}
 		}
 
 		/*if(animations.hasNext()){
 			Resource r = animations.next().getValue();
 			rm.load(r.getKey(), new Image(r.getLocation()));
 		}*/
+		
+		
+		if(rm.getProgress() ==100){
+			game.enterState(TestGame.IN_GAME_STATE);
+			
+		}
 
 	}
 
