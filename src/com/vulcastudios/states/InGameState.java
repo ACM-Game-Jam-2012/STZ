@@ -20,7 +20,7 @@ public class InGameState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
-		TestGame.currentLevel.render(container, g);
+		((TestGame)game).getCurrentLevel().render(container, g);
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class InGameState extends BasicGameState {
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
 		}
 		
-		TestGame.currentLevel.update(container, delta);
+		((TestGame)game).getCurrentLevel().update(container, delta);
 	}
 
 	@Override
