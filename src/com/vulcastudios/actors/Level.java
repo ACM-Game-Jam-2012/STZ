@@ -59,8 +59,11 @@ public class Level {
 			initLevel();
 			zombies.clear();
 		}
-
 	}
 	
+
+	public int getNumberOfZombies(){
+		return (zombies.size()+1);
+	}
 	
 }
