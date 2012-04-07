@@ -74,7 +74,6 @@ public class LoadState extends BasicGameState {
 
 		if(rm.getProgress() ==100){
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
-
 		}
 
 	}
