@@ -14,6 +14,7 @@ import org.newdawn.slick.tiled.TiledMap;
 
 import com.vulcastudios.TestGame;
 import com.vulcastudios.actors.Level;
+import com.vulcastudios.ui.LoadingBar;
 import com.vulcastudios.util.Resource;
 import com.vulcastudios.util.ResourceManager;
 
@@ -41,6 +42,9 @@ public class LoadState extends BasicGameState {
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
 		g.drawString("Progress: "+this.rm.getProgress(), 50, 50);
+		LoadingBar lb = new LoadingBar(100,100,300,50);
+		lb.setProgress(this.rm.getProgress());
+		lb.render(container, game, g);
 
 	}
 
