@@ -1,8 +1,11 @@
 package com.vulcastudios.states;
 
+import java.nio.ByteBuffer;
+import java.nio.IntBuffer;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
+import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -10,7 +13,6 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
-
 
 import com.vulcastudios.TestGame;
 import com.vulcastudios.actors.Level;
@@ -42,6 +44,10 @@ public class LoadState extends BasicGameState {
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
 		//g.drawString("Progress: "+this.rm.getProgress(), 50, 50);
+		
+		IntBuffer o = ByteBuffer.allocateDirect(200).asIntBuffer();
+		GL11.glGetInteger(GL11.GL_MAX_TEXTURE_SIZE, o);
+		System.err.println("GL_MAX_TEXTURE_SIZE: " + o.get());
 		LoadingBar lb = new LoadingBar(5, container.getHeight()-35, container.getWidth()-10, 30);
 		lb.setProgress(this.rm.getProgress());
 		lb.render(container, game, g);
