@@ -91,6 +91,7 @@ public class LoadState extends BasicGameState {
 			((TestGame)game).addLevel(new Level("level5", this.rm));
 			((TestGame)game).addLevel(new Level("level6", this.rm));
 			((TestGame)game).addLevel(new Level("level7", this.rm));
+			((TestGame)game).addLevel(new Level("level8", this.rm));
 			((TestGame)game).getCurrentLevel().initLevel();
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
 		}
