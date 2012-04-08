@@ -24,6 +24,8 @@ public class Level {
 	private long startTime;
 	private HashMap<String, Button> buttons = new HashMap<String, Button>();
 	private HashMap<String, Door> doors = new HashMap<String, Door>();
+	private Start startingPoint;
+	
 	
 	public Level(String mapName, ResourceManager resourceManager){
 		this.resourceManager = resourceManager;
@@ -44,6 +46,9 @@ public class Level {
 					String activates = map.getObjectProperty(i, j, "activates", "door"+name.substring(6));
 					buttons.put(name, new Button(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), activates));
 				}
+				else if(type.equals("start")){
+					startingPoint = new Start(name, map.getObjectY(i, j), map.getObjectWidth(i, j));
+				}
 			}
 		}
 		
@@ -52,7 +57,7 @@ public class Level {
 	}
 	
 	public void initLevel(){
-		player = new Player(this.resourceManager, 0, 0);
+		player = new Player(this.resourceManager, startingPoint.getX(), startingPoint.getY());
 	}
 	
 	public TiledMap getMap(){
