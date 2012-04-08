@@ -30,7 +30,7 @@ public class ControlsState extends BasicGameState {
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
 		Color previousColor = g.getColor();
-		g.drawImage(this.rm.getImage("creditsScreen"), 0, 0);
+		g.drawImage(this.rm.getImage("controlsScreen"), 0, 0);
 		g.drawString("Directional arrows: move", 50, 50);
 		g.drawString("Space bar: suicide", 50, 75);
 		g.drawString("Enter: restart level", 50, 100);
