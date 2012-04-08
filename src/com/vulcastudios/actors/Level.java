@@ -11,6 +11,7 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
+import com.vulcastudios.TestGame;
 import com.vulcastudios.util.ResourceManager;
 
 
@@ -111,9 +112,13 @@ public class Level {
 	}
 	
 	public void update(GameContainer container, StateBasedGame game, int delta){
-		
 		for(Entry<String, Door> entry : doors.entrySet()){
 			entry.getValue().setOpen(false);
+		}
+		
+		((TestGame)game).checkObjects(player);
+		for (Zombie zombie : zombies) {
+			((TestGame)game).checkObjects(zombie);
 		}
 		
 		player.update(container, game, delta);

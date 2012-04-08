@@ -102,8 +102,6 @@ public class Player{
 		}
 
 		movementMap.add(move);
-		
-		((TestGame)game).checkObjects(this);
 
 	}
 
