@@ -33,6 +33,10 @@ public class TransitionState extends BasicGameState {
 		if (container.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
 		}
+		else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
+			((TestGame)game).goToNextLevel();
+			game.enterState(TestGame.IN_GAME_STATE);
+		}
 	}
 
 	@Override
