@@ -31,13 +31,13 @@ public class CreditsState extends BasicGameState {
 		Color previousColor = g.getColor();
 		
 		g.drawImage(this.rm.getImage("creditsScreen"), 0, 0);
-		g.drawString("Alex Meade", 50, 50);
-		g.drawString("Forrest Meade", 50, 75);
-		g.drawString("Andrew Melton", 50, 100);
-		g.drawString("Taylor Paschal", 50, 125);
-		g.drawString("Stephanie Reese", 50, 150);
+		g.drawString("Alex Meade", 50, 100);
+		g.drawString("Forrest Meade", 50, 125);
+		g.drawString("Andrew Melton", 50, 150);
+		g.drawString("Taylor Paschal", 50, 175);
+		g.drawString("Stephanie Reese", 50, 200);
 		g.drawString("Sam Thomas", 50, 175);
-		g.drawString("Press esc to return to the main menu", 50, 225);
+		g.drawString("Press esc to return to the main menu", 50, 275);
 		
 		g.setColor(previousColor);
 	}
