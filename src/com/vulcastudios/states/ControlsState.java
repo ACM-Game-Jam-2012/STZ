@@ -21,8 +21,10 @@ public class ControlsState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
-		g.drawString("controls description", 50, 50);
-		g.drawString("press esc to return to the main menu", 50, 100);
+		g.drawString("Directional arrows: move", 50, 50);
+		g.drawString("Space bar: suicide", 50, 75);
+		g.drawString("Enter: restart level", 50, 100);
+		g.drawString("Press esc to return to the main menu", 50, 150);
 	}
 
 	@Override
