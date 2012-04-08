@@ -174,6 +174,10 @@ public class TestGame extends StateBasedGame {
 		return this.rm;
 	}
 	
+	public void resetLevels(){
+		this.currentLevelIndex = 0;
+	}
+	
 	public static void main(String[] args){
 		Properties props = new Properties();
 		try {
