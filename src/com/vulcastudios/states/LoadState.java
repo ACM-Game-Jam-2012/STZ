@@ -71,10 +71,6 @@ public class LoadState extends BasicGameState {
 			if(maps.hasNext()){
 				Resource r = maps.next().getValue();
 				rm.load(r.getKey(), new TiledMap(r.getLocation(), "tilesets/"));
-				if(game instanceof TestGame){
-					((TestGame)game).addLevel(new Level("level1", this.rm));
-					((TestGame)game).getCurrentLevel().initLevel();
-				}
 
 			}
 
@@ -86,7 +82,10 @@ public class LoadState extends BasicGameState {
 		}*/
 
 
-		if(rm.getProgress() ==100){
+		if(rm.getProgress() == 100){
+			((TestGame)game).addLevel(new Level("level1", this.rm));
+			((TestGame)game).addLevel(new Level("level2", this.rm));
+			((TestGame)game).getCurrentLevel().initLevel();
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
 		}
 
