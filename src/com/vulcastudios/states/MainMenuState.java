@@ -35,6 +35,7 @@ public class MainMenuState extends BasicGameState {
 	
 	@Override
 	public void enter(GameContainer container, StateBasedGame game) {
+		((TestGame)game).resetLevels();
 		// Clear the isKeyPressed checks still existing
 		container.getInput().isKeyPressed(Input.KEY_DOWN);
 		container.getInput().isKeyPressed(Input.KEY_UP);
