@@ -54,8 +54,7 @@ public class TransitionState extends BasicGameState {
 		
 		if (container.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
-		}
-		else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
+		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
 			if (((TestGame)game).isOnLastLevel()) {
 				game.enterState(TestGame.CREDITS_STATE);
 			} else {
@@ -65,9 +64,9 @@ public class TransitionState extends BasicGameState {
 				numOfZombies = -1;
 				finalTime = -1;
 			}
+		} else {
+			((TestGame)game).getCurrentLevel().update(container, game, delta);
 		}
-		
-		((TestGame)game).getCurrentLevel().update(container, game, delta);
 	}
 
 	@Override
