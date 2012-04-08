@@ -68,6 +68,11 @@ public class TestGame extends StateBasedGame {
 		currentLevelIndex++;
 		levels.get(currentLevelIndex).initLevel();
 	}
+	
+	public void goToLevel(int level) {
+		currentLevelIndex = level;
+		levels.get(currentLevelIndex).initLevel();
+	}
 
 	public ArrayList<Level> getLevels() {
 		return levels;
