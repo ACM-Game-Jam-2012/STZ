@@ -5,4 +5,5 @@
 	<resource key="image4" location="images/image4.png" />
 	<resource key="player1" location="images/player1.png" />
 	<resource key="titleScreen" location="images/TitleScreen.png" />
+	<resource key="selector" location="images/cog_selector.png" />
 </resources>

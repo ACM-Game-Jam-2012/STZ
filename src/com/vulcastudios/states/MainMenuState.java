@@ -14,7 +14,7 @@ import com.vulcastudios.TestGame;
 public class MainMenuState extends BasicGameState {
 	
 	private int selection;
-	private int x = 20;
+	private int x = 55;
 	private int startY = 200;
 	
 	// Selection constants for readability
@@ -45,8 +45,8 @@ public class MainMenuState extends BasicGameState {
 			throws SlickException {
 		Image image = ((TestGame)game).getResourceManager().getImage("titleScreen");
 		g.drawImage(image, 0, 0);
-		Image cog = ((TestGame)game).getResourceManager().getImage("player1");
-		g.drawImage(cog, x, startY + (40*selection));
+		Image cog = ((TestGame)game).getResourceManager().getImage("selector");
+		g.drawImage(cog, x, startY + (42*selection));
 	}
 
 	@Override
