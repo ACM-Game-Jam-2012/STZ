@@ -1,10 +1,8 @@
 package com.vulcastudios.states;
 
-import java.util.ArrayList;
-
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
@@ -15,9 +13,8 @@ import com.vulcastudios.TestGame;
 
 public class MainMenuState extends BasicGameState {
 	
-	private ArrayList<String> menuStrings = new ArrayList<String>();
 	private int selection;
-	private int x = 300;
+	private int x = 20;
 	private int startY = 200;
 	
 	// Selection constants for readability
@@ -29,20 +26,9 @@ public class MainMenuState extends BasicGameState {
 	
 	private Music title_song = null;
 	
-
-	public MainMenuState(int x, int y){
-		this.x = x;
-		this.startY = y;
-	}
-	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
-		menuStrings.add("play");
-		menuStrings.add("controls");
-		menuStrings.add("options");
-		menuStrings.add("credits");
-		menuStrings.add("exit");
 		
 		selection = 0;
 	}
@@ -50,9 +36,10 @@ public class MainMenuState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
-		Color defaultColor = g.getColor();
-		this.drawMenu(g);
-		g.setColor(defaultColor);
+		Image image = ((TestGame)game).getResourceManager().getImage("titleScreen");
+		g.drawImage(image, 0, 0);
+		Image cog = ((TestGame)game).getResourceManager().getImage("player1");
+		g.drawImage(cog, x, startY + (40*selection));
 	}
 
 	@Override
@@ -90,44 +77,22 @@ public class MainMenuState extends BasicGameState {
 	public void enterSelection(GameContainer container, StateBasedGame game) {
 		switch(selection) {
 			case PLAY:
-				System.out.println(menuStrings.get(PLAY));
 				//Stop Title Screen song
 				title_song.fade(2000, 0, true);
 				game.enterState(TestGame.IN_GAME_STATE);
 				break;
 			case CONTROLS:
-				System.out.println(menuStrings.get(CONTROLS));
 				game.enterState(TestGame.CONTROLS_STATE);
 				break;
 			case OPTIONS:
-				System.out.println(menuStrings.get(OPTIONS));
 				game.enterState(TestGame.GAME_OPTIONS_STATE);
 				break;
 			case CREDITS:
-				System.out.println(menuStrings.get(CREDITS));
 				game.enterState(TestGame.CREDITS_STATE);
 				break;
 			case EXIT:
-				System.out.println(menuStrings.get(EXIT));
 				container.exit();
 				break;
 		}
-	}
-
-	public void drawMenu(Graphics g) {
-		Color prev = g.getColor();
-		for (int index = 0; index < menuStrings.size(); index++) {
-			if (index == selection) {
-				g.setColor(Color.green);
-			} else if (!g.getColor().equals(Color.white)) {
-				g.setColor(Color.white);
-			}
-			this.drawString(g, index);
-		}
-		g.setColor(prev);
-	}
-	
-	private void drawString(Graphics g, int index) {
-		g.drawString(menuStrings.get(index), x, startY + (50*index));
 	}
 }
