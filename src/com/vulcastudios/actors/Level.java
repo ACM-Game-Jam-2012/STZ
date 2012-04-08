@@ -73,6 +73,7 @@ public class Level {
 	public void initLevel(){
 		this.createPlayer();
 		startTime = System.currentTimeMillis();
+		zombies.clear();
 	}
 	
 	public TiledMap getMap(){
@@ -119,12 +120,25 @@ public class Level {
 		player = new Player(this.resourceManager, startingPoint.getX(), startingPoint.getY());
 	}
 	
+	
+	public void createPlayer(float x, float y) {
+		player = new Player(this.resourceManager, (int)x, (int)y);
+	}
+	
 	public void initLevelWithNewZombie() {
 		for(Zombie z: zombies){
 			z.restartZombie();
 		}
 		zombies.add(new Zombie(this.resourceManager, startingPoint.getX(), startingPoint.getY(), player.getMovementMap()));
 		createPlayer();
+	}
+	
+	public void initLevelReplay() {
+		for(Zombie z: zombies){
+			z.restartZombie();
+		}
+		zombies.add(new Zombie(this.resourceManager, startingPoint.getX(), startingPoint.getY(), player.getMovementMap()));
+		createPlayer(player.getXPos(), player.getYPos());
 	}
 	
 	public void update(GameContainer container, StateBasedGame game, int delta){
@@ -166,7 +180,7 @@ public class Level {
 			this.resourceManager.getSound("death").play(1.0f, 0.5f);
 			initLevelWithNewZombie();
 		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
-			restartLevel();
+			initLevel();
 		}
 		
 		playLevelSong(game);
@@ -204,11 +218,6 @@ public class Level {
 		
 	}
 	
-	public void restartLevel(){
-		startTime = System.currentTimeMillis();
-		createPlayer();
-		zombies.clear();
-	}
 	
 	public void setFinalTime(long finalTime) {
 		this.finalTime = finalTime;

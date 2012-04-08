@@ -50,7 +50,7 @@ public class GameOptionsState extends BasicGameState {
 			}
 		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
 			((TestGame)game).goToLevel(level-1);
-			((TestGame)game).getCurrentLevel().restartLevel();
+			((TestGame)game).getCurrentLevel().initLevel();
 			game.enterState(TestGame.IN_GAME_STATE);
 		}
 	}
