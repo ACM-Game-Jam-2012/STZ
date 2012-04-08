@@ -68,6 +68,8 @@ public class Player{
 
 		if(((TestGame)game).checkCollision(this)){
 			this.setYPos(oldY);
+			move.noUP();
+			move.noDown();
 		}
 				
 		
@@ -95,6 +97,8 @@ public class Player{
 
 		if(((TestGame)game).checkCollision(this)){
 			this.setXPos(oldX);
+			move.noRight();
+			move.noLeft();
 		}
 
 		movementMap.add(move);
