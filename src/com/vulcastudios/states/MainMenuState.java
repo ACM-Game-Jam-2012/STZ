@@ -24,7 +24,7 @@ public class MainMenuState extends BasicGameState {
 	private final int CREDITS = 3;
 	private final int EXIT = 4;
 	
-	private Music title_song = null;
+	private Music titleSong = null;
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
@@ -45,6 +45,7 @@ public class MainMenuState extends BasicGameState {
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
+		
 		if (container.getInput().isKeyPressed(Input.KEY_DOWN)) {
 			if (selection == 4) {
 				selection = 0;
@@ -63,9 +64,9 @@ public class MainMenuState extends BasicGameState {
 		
 		
 		//play Title Screen song
-		title_song = ((TestGame)game).getResourceManager().getMusic("bad_ugly");
-		if(title_song != null && !title_song.playing()){
-			title_song.loop();
+		titleSong = ((TestGame)game).getResourceManager().getMusic("bad_ugly");
+		if(titleSong != null && !titleSong.playing()){
+			titleSong.loop();
 		}
 	}
 
@@ -78,7 +79,7 @@ public class MainMenuState extends BasicGameState {
 		switch(selection) {
 			case PLAY:
 				//Stop Title Screen song
-				title_song.fade(2000, 0, true);
+				titleSong.fade(2000, 0, true);
 				game.enterState(TestGame.IN_GAME_STATE);
 				break;
 			case CONTROLS:
