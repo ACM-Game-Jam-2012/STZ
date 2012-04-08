@@ -12,6 +12,7 @@ import com.vulcastudios.TestGame;
 public class TransitionState extends BasicGameState {
 	
 	private int numOfZombies = -1;
+	private long finalTime = -1;
 
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
@@ -23,11 +24,14 @@ public class TransitionState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
-		long finalTime = ((TestGame)game).getCurrentLevel().getFinalTime();
+		if(finalTime < 0)
+			finalTime = ((TestGame)game).getCurrentLevel().getFinalTime();
 		double seconds = finalTime / 1000.0;
 		g.drawString("Final Time: " + seconds + " seconds", 50, 50);
-		if(numOfZombies <0)
+		if(numOfZombies <0){
 			numOfZombies = ((TestGame)game).getCurrentLevel().getNumberOfZombies();
+			((TestGame)game).getCurrentLevel().initLevelReplay();
+		}
 		String par = ((TestGame)game).getCurrentLevel().getPar();
 		g.drawString("Zombies Used: " + numOfZombies + " Par: " + par, 50, 100);
 		if(!((TestGame)game).isOnLastLevel()){
@@ -41,7 +45,7 @@ public class TransitionState extends BasicGameState {
 	}
 
 	@Override
-	public void update(GameContainer container, StateBasedGame game, int g)
+	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
 		if (container.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
@@ -54,6 +58,8 @@ public class TransitionState extends BasicGameState {
 				game.enterState(TestGame.IN_GAME_STATE);
 			}
 		}
+		
+		((TestGame)game).getCurrentLevel().update(container, game, delta);
 	}
 
 	@Override

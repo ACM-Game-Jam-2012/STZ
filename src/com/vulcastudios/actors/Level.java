@@ -119,12 +119,25 @@ public class Level {
 		player = new Player(this.resourceManager, startingPoint.getX(), startingPoint.getY());
 	}
 	
+	
+	public void createPlayer(float x, float y) {
+		player = new Player(this.resourceManager, (int)x, (int)y);
+	}
+	
 	public void initLevelWithNewZombie() {
 		for(Zombie z: zombies){
 			z.restartZombie();
 		}
 		zombies.add(new Zombie(this.resourceManager, startingPoint.getX(), startingPoint.getY(), player.getMovementMap()));
 		createPlayer();
+	}
+	
+	public void initLevelReplay() {
+		for(Zombie z: zombies){
+			z.restartZombie();
+		}
+		zombies.add(new Zombie(this.resourceManager, startingPoint.getX(), startingPoint.getY(), player.getMovementMap()));
+		createPlayer(player.getXPos(), player.getYPos());
 	}
 	
 	public void update(GameContainer container, StateBasedGame game, int delta){
