@@ -21,8 +21,13 @@ public class CreditsState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
-		g.drawString("credits", 50, 50);
-		g.drawString("press esc to return to the main menu", 50, 100);
+		g.drawString("Alex Meade", 50, 50);
+		g.drawString("Forrest Meade", 50, 75);
+		g.drawString("Andrew Melton", 50, 100);
+		g.drawString("Taylor Paschal", 50, 125);
+		g.drawString("Stephanie Reese", 50, 150);
+		g.drawString("Sam Thomas", 50, 175);
+		g.drawString("press esc to return to the main menu", 50, 225);
 	}
 
 	@Override
