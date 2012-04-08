@@ -1,6 +1,8 @@
 package com.vulcastudios.actors;
 
 
+import java.util.LinkedList;
+
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -10,7 +12,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import com.vulcastudios.TestGame;
 import com.vulcastudios.util.ResourceManager;
 
-public class Player {
+public class Player{
 	
 	public static final float DELTA_X = 0.25f;
 	public static final float DELTA_Y = 0.25f;
@@ -20,6 +22,8 @@ public class Player {
 	
 	private float xPos = 0;
 	private float yPos = 0;
+	
+	private LinkedList<ZombieMove> movementMap;
 
 	private ResourceManager rm;
 	
@@ -27,6 +31,7 @@ public class Player {
 		this.rm = rm;
 		this.xPos = xPos;
 		this.yPos = yPos;
+		this.movementMap = new LinkedList<ZombieMove>();
 	}
 
 	public void update(GameContainer container, StateBasedGame game, int delta){
@@ -34,33 +39,51 @@ public class Player {
 		float oldX = this.getXPos();
 		float oldY = this.getYPos();
 		
+		ZombieMove move = new ZombieMove();
 		// Handle player movement
-		if(container.getInput().isKeyDown(Input.KEY_UP))
+		if(container.getInput().isKeyDown(Input.KEY_UP)){
 			this.setYPos(getYPos() - (Player.DELTA_Y * delta));
-		if(container.getInput().isKeyDown(Input.KEY_DOWN))
+			move.addUp();
+		}
+		if(container.getInput().isKeyDown(Input.KEY_DOWN)){
 			this.setYPos(getYPos() + (Player.DELTA_Y * delta));
-		if(container.getInput().isKeyDown(Input.KEY_LEFT))
+			move.addDown();
+		}
+		if(container.getInput().isKeyDown(Input.KEY_LEFT)){
 			this.setXPos(getXPos() - (Player.DELTA_X * delta));
-		if(container.getInput().isKeyDown(Input.KEY_RIGHT))
+			move.addLeft();
+		}
+		if(container.getInput().isKeyDown(Input.KEY_RIGHT)){
 			this.setXPos(getXPos() + (Player.DELTA_Y * delta));
+			move.addRight();
+		}
 
-		if(this.getXPos() < 0)
+		if(this.getXPos() < 0){
 			this.setXPos(0);
+			move.noLeft();
+		}
 
-		if(this.getYPos() < 0)
+		if(this.getYPos() < 0){
 			this.setYPos(0);
+			move.noUP();
+		}
 
-		if(this.getXPos() > container.getWidth() - Player.WIDTH)
+		if(this.getXPos() > container.getWidth() - Player.WIDTH){
 			this.setXPos(container.getWidth() - Player.WIDTH);
+			move.noRight();
+		}
 		
-		if(this.getYPos() > container.getHeight() - Player.HEIGHT)
+		if(this.getYPos() > container.getHeight() - Player.HEIGHT){
 			this.setYPos(container.getHeight() - Player.HEIGHT);
+			move.noDown();
+		}
 		
 		if(((TestGame)game).checkCollision(this)){
 			this.setXPos(oldX);
 			this.setYPos(oldY);
 		}
 
+		movementMap.add(move);
 
 	}
 
@@ -87,5 +110,9 @@ public class Player {
 
 	public void setYPos(float yPos) {
 		this.yPos = yPos;
+	}
+
+	public LinkedList<ZombieMove> getMovementMap() {
+		return movementMap;
 	}
 }
