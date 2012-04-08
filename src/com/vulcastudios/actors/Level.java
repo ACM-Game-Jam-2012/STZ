@@ -38,7 +38,6 @@ public class Level {
 	public Level(String mapName, ResourceManager resourceManager){
 		this.resourceManager = resourceManager;
 		
-		System.out.println(this.resourceManager.maps.size());
 		map = this.resourceManager.maps.get(mapName);
 		par = map.getMapProperty("par", "3");
 		
@@ -46,7 +45,6 @@ public class Level {
 			for(int j = 0; j < map.getObjectCount(i); j++){
 				String name = map.getObjectName(i, j);
 				String type = map.getObjectType(i, j);
-				System.out.println(name+":"+type);
 				if(type.equals("door")){
 					String initialState = map.getObjectProperty(i, j, "initialState", "closed");
 					doors.put(name, new Door(this.resourceManager, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), initialState));
@@ -54,7 +52,6 @@ public class Level {
 					String activates = map.getObjectProperty(i, j, "activates", "door"+name.substring(6));
 					buttons.put(name, new Button(this.resourceManager, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), activates));
 				} else if (type.equals("end")) {
-					System.out.println("end");
 					end = new End(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j));
 				}
 				else if(type.equals("collidable")){
