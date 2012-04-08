@@ -49,22 +49,7 @@ public class Level {
 		}
 		
 		startTime = System.currentTimeMillis();
-		
-		/*for(int i = 0; i < map.getWidth(); i++){
-			for(int j = 0; j < map.getWidth(); j++){
-				int tile = map.getTileId(i, j, 2);
-				if(tile != 0){
-					String name = map.getTileProperty(tile, "name", "default");
-					String type = map.getTileProperty(tile, "type", "default");
-					if(type.equals("button")){
-						buttons.put(name, new Button(this, name, i,j, map.getTileWidth(), map.getTileHeight()));
-					}
-					else if(type.equals("door")){
-						doors.put(name, new Door(this, name, i,j, map.getTileWidth(), map.getTileHeight()));
-					}
-				}
-			}
-		}*/
+
 	}
 	
 	public void initLevel(){
