@@ -22,6 +22,8 @@ public class Zombie{
 	private float xPosStart = 0;
 	private float yPosStart = 0;
 
+	private Button onButton = null;
+	
 	private ResourceManager rm;	
 	private LinkedList<ZombieMove> movementMap;
 	private LinkedList<ZombieMove> movementMapMaster;
@@ -99,6 +101,18 @@ public class Zombie{
 	
 	public Rectangle getBounds(){
 		return new Rectangle(this.getXPos(), this.getYPos(), Zombie.WIDTH, Zombie.HEIGHT);
+	}
+	
+	public void setOnButton(Button b){
+		if(b == null){
+			this.onButton = null;
+		}else if(this.onButton == null){
+			this.onButton = b;
+			this.rm.getSound("menu_button").play();
+		}else if(!this.onButton.getName().equals(b.getName())){
+			this.onButton = b;
+			this.rm.getSound("menu_button").play();
+		}
 	}
 	
 }

@@ -30,6 +30,7 @@ public class Button {
 		this.width = width;
 		this.height = height;
 		this.rm = rm;
+		this.name = name;
 		this.setActivates(activates);
 	}
 
