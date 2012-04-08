@@ -78,7 +78,6 @@ public class TestGame extends StateBasedGame {
 	public void checkObjects(Player p){
 		Set<Entry<String, Button>> buttons = this.getCurrentLevel().getButtons().entrySet();
 		for(Entry<String, Button> entry : buttons){
-			this.getCurrentLevel().getDoors().get("door"+entry.getKey().substring(6)).setOpen(false);
 			if(p.getBounds().intersects(entry.getValue().getBounds()))
 				//System.out.println("door"+entry.getKey().substring(6));
 				this.getCurrentLevel().getDoors().get("door"+entry.getKey().substring(6)).setOpen(true);
@@ -88,7 +87,6 @@ public class TestGame extends StateBasedGame {
 	public void checkObjects(Zombie z){
 		Set<Entry<String, Button>> buttons = this.getCurrentLevel().getButtons().entrySet();
 		for(Entry<String, Button> entry : buttons){
-			this.getCurrentLevel().getDoors().get("door"+entry.getKey().substring(6)).setOpen(false);
 			if(z.getBounds().intersects(entry.getValue().getBounds()))
 				this.getCurrentLevel().getDoors().get("door"+entry.getKey().substring(6)).setOpen(true);
 		}

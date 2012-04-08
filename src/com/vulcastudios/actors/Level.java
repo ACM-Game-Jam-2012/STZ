@@ -111,6 +111,11 @@ public class Level {
 	}
 	
 	public void update(GameContainer container, StateBasedGame game, int delta){
+		
+		for(Entry<String, Door> entry : doors.entrySet()){
+			entry.getValue().setOpen(false);
+		}
+		
 		player.update(container, game, delta);
 		
 		for (Zombie zombie : zombies) {
