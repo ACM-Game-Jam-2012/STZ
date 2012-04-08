@@ -92,6 +92,10 @@ public class TestGame extends StateBasedGame {
 		return tile1 != 0 || tile2 != 0 || tile3 != 0 || tile4 != 0;
 	}
 	
+	public ResourceManager getResourceManager(){
+		return this.rm;
+	}
+	
 	public static void main(String[] args){
 		Properties props = new Properties();
 		try {
