@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -89,6 +90,8 @@ public class Level {
 	}
 	
 	public void render(GameContainer container, StateBasedGame game, Graphics g){
+		Color previousColor = g.getColor();
+		
 		map.render(0, 0, 0, 0, 100, 100);
 		
 		/*for(SteamEmitter steamEmitter : steamEmitters){
@@ -114,6 +117,7 @@ public class Level {
 		
 		player.render(container, game, g);
 		
+		g.setColor(previousColor);
 	}
 	
 	public void createPlayer() {

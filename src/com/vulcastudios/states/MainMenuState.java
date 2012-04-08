@@ -1,5 +1,6 @@
 package com.vulcastudios.states;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -46,10 +47,12 @@ public class MainMenuState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		Color previousColor = g.getColor();
 		Image image = ((TestGame)game).getResourceManager().getImage("titleScreen");
 		g.drawImage(image, 0, 0);
 		Image cog = ((TestGame)game).getResourceManager().getImage("selector");
 		g.drawImage(cog, x, startY + (42*selection));
+		g.setColor(previousColor);
 	}
 
 	@Override

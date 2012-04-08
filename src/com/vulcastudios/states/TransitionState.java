@@ -1,5 +1,6 @@
 package com.vulcastudios.states;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -26,8 +27,10 @@ public class TransitionState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		Color previousColor = g.getColor();
 		((TestGame)game).getCurrentLevel().render(container, game, g);
 
+		g.setColor(Color.green);
 		double seconds = finalTime / 1000.0;
 		g.drawString("Final Time: " + seconds + " seconds", 50, 50);
 		String par = ((TestGame)game).getCurrentLevel().getPar();
@@ -38,6 +41,7 @@ public class TransitionState extends BasicGameState {
 		else{
 			g.drawString("The Game Is Done!", 50, 150);
 		}
+		g.setColor(previousColor);
 	}
 
 	@Override
