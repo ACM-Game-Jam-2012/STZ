@@ -31,6 +31,7 @@ public class Door {
 		this.width = width;
 		this.height = height;
 		this.rm = rm;
+		this.name = name;
 
 		if(initialState.equals("open")){
 			open = true;

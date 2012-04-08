@@ -68,7 +68,7 @@ public class TestGame extends StateBasedGame {
 		currentLevelIndex++;
 		levels.get(currentLevelIndex).initLevel();
 	}
-	
+
 	public void goToLevel(int level) {
 		currentLevelIndex = level;
 		levels.get(currentLevelIndex).initLevel();
@@ -85,16 +85,16 @@ public class TestGame extends StateBasedGame {
 	public Level getCurrentLevel() {
 		return levels.get(currentLevelIndex);
 	}
-	
+
 
 	public boolean isOnLastLevel() {
 		return currentLevelIndex == (levels.size()-1);
 	}
-	
+
 	public void checkEndPoint(Player p) {
 		Rectangle endBounds = this.getCurrentLevel().getEnd().getBounds();
 		Rectangle playerBounds = p.getBounds();
-		
+
 		if (playerBounds.intersects(endBounds)) {
 			long finalTime = System.currentTimeMillis() - this.getCurrentLevel().getStartTime();
 			this.getCurrentLevel().setFinalTime(finalTime);
@@ -104,8 +104,11 @@ public class TestGame extends StateBasedGame {
 
 	public void checkObjects(Player p){
 		Set<Entry<String, Button>> buttons = this.getCurrentLevel().getButtons().entrySet();
+		boolean onButton = false;
 		for(Entry<String, Button> entry : buttons){
 			if(p.getBounds().intersects(entry.getValue().getBounds())){
+				p.setOnButton(entry.getValue());
+				onButton = true;
 				String[] activates = entry.getValue().getActivates().split(",");
 				for(String doorName : activates){
 					String trimmedName = doorName.trim();
@@ -114,12 +117,17 @@ public class TestGame extends StateBasedGame {
 				}
 			}
 		}
+		if(!onButton)
+			p.setOnButton(null);
 	}
 
 	public void checkObjects(Zombie z){
 		Set<Entry<String, Button>> buttons = this.getCurrentLevel().getButtons().entrySet();
+		boolean onButton = false;
 		for(Entry<String, Button> entry : buttons){
 			if(z.getBounds().intersects(entry.getValue().getBounds())){
+				z.setOnButton(entry.getValue());
+				onButton = true;
 				String[] activates = entry.getValue().getActivates().split(",");
 				for(String doorName : activates){
 					String trimmedName = doorName.trim();
@@ -128,6 +136,8 @@ public class TestGame extends StateBasedGame {
 				}
 			}
 		}
+		if(!onButton)
+			z.setOnButton(null);
 	}
 
 	public boolean checkCollision(Player p){
@@ -142,9 +152,9 @@ public class TestGame extends StateBasedGame {
 			}
 
 		}
-		
+
 		boolean collidableCollide = false;
-		
+
 		for(Collidable collidable : this.getCurrentLevel().getCollidables()){
 			if(p.getBounds().intersects(collidable.getBounds()))
 				collidableCollide = true;
@@ -154,17 +164,17 @@ public class TestGame extends StateBasedGame {
 	}
 
 	public boolean checkCollision(Steam s){
-		
+
 		boolean playerCol = this.getCurrentLevel().getPlayer().getBounds().intersects(s.getBounds());
 		if(playerCol)
 			this.getCurrentLevel().getPlayer().setAlive(false);
-		
+
 		boolean zombieCol = false;
 		for(Zombie zombie : this.getCurrentLevel().getZombies()){
 			if(s.getBounds().intersects(zombie.getBounds()))
 				zombieCol = true;
 		}
-		
+
 		boolean doorCol = false;
 
 		Set<Entry<String, Door>> doors = this.getCurrentLevel().getDoors().entrySet();
@@ -176,9 +186,9 @@ public class TestGame extends StateBasedGame {
 			}
 
 		}
-		
+
 		boolean collidableCollide = false;
-		
+
 		for(Collidable collidable : this.getCurrentLevel().getCollidables()){
 			if(s.getBounds().intersects(collidable.getBounds()))
 				collidableCollide = true;
@@ -199,9 +209,9 @@ public class TestGame extends StateBasedGame {
 			}
 
 		}
-		
+
 		boolean collidableCollide = false;
-		
+
 		for(Collidable collidable : this.getCurrentLevel().getCollidables()){
 			if(z.getBounds().intersects(collidable.getBounds()))
 				collidableCollide = true;
@@ -209,15 +219,15 @@ public class TestGame extends StateBasedGame {
 
 		return collidableCollide || doorCol;
 	}
-	
+
 	public ResourceManager getResourceManager(){
 		return this.rm;
 	}
-	
+
 	public void resetLevels(){
 		this.currentLevelIndex = 0;
 	}
-	
+
 	public static void main(String[] args){
 		Properties props = new Properties();
 		try {
