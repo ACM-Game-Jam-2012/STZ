@@ -110,7 +110,7 @@ public class Player{
 	public void render(GameContainer container, StateBasedGame game, Graphics g){
 		Color prev = g.getColor();
 		g.setColor(Color.pink);
-		g.drawRect(this.getXPos(), this.getYPos(), Player.WIDTH, Player.HEIGHT);
+		//g.drawRect(this.getXPos(), this.getYPos(), Player.WIDTH, Player.HEIGHT);
 		g.drawImage(rm.getImage("player1"), this.getXPos(), this.getYPos());
 		g.setColor(prev);
 	}
