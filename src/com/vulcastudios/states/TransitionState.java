@@ -10,6 +10,8 @@ import org.newdawn.slick.state.StateBasedGame;
 import com.vulcastudios.TestGame;
 
 public class TransitionState extends BasicGameState {
+	
+	private int numOfZombies = -1;
 
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
@@ -24,7 +26,8 @@ public class TransitionState extends BasicGameState {
 		long finalTime = ((TestGame)game).getCurrentLevel().getFinalTime();
 		double seconds = finalTime / 1000.0;
 		g.drawString("Final Time: " + seconds + " seconds", 50, 50);
-		int numOfZombies = ((TestGame)game).getCurrentLevel().getNumberOfZombies();
+		if(numOfZombies <0)
+			numOfZombies = ((TestGame)game).getCurrentLevel().getNumberOfZombies();
 		String par = ((TestGame)game).getCurrentLevel().getPar();
 		g.drawString("Zombies Used: " + numOfZombies + " Par: " + par, 50, 100);
 		if(!((TestGame)game).isOnLastLevel()){
@@ -33,6 +36,8 @@ public class TransitionState extends BasicGameState {
 		else{
 			g.drawString("The Game Is Done!", 50, 150);
 		}
+		
+		((TestGame)game).getCurrentLevel().render(container, game, g);
 	}
 
 	@Override
