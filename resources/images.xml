@@ -12,4 +12,5 @@
 	<resource key="creditsScreen" location="images/CreditsScreen.png" />
 	<resource key="optionsScreen" location="images/OptionsScreen.png" />
 	<resource key="loadingScreen" location="images/LoadingScreen.png" />
+	<resource key="controlsScreen" location="images/ControlsScreen.png" />
 </resources>
