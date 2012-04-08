@@ -31,13 +31,13 @@
  </layer>
  <layer name="Tile Layer 2" width="100" height="100">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3XsQkAMAhFQcnu2dsVLBL5xR24gK8QqwDgjXtmw47JrvXYY9dZ9MiiRxY9srjnWfTI4v8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfmqi1XZ2QJwAAA==
+   H4sIAAAAAAAAC+3XsQ0AMAgDMNTf+3dfYCgRgy3xQDIAVQDwxz29IaOTtT5yZA3AFDsmx321i/8DAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAmPQAw+c/wkCcAAA=
   </data>
  </layer>
  <objectgroup name="Object Layer 1" width="100" height="100">
   <object name="button1" type="button" x="577" y="163" width="28" height="26">
    <properties>
-    <property name="activates" value="door1"/>
+    <property name="activates" value="door1, door2"/>
    </properties>
   </object>
   <object name="door1" type="door" x="448" y="191" width="32" height="130">
@@ -47,10 +47,12 @@
   </object>
   <object name="end" type="end" x="608" y="512" width="95" height="94"/>
   <object name="start" type="start" x="44" y="38" width="24" height="24"/>
-  <object name="col1" type="collidable" x="160" y="128" width="32" height="288"/>
   <object name="col2" type="collidable" x="192" y="384" width="288" height="32"/>
   <object name="col3" type="collidable" x="448" y="320" width="32" height="64"/>
   <object name="col4" type="collidable" x="448" y="128" width="32" height="64"/>
   <object name="col5" type="collidable" x="192" y="128" width="256" height="32"/>
+  <object type="collidable" x="160" y="128" width="32" height="96"/>
+  <object type="collidable" x="160" y="352" width="32" height="64"/>
+  <object name="door2" type="door" x="160" y="224" width="32" height="128"/>
  </objectgroup>
 </map>

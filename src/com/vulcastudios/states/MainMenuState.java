@@ -6,6 +6,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Sound;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -34,6 +35,7 @@ public class MainMenuState extends BasicGameState {
 	
 	@Override
 	public void enter(GameContainer container, StateBasedGame game) {
+		((TestGame)game).resetLevels();
 		// Clear the isKeyPressed checks still existing
 		container.getInput().isKeyPressed(Input.KEY_DOWN);
 		container.getInput().isKeyPressed(Input.KEY_UP);
@@ -53,19 +55,20 @@ public class MainMenuState extends BasicGameState {
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
+		Sound menu_sound = ((TestGame)game).getResourceManager().getSound("menu_button");
 		
 		if (container.getInput().isKeyPressed(Input.KEY_DOWN)) {
-			if (selection == 4) {
-				selection = 0;
-			} else {
-				selection ++;
-			}
+			selection = (selection + 1) % 5;
+			menu_sound.play();
 		} else if (container.getInput().isKeyPressed(Input.KEY_UP)) {
-			if (selection == 0) {
+			if(selection == 0){
 				selection = 4;
-			} else {
-				selection --;
 			}
+			else{
+				selection = (selection - 1) % 5;
+			}
+			menu_sound.play();
+			
 		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
 			this.enterSelection(container, game);
 		} else if (container.getInput().isKeyPressed(Input.KEY_ESCAPE)) {

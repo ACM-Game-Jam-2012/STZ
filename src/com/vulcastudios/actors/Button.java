@@ -3,8 +3,11 @@ package com.vulcastudios.actors;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
+
+import com.vulcastudios.util.ResourceManager;
 
 public class Button {
 
@@ -18,14 +21,15 @@ public class Button {
 	
 	private boolean down = false;
 	
-	private Level myLevel;
+	private ResourceManager rm;
+	private Image image;
 	
-	public Button(Level myLevel, String name, int x, int y, int width, int height, String activates){
+	public Button(ResourceManager rm, String name, int x, int y, int width, int height, String activates){
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.myLevel = myLevel;
+		this.rm = rm;
 		this.setActivates(activates);
 	}
 
@@ -81,6 +85,7 @@ public class Button {
 	
 		Color prev = g.getColor();
 		g.setColor(Color.cyan);
+		g.drawImage(this.getImage(), this.getX(), this.getY());
 		g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 		g.setColor(prev);
 		
@@ -96,6 +101,13 @@ public class Button {
 
 	public void setActivates(String activates) {
 		this.activates = activates;
+	}
+	
+	public Image getImage(){
+		if(this.image == null){
+			image = rm.getImage("button").getScaledCopy(this.getWidth(), this.getHeight());
+		}
+		return image;
 	}
 	
 }

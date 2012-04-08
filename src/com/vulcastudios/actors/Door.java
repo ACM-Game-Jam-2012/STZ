@@ -3,8 +3,11 @@ package com.vulcastudios.actors;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
+
+import com.vulcastudios.util.ResourceManager;
 
 public class Door {
 
@@ -18,14 +21,16 @@ public class Door {
 	private boolean open;
 	private boolean initialOpen;
 
-	private Level myLevel;
+	private ResourceManager rm;
+	
+	private Image image;
 
-	public Door(Level myLevel,String name, int x, int y, int width, int height, String initialState){
+	public Door(ResourceManager rm, String name, int x, int y, int width, int height, String initialState){
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.myLevel = myLevel;
+		this.rm = rm;
 
 		if(initialState.equals("open")){
 			open = true;
@@ -88,10 +93,13 @@ public class Door {
 	public void render(GameContainer container, StateBasedGame game, Graphics g){
 
 		Color prev = g.getColor();
-		if(this.isOpen())
+		if(this.isOpen()){
 			g.setColor(Color.white);
-		else
+		}
+		else{
+			g.drawImage(this.getImage(), this.getX(), this.getY());
 			g.setColor(Color.orange);
+		}
 		g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 		g.setColor(prev);
 
@@ -107,6 +115,12 @@ public class Door {
 
 	public void setInitialOpen(boolean initialOpen) {
 		this.initialOpen = initialOpen;
+	}
+	
+	public Image getImage(){
+		if(this.image == null)
+			this.image = rm.getImage("door").getScaledCopy(this.getWidth(), this.getHeight());
+		return this.image;
 	}
 
 

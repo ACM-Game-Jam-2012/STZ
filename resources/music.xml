@@ -1,5 +1,6 @@
 <resources>
-	<resource key="Toccata_et_Fugue" location="music/Toccata_et_Fugue_BWV565.ogg"/>
-	<resource key="eva_2.0_destiny" location="music/eva_2.0_destiny.ogg"/>
+	<resource key="desert_drones" location="music/desert_drones.ogg"/>
+	<resource key="desert_lonesome" location="music/desert_lonesome.ogg"/>
+	<resource key="ambiance" location="music/Ambiance.ogg"/>
 	<resource key="bad_ugly" location="music/bad_ugly.ogg"/>
 </resources>

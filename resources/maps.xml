@@ -1,4 +1,6 @@
 <resources>
 	<resource key="map1" location="maps/map1.tmx" />
-	<resource key="level1" location="maps/level2.tmx" />
+	<resource key="level1" location="maps/level1.tmx" />
+	<resource key="level2" location="maps/level2.tmx" />
+	<resource key="level3" location="maps/level3.tmx" />
 </resources>

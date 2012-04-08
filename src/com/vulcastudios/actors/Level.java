@@ -8,6 +8,7 @@ import java.util.Set;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
@@ -29,6 +30,8 @@ public class Level {
 	private End end;
 	private Start startingPoint;
 	
+	private Music levelSong;
+	
 	public Level(String mapName, ResourceManager resourceManager){
 		this.resourceManager = resourceManager;
 		
@@ -43,10 +46,10 @@ public class Level {
 				System.out.println(name+":"+type);
 				if(type.equals("door")){
 					String initialState = map.getObjectProperty(i, j, "initialState", "closed");
-					doors.put(name, new Door(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), initialState));
+					doors.put(name, new Door(this.resourceManager, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), initialState));
 				} else if(type.equals("button")){
 					String activates = map.getObjectProperty(i, j, "activates", "door"+name.substring(6));
-					buttons.put(name, new Button(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), activates));
+					buttons.put(name, new Button(this.resourceManager, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), activates));
 				} else if (type.equals("end")) {
 					System.out.println("end");
 					end = new End(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j));
@@ -83,10 +86,6 @@ public class Level {
 	public void render(GameContainer container, StateBasedGame game, Graphics g){
 		map.render(0, 0, 0, 0, 100, 100);
 		
-		for (Zombie zombie : zombies) {
-			zombie.render(container, g);
-		}
-
 		Set<Entry<String, Button>> buttonEntries = buttons.entrySet();
 		for(Entry<String, Button> entry : buttonEntries){
 			entry.getValue().render(container, game, g);
@@ -95,6 +94,10 @@ public class Level {
 		Set<Entry<String, Door>> doorsEntries = doors.entrySet();
 		for(Entry<String, Door> entry : doorsEntries){
 			entry.getValue().render(container, game, g);
+		}
+		
+		for (Zombie zombie : zombies) {
+			zombie.render(container, g);
 		}
 		
 		player.render(container, game, g);
@@ -136,9 +139,39 @@ public class Level {
 		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
 			restartLevel();
 		}
+		
+		playLevelSong(game);
+
 	}
 	
 	public void end() {
+		
+	}
+	
+	public void playLevelSong(StateBasedGame game){
+		//play Level song
+		int num = (int) (Math.random() * 3.0);
+		if(levelSong == null){
+			if(num == 0)
+				levelSong = ((TestGame)game).getResourceManager().getMusic("ambiance");
+			else if(num == 1){
+				levelSong = ((TestGame)game).getResourceManager().getMusic("desert_drones");
+			}
+			else{
+				levelSong = ((TestGame)game).getResourceManager().getMusic("desert_lonesome");
+			}
+		}
+		if(levelSong != null && !levelSong.playing()){
+			levelSong.loop();
+		}
+		
+	}
+	
+	public void stopLevelSong(StateBasedGame game){
+		//play Level song
+		if(levelSong != null && levelSong.playing()){
+			levelSong.stop();
+		}
 		
 	}
 	

@@ -24,7 +24,15 @@ public class TransitionState extends BasicGameState {
 		long finalTime = ((TestGame)game).getCurrentLevel().getFinalTime();
 		double seconds = finalTime / 1000.0;
 		g.drawString("Final Time: " + seconds + " seconds", 50, 50);
-		g.drawString("Press Enter to continue to the next level", 50, 100);
+		int numOfZombies = ((TestGame)game).getCurrentLevel().getNumberOfZombies();
+		String par = ((TestGame)game).getCurrentLevel().getPar();
+		g.drawString("Zombies Used: " + numOfZombies + " Par: " + par, 50, 100);
+		if(!((TestGame)game).isOnLastLevel()){
+			g.drawString("Press Enter to continue to the next level", 50, 150);
+		}
+		else{
+			g.drawString("The Game Is Done!", 50, 150);
+		}
 	}
 
 	@Override
@@ -33,7 +41,7 @@ public class TransitionState extends BasicGameState {
 		if (container.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
 		}
-		else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
+		else if (!((TestGame)game).isOnLastLevel() && container.getInput().isKeyPressed(Input.KEY_ENTER)) {
 			((TestGame)game).goToNextLevel();
 			game.enterState(TestGame.IN_GAME_STATE);
 		}

@@ -45,9 +45,10 @@ public class LoadState extends BasicGameState {
 			throws SlickException {
 		//g.drawString("Progress: "+this.rm.getProgress(), 50, 50);
 		
-		IntBuffer o = ByteBuffer.allocateDirect(200).asIntBuffer();
+		/*IntBuffer o = ByteBuffer.allocateDirect(200).asIntBuffer();
 		GL11.glGetInteger(GL11.GL_MAX_TEXTURE_SIZE, o);
-		System.err.println("GL_MAX_TEXTURE_SIZE: " + o.get());
+		System.err.println("GL_MAX_TEXTURE_SIZE: " + o.get());*/
+		
 		LoadingBar lb = new LoadingBar(5, container.getHeight()-35, container.getWidth()-10, 30);
 		lb.setProgress(this.rm.getProgress());
 		lb.render(container, game, g);
@@ -71,10 +72,6 @@ public class LoadState extends BasicGameState {
 			if(maps.hasNext()){
 				Resource r = maps.next().getValue();
 				rm.load(r.getKey(), new TiledMap(r.getLocation(), "tilesets/"));
-				if(game instanceof TestGame){
-					((TestGame)game).addLevel(new Level("level1", this.rm));
-					((TestGame)game).getCurrentLevel().initLevel();
-				}
 
 			}
 
@@ -86,7 +83,12 @@ public class LoadState extends BasicGameState {
 		}*/
 
 
-		if(rm.getProgress() ==100){
+		if(rm.getProgress() == 100){
+			((TestGame)game).addLevel(new Level("map1", this.rm));
+			((TestGame)game).addLevel(new Level("level1", this.rm));
+			((TestGame)game).addLevel(new Level("level2", this.rm));
+			((TestGame)game).addLevel(new Level("level3", this.rm));
+			((TestGame)game).getCurrentLevel().initLevel();
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
 		}
 
