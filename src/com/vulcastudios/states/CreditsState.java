@@ -36,8 +36,8 @@ public class CreditsState extends BasicGameState {
 		g.drawString("Andrew Melton", 50, 150);
 		g.drawString("Taylor Paschal", 50, 175);
 		g.drawString("Stephanie Reese", 50, 200);
-		g.drawString("Sam Thomas", 50, 175);
-		g.drawString("Press esc to return to the main menu", 50, 275);
+		g.drawString("Sam Thomas", 50, 225);
+		g.drawString("Press esc to return to the main menu", 50, 300);
 		
 		g.setColor(previousColor);
 	}
