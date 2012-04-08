@@ -7,6 +7,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import com.vulcastudios.TestGame;
@@ -23,11 +24,14 @@ public class Player{
 	private float xPos = 0;
 	private float yPos = 0;
 	
+	private boolean alive;
+	
 	private LinkedList<ZombieMove> movementMap;
 
 	private ResourceManager rm;
 	
 	public Player(ResourceManager rm, int xPos, int yPos){
+		this.alive = true;
 		this.rm = rm;
 		this.xPos = xPos;
 		this.yPos = yPos;
@@ -94,6 +98,8 @@ public class Player{
 		}
 
 		movementMap.add(move);
+		
+		((TestGame)game).checkObjects(this);
 
 	}
 
@@ -121,8 +127,16 @@ public class Player{
 	public void setYPos(float yPos) {
 		this.yPos = yPos;
 	}
+	
+	public Rectangle getBounds(){
+		return new Rectangle(this.getXPos(), this.getYPos(), Player.WIDTH, Player.HEIGHT);
+	}
 
 	public LinkedList<ZombieMove> getMovementMap() {
 		return movementMap;
+	}
+	
+	public boolean isAlive(){
+		return this.alive;
 	}
 }

@@ -3,6 +3,7 @@ package com.vulcastudios.actors;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 public class Button {
@@ -81,6 +82,10 @@ public class Button {
 		g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 		g.setColor(prev);
 		
+	}
+	
+	public Rectangle getBounds(){
+		return new Rectangle(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 	}
 	
 }

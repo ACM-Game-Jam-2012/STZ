@@ -2,7 +2,9 @@ package com.vulcastudios;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map.Entry;
 import java.util.Properties;
+import java.util.Set;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
@@ -11,6 +13,8 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 import org.newdawn.slick.util.ResourceLoader;
 
+import com.vulcastudios.actors.Button;
+import com.vulcastudios.actors.Door;
 import com.vulcastudios.actors.Level;
 import com.vulcastudios.actors.Player;
 import com.vulcastudios.actors.Zombie;
@@ -37,13 +41,13 @@ public class TestGame extends StateBasedGame {
 	private int currentLevelIndex = 0;
 	private ResourceManager rm;
 
-	
+
 	public TestGame(String windowName){
 		super(windowName);
 		levels = new ArrayList<Level>();
 		rm = new ResourceManager("images.xml", "animations.xml", "sounds.xml", "music.xml", "maps.xml");
 	}
-	
+
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
 		this.addState(new LoadState(this.rm));
@@ -53,12 +57,12 @@ public class TestGame extends StateBasedGame {
 		this.addState(new GameOptionsState());
 		this.addState(new CreditsState());
 	}
-	
+
 	public void goToNextLevel(){
 		currentLevelIndex++;
 		levels.get(currentLevelIndex).initLevel();
 	}
-	
+
 	public ArrayList<Level> getLevels() {
 		return levels;
 	}
@@ -70,26 +74,69 @@ public class TestGame extends StateBasedGame {
 	public Level getCurrentLevel() {
 		return levels.get(currentLevelIndex);
 	}
-	
+
+	public void checkObjects(Player p){
+		Set<Entry<String, Button>> buttons = this.getCurrentLevel().getButtons().entrySet();
+		for(Entry<String, Button> entry : buttons){
+			this.getCurrentLevel().getDoors().get("door"+entry.getKey().substring(6)).setOpen(false);
+			if(p.getBounds().intersects(entry.getValue().getBounds()))
+				//System.out.println("door"+entry.getKey().substring(6));
+				this.getCurrentLevel().getDoors().get("door"+entry.getKey().substring(6)).setOpen(true);
+		}
+	}
+
+	public void checkObjects(Zombie z){
+		Set<Entry<String, Button>> buttons = this.getCurrentLevel().getButtons().entrySet();
+		for(Entry<String, Button> entry : buttons){
+			this.getCurrentLevel().getDoors().get("door"+entry.getKey().substring(6)).setOpen(false);
+			if(z.getBounds().intersects(entry.getValue().getBounds()))
+				this.getCurrentLevel().getDoors().get("door"+entry.getKey().substring(6)).setOpen(true);
+		}
+	}
+
 	public boolean checkCollision(Player p){
 		TiledMap map = levels.get(currentLevelIndex).getMap();
-		
+
+		boolean doorCol = false;
+
+		Set<Entry<String, Door>> doors = this.getCurrentLevel().getDoors().entrySet();
+		for(Entry<String, Door> entry : doors){
+
+			if(p.getBounds().intersects(entry.getValue().getBounds())){
+				if(!entry.getValue().isOpen())
+					doorCol = true;
+			}
+
+		}
+
 		int tileTL = map.getTileId((int)(p.getXPos()/map.getTileWidth()),(int)(p.getYPos()/map.getTileHeight()), 1);
 		int tileBL = map.getTileId((int)(p.getXPos()/map.getTileWidth()),(int)((p.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
 		int tileTR = map.getTileId((int)((p.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)(p.getYPos()/map.getTileHeight()), 1);
 		int tileBR = map.getTileId((int)((p.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)((p.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
-		
-		return tileTL != 0 || tileBL != 0 || tileTR != 0 || tileBR != 0;
+
+		return tileTL != 0 || tileBL != 0 || tileTR != 0 || tileBR != 0 || doorCol;
 	}
-	
+
 	public boolean checkCollision(Zombie z){
 		TiledMap map = levels.get(currentLevelIndex).getMap();
-		
+
+		boolean doorCol = false;
+
+		Set<Entry<String, Door>> doors = this.getCurrentLevel().getDoors().entrySet();
+		for(Entry<String, Door> entry : doors){
+
+			if(z.getBounds().intersects(entry.getValue().getBounds())){
+				if(!entry.getValue().isOpen())
+					doorCol = true;
+			}
+
+		}
+
 		int tile1 = map.getTileId((int)(z.getXPos()/map.getTileWidth()),(int)(z.getYPos()/map.getTileHeight()), 1);
 		int tile2 = map.getTileId((int)(z.getXPos()/map.getTileWidth()),(int)((z.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
 		int tile3 = map.getTileId((int)((z.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)(z.getYPos()/map.getTileHeight()), 1);
 		int tile4 = map.getTileId((int)((z.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)((z.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
-		return tile1 != 0 || tile2 != 0 || tile3 != 0 || tile4 != 0;
+		return tile1 != 0 || tile2 != 0 || tile3 != 0 || tile4 != 0 || doorCol;
 	}
 	
 	public ResourceManager getResourceManager(){
@@ -113,7 +160,7 @@ public class TestGame extends StateBasedGame {
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 
 }
