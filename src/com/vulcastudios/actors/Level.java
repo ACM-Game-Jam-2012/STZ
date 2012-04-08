@@ -45,22 +45,31 @@ public class Level {
 	}
 	
 	public void initLevelWithNewZombie() {
+		for(Zombie z: zombies){
+			z.restartZombie();
+		}
+		zombies.add(new Zombie(this.resourceManager, 0, 0, player.getMovementMap()));
 		initLevel();
-		
-		zombies.add(new Zombie(this.resourceManager, 0, 0));
 	}
 	
 	public void update(GameContainer container, StateBasedGame game, int delta){
 		player.update(container, game, delta);
 		
+		for (Zombie zombie : zombies) {
+			zombie.update(container, game, delta);
+		}
+		
 		if (container.getInput().isKeyPressed(Input.KEY_SPACE)) {
 			initLevelWithNewZombie();
 		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
-			initLevel();
-			zombies.clear();
+			restartLevel();
 		}
 	}
 	
+	public void restartLevel(){
+		initLevel();
+		zombies.clear();
+	}
 
 	public int getNumberOfZombies(){
 		return (zombies.size()+1);

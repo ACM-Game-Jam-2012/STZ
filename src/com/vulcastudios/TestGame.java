@@ -13,6 +13,7 @@ import org.newdawn.slick.util.ResourceLoader;
 
 import com.vulcastudios.actors.Level;
 import com.vulcastudios.actors.Player;
+import com.vulcastudios.actors.Zombie;
 import com.vulcastudios.states.ControlsState;
 import com.vulcastudios.states.CreditsState;
 import com.vulcastudios.states.GameOptionsState;
@@ -79,6 +80,16 @@ public class TestGame extends StateBasedGame {
 		int tile2 = map.getTileId((int)(p.getXPos()/map.getTileWidth()),(int)((p.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
 		int tile3 = map.getTileId((int)((p.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)(p.getYPos()/map.getTileHeight()), 1);
 		int tile4 = map.getTileId((int)((p.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)((p.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
+		return tile1 != 0 || tile2 != 0 || tile3 != 0 || tile4 != 0;
+	}
+	
+	public boolean checkCollision(Zombie z){
+		TiledMap map = levels.get(currentLevelIndex).getMap();
+		
+		int tile1 = map.getTileId((int)(z.getXPos()/map.getTileWidth()),(int)(z.getYPos()/map.getTileHeight()), 1);
+		int tile2 = map.getTileId((int)(z.getXPos()/map.getTileWidth()),(int)((z.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
+		int tile3 = map.getTileId((int)((z.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)(z.getYPos()/map.getTileHeight()), 1);
+		int tile4 = map.getTileId((int)((z.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)((z.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
 		return tile1 != 0 || tile2 != 0 || tile3 != 0 || tile4 != 0;
 	}
 	
