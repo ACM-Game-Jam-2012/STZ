@@ -48,8 +48,6 @@ public class Level {
 			}
 		}
 		
-		startTime = System.currentTimeMillis();
-		
 		/*for(int i = 0; i < map.getWidth(); i++){
 			for(int j = 0; j < map.getWidth(); j++){
 				int tile = map.getTileId(i, j, 2);
@@ -67,8 +65,11 @@ public class Level {
 		}*/
 	}
 	
+	
+	
 	public void initLevel(){
-		player = new Player(this.resourceManager, 0, 0);
+		this.createPlayer();
+		startTime = System.currentTimeMillis();
 	}
 	
 	public TiledMap getMap(){
@@ -104,12 +105,16 @@ public class Level {
 		
 	}
 	
+	public void createPlayer() {
+		player = new Player(this.resourceManager, 0, 0);
+	}
+	
 	public void initLevelWithNewZombie() {
 		for(Zombie z: zombies){
 			z.restartZombie();
 		}
 		zombies.add(new Zombie(this.resourceManager, 0, 0, player.getMovementMap()));
-		initLevel();
+		createPlayer();
 	}
 	
 	public void update(GameContainer container, StateBasedGame game, int delta){
@@ -137,7 +142,7 @@ public class Level {
 	
 	public void restartLevel(){
 		startTime = System.currentTimeMillis();
-		initLevel();
+		createPlayer();
 		zombies.clear();
 	}
 
