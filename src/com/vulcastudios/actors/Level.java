@@ -49,7 +49,7 @@ public class Level {
 					doors.put(name, new Door(this.resourceManager, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), initialState));
 				} else if(type.equals("button")){
 					String activates = map.getObjectProperty(i, j, "activates", "door"+name.substring(6));
-					buttons.put(name, new Button(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), activates));
+					buttons.put(name, new Button(this.resourceManager, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), activates));
 				} else if (type.equals("end")) {
 					System.out.println("end");
 					end = new End(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j));

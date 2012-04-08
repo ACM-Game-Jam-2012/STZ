@@ -83,6 +83,7 @@ public class LoadState extends BasicGameState {
 
 
 		if(rm.getProgress() == 100){
+			((TestGame)game).addLevel(new Level("map1", this.rm));
 			((TestGame)game).addLevel(new Level("level1", this.rm));
 			((TestGame)game).addLevel(new Level("level2", this.rm));
 			((TestGame)game).getCurrentLevel().initLevel();
