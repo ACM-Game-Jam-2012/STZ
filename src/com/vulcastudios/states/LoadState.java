@@ -60,18 +60,17 @@ public class LoadState extends BasicGameState {
 			Resource r = images.next().getValue();
 			rm.load(r.getKey(), new Image(r.getLocation()));
 		}else{
-
-
 			if(maps.hasNext()){
 				Resource r = maps.next().getValue();
 				rm.load(r.getKey(), new TiledMap(r.getLocation(), "tilesets/"));
+			}
+			else{
 				if(game instanceof TestGame){
 					((TestGame)game).addLevel(new Level("map1", this.rm));
 					((TestGame)game).getCurrentLevel().initLevel();
+					((TestGame)game).addLevel(new Level("map1_old", this.rm));
 				}
-
 			}
-
 		}
 
 		/*if(animations.hasNext()){
