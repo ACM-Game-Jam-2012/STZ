@@ -52,7 +52,7 @@ public class InGameState extends BasicGameState {
 		
 		if (container.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
-			((TestGame)game).getCurrentLevel().restartLevel();
+			((TestGame)game).getCurrentLevel().initLevel();
 		}
 		
 		((TestGame)game).getCurrentLevel().update(container, game, delta);
