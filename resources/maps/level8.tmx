@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="64" height="48" tilewidth="16" tileheight="16">
  <properties>
-  <property name="par" value="1"/>
+  <property name="par" value="3"/>
  </properties>
  <tileset firstgid="1" name="tileset-blackvolution" tilewidth="16" tileheight="16">
   <image source="tileset-blackvolution.png" width="128" height="1472"/>
