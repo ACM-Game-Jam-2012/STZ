@@ -71,7 +71,7 @@ public class LoadState extends BasicGameState {
 
 			if(maps.hasNext()){
 				Resource r = maps.next().getValue();
-				rm.load(r.getKey(), new TiledMap(r.getLocation(), "tilesets/"));
+				rm.load(r.getKey(), new TiledMap(r.getLocation(), "tilesets"));
 
 			}
 
