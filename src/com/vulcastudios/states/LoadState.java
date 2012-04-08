@@ -39,7 +39,7 @@ public class LoadState extends BasicGameState {
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
 		rm.startLoad();
-		this.backgroundImage = new Image("./images/LoadingScreen.png");
+		this.backgroundImage = new Image("images/LoadingScreen.png");
 		rm.load("loadingScreen", this.backgroundImage);
 
 	}
