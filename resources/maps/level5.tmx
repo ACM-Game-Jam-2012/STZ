@@ -28,12 +28,12 @@
  </layer>
  <layer name="Tile Layer 1" width="64" height="48">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2ZsRKDIAyGGe3j2k62k+2knbST9mXL4l3LJSEVAsLlu8vOF+WPoDGKoihKSoaTMaOt5yn3SvIwWe/Z1iuS/9bPsZC+LnZ9q603sk7Xx+e29XOO3NdcuD4+t62fq6evpeD61OTWNsacherS5Lb7Bcr5zq7xKlS3g/lDOZ/K/wgzFsr5VP6xZ6wP7sxK5e+bsbHhzqxa9z93ZtXqz6VWf+5cl3LP7S/5XPf4D0j+hkDNVNf/jlQq/wnJ3xComdoh6/D1Scp/QfI3BGqmQv7QO1hr/kH+0DtYi7+bBZA/9A7W4u9mwdH2vzRuFnD9+wafDaH1yLT/oWd6tLsISSD/Er7FY8H1p87IJd1ff9P+kUfUGZlzf83pX+reUXnu+lNnZM4dL6d/kvc90PdcT/jHzmNO/yTve7AzBTTTcs0iSfacKbA9W1LGhYDt2dL/0XHB9mzp/7EURVEURVEUpTQ+OL1ssQAwAAA=
+   H4sIAAAAAAAAC+2Zu27CQBBFXdqfFqXiU0gqkgqoQiqTyuRnswgs2ZM744F9eVdzpGkQxZ6xdy67NI1hGIaRkq+uaU6uvrvcK8lD77zPrn4C+Y/9PBXS18Gt7+Lqt7ut/cXVRzuv17uHxm3s5zlwX1PQT/wP3dz/6qFxG/t5mfS1FAbh+V89SnZDbJ3bGynOn35vqd7b3HZz0Jzftf9dOX/62VJ9rswfzflU/mvI2AHs2VT+oTN2CZpTXGal8ke9jwnNKS6zat3/NKe4zKrVX0ut/ijXUaF11+CPnqu2NhHzL2QGSplK/Q9MPdujR/17Zv76IGXqjlnHUp9i+Q/M/PVBylTkj97BVP6pQf7oHazFn84C5I/ewVr86SxY2/6PDZ0FWv99y2eDbx0z7X/0TNd2FxET5F/Cb/FQaP2lM3JJ99dTtg/MI+mMrLm/1vQvde+keU79pTOy5o5X07+Y9z3o99xe8A89jzX9i3nfw50pUKblyqKYPHOm4PZsSTPOB27PlvQfnQ/cni39fyzDMAzDMAzDKI0/nNyRMQAwAAA=
   </data>
  </layer>
  <layer name="Tile Layer 2" width="64" height="48">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2YS07EMAyGs2x2cyU0qxEr4CC8BWoPwGMWgGbBawGHYHZwNxyVSB7jpJk2SR/jT/ImTtP8tROnUUoQBEEQBKE9x4VSJ4W/z5dWaq3TvP8Zxn1JNHYIV6D9ukH/N8zvJ9EcP2DcTzR2SDxys8dov4O2e4cttdu/dHzH+V97SDxys2Di8+TJh5V2+1dMewVt+z2ugSawfhufbfSvi00fx1j0W7rGvyL+XdOPGUv+l7o2Q4z4l8hy6qf1vKkGL5BuQ+nRZ2jSX6HxKqQ/5TkDQ+s5rcGU2PlfMj6jP+U5g8PWdW4+TcRc/4Y+1j8X11B2Xf8rPPvGPG/a3nXtd/k4hqL/UPOWmqHo5+bBnX9jMxb9qf5PctY/i08/PhO03SdoXfHlTh/1z6XfxAGfCbh+bWqmL3eGlP80Dl3qRCi59XN3GpY58R3o2ly1AdsN2G1gX9z/KJF+uubsHuPL6S6xeIBnH/Xmu0L7p4CuOZvbvpyOlYu597NQfLlvoWtgSuD/eY6h30d0JWQ/n7J+y+lMqTOwc7ALsMvZ/3s5F7nPaqloq2Ooe9u2TEWHIAiCIAiCIAjT5Bfcj83UADAAAA==
+   H4sIAAAAAAAAC+2ZS1LEIBCGWQ6zmgu5mHKVcqUexHdpkQP4mIVas/C10EPoTu8mVKSqgw0hEyCE6a+qN2lg+NMNTRjGCIIgiDFZcsbErG27fOxZpaP6078D3sPeFukvgSMZs+OZu82njOmXI66io7+LJznu84g5cynnftUx/285v59Ic3yX436AsX3ikZolov3W8T5WvPHfIbay9NP7pk88UlMh8Xl06F9zu3+NPK953vsm1K/j00f/nLd9GFPRrxka/9rwb5t+yFTyX/DGFCHiL4Cl1G/W864aXAHdCuHQp9D650gb5avBeDXQ33XOCIVZz80abBI6/wXiU/pjnjMwdF3H5tNFyPWvGGP9Y3H1pa9+vRZK0f8i+74i/dWzN974bT6MXPQfcNxik4t+bB7Y+Tc0U9Ef6/skZf3TuPTDM8Gm+4RZV1y5M0b9s+lXcYBnAqzdJjXTlTs55b8ZhyF1wpfU+rE7DY15h7vPG7PVBmjX0m4828L2h5H0m2tO7zGunB4Si3vZ94G3f8u3fQzMNadz25XToXIx9X7miyv3NSX/jwG/5zFyv48Yis9+XrJ+zcmCsVNpZ9LOpV0s/t/L2Uh9VovFpjpy3dv6UooOgiAIgiAIgiDK5Bea3/BbADAAAA==
   </data>
  </layer>
  <objectgroup name="Object Layer 1" width="64" height="48">
@@ -42,19 +42,14 @@
     <property name="initialState" value="closed"/>
    </properties>
   </object>
-  <object name="door2" type="door" x="672" y="272" width="64" height="64">
+  <object name="door2" type="door" x="560" y="144" width="64" height="64">
    <properties>
-    <property name="initialStatus" value="closed"/>
-   </properties>
-  </object>
-  <object name="button2" type="button" x="560" y="192" width="48" height="48">
-   <properties>
-    <property name="activates" value="door1,door2"/>
+    <property name="initialState" value="open"/>
    </properties>
   </object>
   <object name="button1" type="button" x="784" y="288" width="48" height="48">
    <properties>
-    <property name="activates" value="door1"/>
+    <property name="activates" value="door1,door2"/>
    </properties>
   </object>
   <object type="collidable" x="288" y="544" width="80" height="16"/>
@@ -65,7 +60,6 @@
   <object type="collidable" x="288" y="288" width="16" height="144"/>
   <object type="collidable" x="288" y="272" width="176" height="16"/>
   <object type="collidable" x="448" y="160" width="16" height="112"/>
-  <object type="collidable" x="448" y="144" width="416" height="16"/>
   <object type="collidable" x="368" y="336" width="96" height="16"/>
   <object type="collidable" x="368" y="352" width="16" height="80"/>
   <object type="collidable" x="384" y="432" width="16" height="48"/>
@@ -91,12 +85,14 @@
   <object type="collidable" x="544" y="320" width="16" height="16"/>
   <object type="collidable" x="624" y="320" width="16" height="16"/>
   <object type="collidable" x="640" y="160" width="16" height="176"/>
-  <object type="collidable" x="544" y="160" width="96" height="16"/>
   <object type="collidable" x="656" y="160" width="16" height="176"/>
   <object type="collidable" x="672" y="160" width="80" height="16"/>
   <object type="collidable" x="752" y="160" width="16" height="176"/>
   <object type="collidable" x="736" y="320" width="16" height="16"/>
-  <object type="end" x="704" y="192" width="16" height="16"/>
+  <object type="end" x="576" y="96" width="16" height="16"/>
   <object type="start" x="320" y="512" width="16" height="16"/>
+  <object type="collidable" x="544" y="64" width="16" height="256"/>
+  <object type="collidable" x="624" y="64" width="16" height="256"/>
+  <object type="collidable" x="560" y="64" width="64" height="16"/>
  </objectgroup>
 </map>
