@@ -43,7 +43,7 @@ public class Level {
 				System.out.println(name+":"+type);
 				if(type.equals("door")){
 					String initialState = map.getObjectProperty(i, j, "initialState", "closed");
-					doors.put(name, new Door(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), initialState));
+					doors.put(name, new Door(this.resourceManager, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), initialState));
 				} else if(type.equals("button")){
 					String activates = map.getObjectProperty(i, j, "activates", "door"+name.substring(6));
 					buttons.put(name, new Button(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), activates));

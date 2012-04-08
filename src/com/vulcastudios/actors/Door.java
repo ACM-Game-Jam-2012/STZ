@@ -6,6 +6,8 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
+import com.vulcastudios.util.ResourceManager;
+
 public class Door {
 
 	private String name;
@@ -18,14 +20,14 @@ public class Door {
 	private boolean open;
 	private boolean initialOpen;
 
-	private Level myLevel;
+	private ResourceManager rm;
 
-	public Door(Level myLevel,String name, int x, int y, int width, int height, String initialState){
+	public Door(ResourceManager rm, String name, int x, int y, int width, int height, String initialState){
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
-		this.myLevel = myLevel;
+		this.rm = rm;
 
 		if(initialState.equals("open")){
 			open = true;
