@@ -19,6 +19,7 @@ import com.vulcastudios.actors.Collidable;
 import com.vulcastudios.actors.Door;
 import com.vulcastudios.actors.Level;
 import com.vulcastudios.actors.Player;
+import com.vulcastudios.actors.Steam;
 import com.vulcastudios.actors.Zombie;
 import com.vulcastudios.states.ControlsState;
 import com.vulcastudios.states.CreditsState;
@@ -145,6 +146,40 @@ public class TestGame extends StateBasedGame {
 		}
 
 		return collidableCollide || doorCol;
+	}
+
+	public boolean checkCollision(Steam s){
+		
+		boolean playerCol = this.getCurrentLevel().getPlayer().getBounds().intersects(s.getBounds());
+		if(playerCol)
+			this.getCurrentLevel().getPlayer().setAlive(false);
+		
+		boolean zombieCol = false;
+		for(Zombie zombie : this.getCurrentLevel().getZombies()){
+			if(s.getBounds().intersects(zombie.getBounds()))
+				zombieCol = true;
+		}
+		
+		boolean doorCol = false;
+
+		Set<Entry<String, Door>> doors = this.getCurrentLevel().getDoors().entrySet();
+		for(Entry<String, Door> entry : doors){
+
+			if(s.getBounds().intersects(entry.getValue().getBounds())){
+				if(!entry.getValue().isOpen())
+					doorCol = true;
+			}
+
+		}
+		
+		boolean collidableCollide = false;
+		
+		for(Collidable collidable : this.getCurrentLevel().getCollidables()){
+			if(s.getBounds().intersects(collidable.getBounds()))
+				collidableCollide = true;
+		}
+
+		return collidableCollide || doorCol || playerCol || zombieCol;
 	}
 
 	public boolean checkCollision(Zombie z){

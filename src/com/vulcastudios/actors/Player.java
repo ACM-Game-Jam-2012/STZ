@@ -141,4 +141,8 @@ public class Player{
 	public boolean isAlive(){
 		return this.alive;
 	}
+	
+	public void setAlive(boolean alive){
+		this.alive = alive;
+	}
 }
