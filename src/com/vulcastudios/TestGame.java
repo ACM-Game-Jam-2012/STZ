@@ -114,8 +114,12 @@ public class TestGame extends StateBasedGame {
 		Set<Entry<String, Button>> buttons = this.getCurrentLevel().getButtons().entrySet();
 		for(Entry<String, Button> entry : buttons){
 			if(z.getBounds().intersects(entry.getValue().getBounds())){
-				Door door = this.getCurrentLevel().getDoors().get(entry.getValue().getActivates());
-				door.setOpen(!door.isOpen());
+				String[] activates = entry.getValue().getActivates().split(",");
+				for(String doorName : activates){
+					String trimmedName = doorName.trim();
+					Door door = this.getCurrentLevel().getDoors().get(trimmedName);
+					door.setOpen(!door.isOpen());
+				}
 			}
 		}
 	}

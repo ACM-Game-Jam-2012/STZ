@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="64" height="48" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="par" value="4"/>
+ </properties>
+ <tileset firstgid="1" name="tileset-blackvolution" tilewidth="16" tileheight="16">
+  <image source="tileset-blackvolution.png" width="128" height="1472"/>
+ </tileset>
+ <tileset firstgid="737" name="tileset-shinygold" tilewidth="16" tileheight="16">
+  <image source="tileset-shinygold.png" width="128" height="4300"/>
+ </tileset>
+ <tileset firstgid="2881" name="button" tilewidth="16" tileheight="16">
+  <image source="button.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="2890" name="cactus" tilewidth="16" tileheight="16">
+  <image source="cactus.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="2899" name="tileset-advance" tilewidth="16" tileheight="16">
+  <image source="tileset-advance.png" width="128" height="8192"/>
+ </tileset>
+ <tileset firstgid="6995" name="door" tilewidth="16" tileheight="16">
+  <image source="door.png" width="64" height="64"/>
+ </tileset>
+ <layer name="Tile Layer 4" width="64" height="48">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3ZOwqAMBBF0YHsxMWKlVipu3CL8oo0YrTyw7x7YHqvkRA1AgAAAACeM5aI7mSm8vWVvcO5v2+01xmS34PW2rs8A/R79883/WvyfnHe/4V++un37L/a++tkpr67M0BmrL93v7iefSvn9Xd+9xH3fnE+/wj99NNPP/3000+/W7/+AWyHWYrHt38A+IsdkZFWvgAwAAA=
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="64" height="48">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3ZPQrCQBCG4QUvkDN4ELVSK7WyNZ3ew79OrMRbeEW/wAaGJbEzgZn3hUEcmzxZsEhSIiIiIiIi+m/nKqWL5qq5ae7V2FdEQ3WYdO/rnr238Hfv8Q97HWN1zM6ZPueaRf5+CuJvK/3Rwh/L/5Bzasb67f7p9H5Yf1N5/vjx4/ft35uxfrv37I9+/r/8nH/s88fv2/+S65NtdfH/3z4TaH5/O/Xb+vxRwo8fP/7I/qVmpVkH9W80W80uoJ/3v0RE4/YFvxyYpgAwAAA=
+  </data>
+ </layer>
+ <layer name="Tile Layer 3" width="64" height="48">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3UsQkAMAhEUSE7uv8olnZBMFV4D35zA1wEAAAAAACwlaeb7AD84fb/AAAAAPBaAYoDsXEAMAAA
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="64" height="48">
+  <object name="door1" type="door" x="480" y="224" width="80" height="64">
+   <properties>
+    <property name="initalStatus" value="closed"/>
+   </properties>
+  </object>
+  <object type="start" x="512" y="640" width="16" height="16"/>
+  <object name="button1" type="button" x="448" y="384" width="48" height="48">
+   <properties>
+    <property name="activates" value="door1"/>
+   </properties>
+  </object>
+  <object name="button2" type="button" x="448" y="480" width="48" height="48">
+   <properties>
+    <property name="activates" value="door2"/>
+   </properties>
+  </object>
+  <object name="button4" type="button" x="544" y="384" width="48" height="48">
+   <properties>
+    <property name="activates" value="door4"/>
+   </properties>
+  </object>
+  <object name="button3" type="button" x="544" y="480" width="48" height="48">
+   <properties>
+    <property name="activates" value="door3"/>
+   </properties>
+  </object>
+  <object type="collidable" x="480" y="528" width="16" height="144"/>
+  <object type="collidable" x="480" y="672" width="80" height="16"/>
+  <object type="collidable" x="544" y="528" width="16" height="144"/>
+  <object type="collidable" x="544" y="464" width="48" height="16"/>
+  <object type="collidable" x="544" y="368" width="48" height="16"/>
+  <object type="collidable" x="544" y="432" width="48" height="16"/>
+  <object type="collidable" x="448" y="432" width="48" height="16"/>
+  <object type="collidable" x="448" y="368" width="48" height="16"/>
+  <object type="collidable" x="448" y="464" width="48" height="16"/>
+  <object type="collidable" x="432" y="352" width="16" height="176"/>
+  <object type="collidable" x="432" y="528" width="48" height="16"/>
+  <object type="collidable" x="560" y="528" width="48" height="16"/>
+  <object type="collidable" x="592" y="352" width="16" height="176"/>
+  <object type="collidable" x="464" y="304" width="16" height="48"/>
+  <object type="collidable" x="432" y="336" width="32" height="16"/>
+  <object type="collidable" x="560" y="304" width="16" height="48"/>
+  <object type="collidable" x="576" y="336" width="32" height="16"/>
+  <object type="collidable" x="560" y="192" width="32" height="112"/>
+  <object type="collidable" x="448" y="192" width="32" height="112"/>
+  <object type="end" x="487" y="192" width="64" height="16"/>
+  <object type="collidable" x="464" y="176" width="112" height="16"/>
+  <object name="door2" type="door" x="480" y="240" width="80" height="64">
+   <properties>
+    <property name="initialStatus" value="closed"/>
+   </properties>
+  </object>
+  <object name="door3" type="door" x="480" y="256" width="80" height="64">
+   <properties>
+    <property name="initialStatus" value="closed"/>
+   </properties>
+  </object>
+  <object name="door4" type="door" x="480" y="272" width="80" height="64">
+   <properties>
+    <property name="initialStatus" value="closed"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

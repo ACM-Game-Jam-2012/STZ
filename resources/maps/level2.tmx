@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="64" height="48" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="par" value="1"/>
+ </properties>
  <tileset firstgid="1" name="tileset-blackvolution" tilewidth="16" tileheight="16">
   <image source="tileset-blackvolution.png" width="128" height="1472"/>
  </tileset>
@@ -25,12 +28,12 @@
  </layer>
  <layer name="moreDetail" width="64" height="48">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2YvQ4BQRRGh21GVOKd8AToaCRqOjoSvwkqVKjwmL5ii5u7EzYImZnvJCdb3EyyZ3M32awxhBBCCCGEEEI+ZZYYM4cLeIJneIE1WE9tqJk84zsbNGzhDl7hDd4d/XImz/jOHg0HeFRdul/O5Bnfkbssu3S/nIW6/7JL98sZ95/7z/0PY/9lS979D6lf7nXe/Q/h/V/i3lcOX+E6s/b4ORBCyDMGNuvQ/vuufsfIZh1H1D+xWacR9RMSCwV8yxaVSUTftyW0tmAztQ3LEfVX0NpJe3u4diPr17A/vv6meP/7sBpov+tfxjsSQggh5Ps8AAoTerUAMAAA
+   H4sIAAAAAAAAC+2YzQ7BQBRGh25G2HgpPAGewZIdOxK/CVZlhRUe0ye6uJlOaBAyc7+TnNXNJD3tbdLUGEIIIYQQQgghnzJNjJnBOTzAIzzBBmxmtpyZPBM6azRs4Bae4QVePf1yJs+EToqGHdw7XW6/nMkzoSN3WXa5/XIW6/7LLrdfzrj/3H/ufxz7L1uK7n9M/XKvi+5/DO//Ate+9PgK35lVwPeBEEKe0bd5B/bfV/U7hjbvSFH/2OadKOonRAslfMuWHRNF37cVtHZgO7MLq4r6605rr/ZQK/d2Tc/fh/bnH2u/71/GOxJCCCHk+9wA1USlQQAwAAA=
   </data>
  </layer>
  <layer name="detail" width="64" height="48">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3VOwrCQBRG4Qs2gexDm/hoomnj2w0EOy1dV1aaKygM49w0FuKd88HfpDsZkhEBAAAAAAAAAADfuk8+n90Sz7yiX2RRiCxfWxX059T/FPf32t9Fuzp+J3H/W1uKbHW7Mv2f+CdT7ZoZq4z+vXYfdEcH/eEZjy3sP2n3WXdx1F/rNiNrjO//4aQ/PN+c0E8//fTPo7s/F9b9n4u1cd8DAAD82gA4Qgf5ADAAAA==
+   H4sIAAAAAAAAC+3VOQrCUBSF4Qs2gTRZhTZOjUPrrBsQOy3dh9M+XKlHUAjPvDQW4rv/B6dJlT8heWYAAAAAAAAAAOBbh8bntX3FtVTRb9bNzHqv9TP6PfU/hf139W+D7RJ+JmH/2yQ3m2qzvPo/8U+a6mpF1o70z9W90JYJ9Jffcd3K/St1r7VNQv0DbVSzceT7PybSX36/ntBPP/30d4Kz34vY+e/FMHLee3cqzM7aRbtqt+LXdwQAgD8PCfKfcQAwAAA=
   </data>
  </layer>
  <objectgroup name="objects" width="64" height="48">
@@ -39,11 +42,7 @@
   <object type="collidable" x="528" y="432" width="96" height="16"/>
   <object type="collidable" x="608" y="448" width="16" height="48"/>
   <object type="collidable" x="528" y="496" width="96" height="16"/>
-  <object type="collidable" x="448" y="560" width="16" height="32"/>
-  <object type="collidable" x="464" y="560" width="48" height="16"/>
-  <object type="collidable" x="496" y="576" width="16" height="48"/>
-  <object type="collidable" x="448" y="624" width="64" height="16"/>
-  <object type="collidable" x="480" y="576" width="16" height="16"/>
+  <object type="collidable" x="497" y="574" width="33" height="29"/>
   <object name="button1" type="button" x="568" y="457" width="32" height="32">
    <properties>
     <property name="activates" value="door1"/>
@@ -61,6 +60,9 @@
   <object type="collidable" x="544" y="416" width="128" height="16"/>
   <object type="collidable" x="336" y="192" width="320" height="16"/>
   <object name="end1" type="end" x="464" y="224" width="64" height="32"/>
-  <object type="start" x="476" y="609" width="1" height="1"/>
+  <object type="start" x="472" y="602" width="16" height="16"/>
+  <object type="collidable" x="443" y="559" width="68" height="19"/>
+  <object type="collidable" x="497" y="624" width="32" height="16"/>
+  <object type="collidable" x="509" y="607" width="20" height="14"/>
  </objectgroup>
 </map>
