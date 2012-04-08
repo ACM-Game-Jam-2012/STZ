@@ -54,5 +54,11 @@
   <object type="collidable" x="160" y="128" width="32" height="96"/>
   <object type="collidable" x="160" y="352" width="32" height="64"/>
   <object name="door2" type="door" x="160" y="224" width="32" height="128"/>
+  <object type="steamEmitter" x="832" y="288" width="32" height="32">
+   <properties>
+    <property name="direction" value="down"/>
+   </properties>
+  </object>
+  <object type="collidable" x="832" y="288" width="32" height="32"/>
  </objectgroup>
 </map>

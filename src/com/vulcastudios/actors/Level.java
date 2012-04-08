@@ -2,6 +2,7 @@ package com.vulcastudios.actors;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map.Entry;
 import java.util.Set;
 
@@ -27,6 +28,8 @@ public class Level {
 	private HashMap<String, Button> buttons = new HashMap<String, Button>();
 	private HashMap<String, Door> doors = new HashMap<String, Door>();
 	private ArrayList<Collidable> collidables = new ArrayList<Collidable>();
+	private ArrayList<SteamEmitter> steamEmitters = new ArrayList<SteamEmitter>();
+	private ArrayList<Steam> steams = new ArrayList<Steam>();
 	private End end;
 	private Start startingPoint;
 	
@@ -60,6 +63,10 @@ public class Level {
 				else if(type.equals("start")){
 					startingPoint = new Start(name, map.getObjectX(i, j), map.getObjectY(i, j));
 				}
+				else if(type.equals("steamEmitter")){
+					String direction = map.getObjectProperty(i, j, "direction", "left");
+					steamEmitters.add(new SteamEmitter(this.resourceManager, this.steams, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), direction));
+				}
 			}
 		}
 	}
@@ -85,6 +92,13 @@ public class Level {
 	
 	public void render(GameContainer container, StateBasedGame game, Graphics g){
 		map.render(0, 0, 0, 0, 100, 100);
+		
+		for(SteamEmitter steamEmitter : steamEmitters){
+			steamEmitter.render(container, game, g);
+		}
+		for(Steam steam : steams){
+			steam.render(container, game, g);
+		}
 		
 		Set<Entry<String, Button>> buttonEntries = buttons.entrySet();
 		for(Entry<String, Button> entry : buttonEntries){
@@ -121,6 +135,23 @@ public class Level {
 		
 		for(Entry<String, Door> entry : doors.entrySet()){
 			entry.getValue().setOpen(entry.getValue().isInitialOpen());
+		}
+
+		for(SteamEmitter steamEmitter : steamEmitters){
+			steamEmitter.update(container, game, delta);
+		}
+		
+		LinkedList<Steam> deadSteams = new LinkedList<Steam>();
+		
+		for(Steam steam : steams){
+			steam.update(container, game, delta);
+			if(!steam.isAlive()){
+				deadSteams.add(steam);
+			}
+		}
+		
+		for(Steam steam : deadSteams){
+			steams.remove(steam);
 		}
 		
 		((TestGame)game).checkObjects(player);
@@ -207,6 +238,14 @@ public class Level {
 	
 	public End getEnd() {
 		return this.end;
+	}
+	
+	public Player getPlayer(){
+		return this.player;
+	}
+	
+	public ArrayList<Zombie> getZombies(){
+		return this.zombies;
 	}
 	
 }
