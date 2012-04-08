@@ -24,6 +24,7 @@ public class Level {
 	private long startTime;
 	private HashMap<String, Button> buttons = new HashMap<String, Button>();
 	private HashMap<String, Door> doors = new HashMap<String, Door>();
+	private End end;
 	
 	public Level(String mapName, ResourceManager resourceManager){
 		this.resourceManager = resourceManager;
@@ -39,10 +40,12 @@ public class Level {
 				if(type.equals("door")){
 					String initialState = map.getObjectProperty(i, j, "initialState", "closed");
 					doors.put(name, new Door(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), initialState));
-				}
-				else if(type.equals("button")){
+				} else if(type.equals("button")){
 					String activates = map.getObjectProperty(i, j, "activates", "door"+name.substring(6));
 					buttons.put(name, new Button(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), activates));
+				} else if (type.equals("end")) {
+					System.out.println("end");
+					end = new End(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j));
 				}
 			}
 		}
@@ -101,6 +104,8 @@ public class Level {
 	}
 	
 	public void update(GameContainer container, StateBasedGame game, int delta){
+		((TestGame)game).checkEndPoint(player);
+		
 		for(Entry<String, Door> entry : doors.entrySet()){
 			entry.getValue().setOpen(entry.getValue().isInitialOpen());
 		}
@@ -123,6 +128,10 @@ public class Level {
 		}
 	}
 	
+	public void end() {
+		
+	}
+	
 	public void restartLevel(){
 		startTime = System.currentTimeMillis();
 		createPlayer();
@@ -139,6 +148,10 @@ public class Level {
 	
 	public HashMap<String, Door> getDoors(){
 		return this.doors;
+	}
+	
+	public End getEnd() {
+		return this.end;
 	}
 	
 }

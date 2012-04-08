@@ -9,6 +9,7 @@ import java.util.Set;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 import org.newdawn.slick.util.ResourceLoader;
@@ -73,6 +74,15 @@ public class TestGame extends StateBasedGame {
 
 	public Level getCurrentLevel() {
 		return levels.get(currentLevelIndex);
+	}
+	
+	public void checkEndPoint(Player p) {
+		Rectangle endBounds = this.getCurrentLevel().getEnd().getBounds();
+		Rectangle playerBounds = p.getBounds();
+		
+		if (playerBounds.intersects(endBounds)) {
+			System.out.println("end level");
+		}
 	}
 
 	public void checkObjects(Player p){
