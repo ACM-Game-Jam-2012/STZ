@@ -9,22 +9,32 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Door {
 
 	private String name;
-	
+
 	private int x;
 	private int y;
 	private int width;
 	private int height;
-	
-	private boolean open = false;
-	
+
+	private boolean open;
+	private boolean initialOpen;
+
 	private Level myLevel;
-	
-	public Door(Level myLevel,String name, int x, int y, int width, int height){
+
+	public Door(Level myLevel,String name, int x, int y, int width, int height, String initialState){
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.myLevel = myLevel;
+
+		if(initialState.equals("open")){
+			open = true;
+			this.setInitialOpen(true);
+		}else{
+			open = false;
+			this.setInitialOpen(false);
+		}
+
 	}
 
 	public String getName() {
@@ -74,9 +84,9 @@ public class Door {
 	public void setOpen(boolean open) {
 		this.open = open;
 	}
-	
+
 	public void render(GameContainer container, StateBasedGame game, Graphics g){
-		
+
 		Color prev = g.getColor();
 		if(this.isOpen())
 			g.setColor(Color.white);
@@ -84,12 +94,20 @@ public class Door {
 			g.setColor(Color.orange);
 		g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 		g.setColor(prev);
-		
+
 	}
-	
+
 	public Rectangle getBounds(){
 		return new Rectangle(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 	}
-	
-	
+
+	public boolean isInitialOpen() {
+		return initialOpen;
+	}
+
+	public void setInitialOpen(boolean initialOpen) {
+		this.initialOpen = initialOpen;
+	}
+
+
 }
