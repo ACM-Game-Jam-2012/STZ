@@ -20,7 +20,6 @@ import com.vulcastudios.states.GameOptionsState;
 import com.vulcastudios.states.InGameState;
 import com.vulcastudios.states.LoadState;
 import com.vulcastudios.states.MainMenuState;
-import com.vulcastudios.states.SplashState;
 import com.vulcastudios.util.Config;
 import com.vulcastudios.util.ResourceManager;
 
@@ -47,7 +46,6 @@ public class TestGame extends StateBasedGame {
 	
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
-		this.addState(new SplashState());
 		this.addState(new LoadState(this.rm));
 		this.addState(new MainMenuState((gc.getWidth()/2)-75, gc.getHeight()/2-150));
 		this.addState(new InGameState());
@@ -92,6 +90,10 @@ public class TestGame extends StateBasedGame {
 		int tile3 = map.getTileId((int)((z.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)(z.getYPos()/map.getTileHeight()), 1);
 		int tile4 = map.getTileId((int)((z.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)((z.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
 		return tile1 != 0 || tile2 != 0 || tile3 != 0 || tile4 != 0;
+	}
+	
+	public ResourceManager getResourceManager(){
+		return this.rm;
 	}
 	
 	public static void main(String[] args){
