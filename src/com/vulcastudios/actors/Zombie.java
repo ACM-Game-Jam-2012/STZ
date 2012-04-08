@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
@@ -23,6 +24,7 @@ public class Zombie{
 	private float yPosStart = 0;
 
 	private Button onButton = null;
+	private Image image = null;
 	
 	private ResourceManager rm;	
 	private LinkedList<ZombieMove> movementMap;
@@ -80,7 +82,8 @@ public class Zombie{
 	
 	public void render(GameContainer container, Graphics g){
 		g.setColor(Color.green);
-		g.drawRect(this.getXPos(), this.getYPos(), WIDTH, HEIGHT);
+		//g.drawRect(this.getXPos(), this.getYPos(), WIDTH, HEIGHT);
+		g.drawImage(this.getImage(), this.getXPos(), this.getYPos());
 	}
 	
 	public float getXPos() {
@@ -113,6 +116,13 @@ public class Zombie{
 			this.onButton = b;
 			this.rm.getSound("menu_button").play();
 		}
+	}
+	
+	public Image getImage(){
+		if(this.image == null)
+			this.image = this.rm.getImage("zombie").getScaledCopy(Zombie.WIDTH, Zombie.HEIGHT);
+		return this.image;
+		
 	}
 	
 }
