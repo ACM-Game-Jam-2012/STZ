@@ -252,7 +252,7 @@ public class TestGame extends StateBasedGame {
 			app.setDisplayMode(config.getInteger(Config.WINDOW_WIDTH_CONFIG_KEY),
 					config.getInteger(Config.WINDOW_HEIGHT_CONFIG_KEY),
 					config.getBoolean(Config.WINDOW_FULLSCREEN_CONFIG_KEY));
-			app.setTargetFrameRate(30);
+			app.setTargetFrameRate(60);
 			app.start();
 		} catch (IOException e) {
 			e.printStackTrace();
