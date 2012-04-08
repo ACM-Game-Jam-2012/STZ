@@ -28,9 +28,15 @@ public class InGameState extends BasicGameState {
 		
 		//draw HUD
 		g.setColor(Color.green);
+		
+		long ellapsedTime = System.currentTimeMillis() - ((TestGame)game).getCurrentLevel().getStartTime();
+		String formattedTime = this.formatTime(ellapsedTime);
+		g.drawString("Time in seconds: " + formattedTime, 200, 20);
+		
 		String score = ((TestGame)game).getCurrentLevel().getNumberOfZombies() + "";
 		String parString = "Number of Zombies Used: " + score + "  Par: " + par;
 		g.drawString(parString, 600, 20);
+		
 		g.setColor(prev);
 	}
 
@@ -49,4 +55,10 @@ public class InGameState extends BasicGameState {
 		return TestGame.IN_GAME_STATE;
 	}
 
+	
+	private String formatTime(long ellapsedTime) {
+		double seconds = ellapsedTime / 1000.0;
+		
+		return "" + seconds;
+	}
 }
