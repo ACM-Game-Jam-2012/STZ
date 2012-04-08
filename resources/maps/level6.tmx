@@ -95,6 +95,10 @@
     <property name="activates" value="door4"/>
    </properties>
   </object>
+  <object type="collidable" x="240" y="144" width="784" height="16"/>
+  <object x="1024" y="144" width="16" height="624"/>
+  <object x="240" y="768" width="800" height="16"/>
+  <object type="collidable" x="224" y="144" width="16" height="640"/>
  </objectgroup>
  <layer name="Tile Layer 2" width="64" height="48">
   <data encoding="base64" compression="gzip">
