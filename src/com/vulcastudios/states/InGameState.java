@@ -21,13 +21,17 @@ public class InGameState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		Color prev = g.getColor();
 		((TestGame)game).getCurrentLevel().render(container, game, g);
+		
+		String par = ((TestGame)game).getCurrentLevel().getPar();
 		
 		//draw HUD
 		g.setColor(Color.green);
 		String score = ((TestGame)game).getCurrentLevel().getNumberOfZombies() + "";
-		String parString = "Number of Zombies Used: " + score + "  Par: ";
+		String parString = "Number of Zombies Used: " + score + "  Par: " + par;
 		g.drawString(parString, 600, 20);
+		g.setColor(prev);
 	}
 
 	@Override

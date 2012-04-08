@@ -27,7 +27,7 @@ public class SplashState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
-		g.drawString("splash", 50, 50);
+		g.drawString("VulcaStudios", (container.getWidth()/2)-75, (container.getHeight()/2-150));
 
 	}
 

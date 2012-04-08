@@ -24,6 +24,7 @@ public class MainMenuState extends BasicGameState {
 	private final int CONTROLS = 1;
 	private final int OPTIONS = 2;
 	private final int CREDITS = 3;
+	private final int EXIT = 4;
 
 	public MainMenuState(int x, int y){
 		this.x = x;
@@ -37,6 +38,7 @@ public class MainMenuState extends BasicGameState {
 		menuStrings.add("controls");
 		menuStrings.add("options");
 		menuStrings.add("credits");
+		menuStrings.add("exit");
 		
 		selection = 0;
 	}
@@ -53,19 +55,19 @@ public class MainMenuState extends BasicGameState {
 	public void update(GameContainer container, StateBasedGame game, int delta)
 			throws SlickException {
 		if (container.getInput().isKeyPressed(Input.KEY_DOWN)) {
-			if (selection == 3) {
+			if (selection == 4) {
 				selection = 0;
 			} else {
 				selection ++;
 			}
 		} else if (container.getInput().isKeyPressed(Input.KEY_UP)) {
 			if (selection == 0) {
-				selection = 3;
+				selection = 4;
 			} else {
 				selection --;
 			}
 		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
-			this.enterSelection(game);
+			this.enterSelection(container, game);
 		}
 	}
 
@@ -74,7 +76,7 @@ public class MainMenuState extends BasicGameState {
 		return TestGame.MAIN_MENU_STATE_ID;
 	}
 	
-	public void enterSelection(StateBasedGame game) {
+	public void enterSelection(GameContainer container, StateBasedGame game) {
 		switch(selection) {
 			case PLAY:
 				System.out.println(menuStrings.get(PLAY));
@@ -92,10 +94,15 @@ public class MainMenuState extends BasicGameState {
 				System.out.println(menuStrings.get(CREDITS));
 				game.enterState(TestGame.CREDITS_STATE);
 				break;
+			case EXIT:
+				System.out.println(menuStrings.get(EXIT));
+				container.exit();
+				break;
 		}
 	}
 
 	public void drawMenu(Graphics g) {
+		Color prev = g.getColor();
 		for (int index = 0; index < menuStrings.size(); index++) {
 			if (index == selection) {
 				g.setColor(Color.green);
@@ -104,6 +111,7 @@ public class MainMenuState extends BasicGameState {
 			}
 			this.drawString(g, index);
 		}
+		g.setColor(prev);
 	}
 	
 	private void drawString(Graphics g, int index) {
