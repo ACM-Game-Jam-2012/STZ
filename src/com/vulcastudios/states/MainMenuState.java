@@ -14,7 +14,7 @@ import com.vulcastudios.TestGame;
 public class MainMenuState extends BasicGameState {
 	
 	private int selection;
-	private int x = 300;
+	private int x = 20;
 	private int startY = 200;
 	
 	// Selection constants for readability
@@ -25,15 +25,6 @@ public class MainMenuState extends BasicGameState {
 	private final int EXIT = 4;
 	
 	private Music title_song = null;
-	
-	public MainMenuState() {
-		
-	}
-
-	public MainMenuState(int x, int y){
-		this.x = x;
-		this.startY = y;
-	}
 	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
