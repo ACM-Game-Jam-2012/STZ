@@ -1,5 +1,6 @@
 package com.vulcastudios.states;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -28,11 +29,14 @@ public class ControlsState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		Color previousColor = g.getColor();
 		g.drawImage(this.rm.getImage("creditsScreen"), 0, 0);
 		g.drawString("Directional arrows: move", 50, 50);
 		g.drawString("Space bar: suicide", 50, 75);
 		g.drawString("Enter: restart level", 50, 100);
 		g.drawString("Press esc to return to the main menu", 50, 150);
+		
+		g.setColor(previousColor);
 	}
 
 	@Override

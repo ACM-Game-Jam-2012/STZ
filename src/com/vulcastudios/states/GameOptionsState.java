@@ -1,5 +1,6 @@
 package com.vulcastudios.states;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -30,12 +31,14 @@ public class GameOptionsState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		Color previousColor = g.getColor();
 		g.drawImage(this.rm.getImage("optionsScreen"), 0, 0);
 		TiledMap tiledMap = ((TestGame)game).getResourceManager().maps.get("level" + level);
 		tiledMap.render(0, 0);
 		g.drawString("Level " + level, 50, 50);
 		g.drawString("Press enter to select this level", 50, 75);
 		g.drawString("Press esc to return to the main menu", 50, 100);
+		g.setColor(previousColor);
 	}
 
 	@Override

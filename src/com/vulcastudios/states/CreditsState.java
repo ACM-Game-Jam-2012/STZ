@@ -1,5 +1,6 @@
 package com.vulcastudios.states;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -27,6 +28,8 @@ public class CreditsState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		Color previousColor = g.getColor();
+		
 		g.drawImage(this.rm.getImage("creditsScreen"), 0, 0);
 		g.drawString("Alex Meade", 50, 50);
 		g.drawString("Forrest Meade", 50, 75);
@@ -35,6 +38,8 @@ public class CreditsState extends BasicGameState {
 		g.drawString("Stephanie Reese", 50, 150);
 		g.drawString("Sam Thomas", 50, 175);
 		g.drawString("Press esc to return to the main menu", 50, 225);
+		
+		g.setColor(previousColor);
 	}
 
 	@Override
