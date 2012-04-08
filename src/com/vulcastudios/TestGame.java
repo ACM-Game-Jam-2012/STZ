@@ -20,7 +20,6 @@ import com.vulcastudios.states.GameOptionsState;
 import com.vulcastudios.states.InGameState;
 import com.vulcastudios.states.LoadState;
 import com.vulcastudios.states.MainMenuState;
-import com.vulcastudios.states.SplashState;
 import com.vulcastudios.util.Config;
 import com.vulcastudios.util.ResourceManager;
 
@@ -47,7 +46,6 @@ public class TestGame extends StateBasedGame {
 	
 	@Override
 	public void initStatesList(GameContainer gc) throws SlickException {
-		this.addState(new SplashState());
 		this.addState(new LoadState(this.rm));
 		this.addState(new MainMenuState((gc.getWidth()/2)-75, gc.getHeight()/2-150));
 		this.addState(new InGameState());
