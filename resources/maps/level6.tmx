@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="64" height="48" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="par" value="3"/>
+ </properties>
+ <tileset firstgid="1" name="tileset-blackvolution" tilewidth="16" tileheight="16">
+  <image source="tileset-blackvolution.png" width="128" height="1472"/>
+ </tileset>
+ <tileset firstgid="737" name="tileset-shinygold" tilewidth="16" tileheight="16">
+  <image source="tileset-shinygold.png" width="128" height="4300"/>
+ </tileset>
+ <tileset firstgid="2881" name="button" tilewidth="16" tileheight="16">
+  <image source="button.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="2890" name="cactus" tilewidth="16" tileheight="16">
+  <image source="cactus.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="2899" name="tileset-advance" tilewidth="16" tileheight="16">
+  <image source="tileset-advance.png" width="128" height="8192"/>
+ </tileset>
+ <tileset firstgid="6995" name="door" tilewidth="16" tileheight="16">
+  <image source="door.png" width="64" height="64"/>
+ </tileset>
+ <layer name="Tile Layer 4" width="64" height="48">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3VsQnAMAxFQUE2yf4TZZqUMSaFC6dQ/j1QazghcJUkSZK01nn0H37+Dv6rnkn1j3tI8s/mVP94A/xZ/nkXyf6db/P38Cf//+n+tz0k+r8Yfn5+fn5+fn5+fn5+fn5+fn5+fn5+/j/6b7fXmBgAMAAA
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="64" height="48">
+  <object type="collidable" x="447" y="497" width="16" height="272"/>
+  <object name="start" type="start" x="266" y="193" width="27" height="18"/>
+  <object name="end" type="end" x="961" y="705" width="61" height="60"/>
+  <object type="collidable" x="833" y="163" width="14" height="95"/>
+  <object type="collidable" x="243" y="402" width="202" height="14"/>
+  <object type="collidable" x="466" y="401" width="78" height="15"/>
+  <object type="collidable" x="623" y="402" width="397" height="13"/>
+  <object type="collidable" x="450" y="303" width="12" height="110"/>
+  <object type="collidable" x="834" y="338" width="12" height="139"/>
+  <object type="collidable" x="627" y="609" width="397" height="13"/>
+  <object type="collidable" x="358" y="608" width="153" height="14"/>
+  <object type="collidable" x="819" y="625" width="11" height="61"/>
+  <object name="door2" type="door" x="418" y="421" width="81" height="71">
+   <properties>
+    <property name="initialState" value="closed"/>
+   </properties>
+  </object>
+  <object name="door4" type="door" x="792" y="480" width="81" height="71">
+   <properties>
+    <property name="initialState" value="closed"/>
+   </properties>
+  </object>
+  <object type="collidable" x="837" y="556" width="11" height="61"/>
+  <object name="door1" type="door" x="244" y="578" width="108" height="72">
+   <properties>
+    <property name="initialState" value="closed"/>
+   </properties>
+  </object>
+  <object name="door3" type="door" x="515" y="576" width="108" height="72">
+   <properties>
+    <property name="initialState" value="closed"/>
+   </properties>
+  </object>
+  <object name="door5" type="door" x="770" y="689" width="108" height="72">
+   <properties>
+    <property name="initialState" value="open"/>
+   </properties>
+  </object>
+  <object name="button1" type="button" x="928" y="226" width="38" height="32">
+   <properties>
+    <property name="activates" value="door2, door3, door5"/>
+   </properties>
+  </object>
+  <object name="button2" type="button" x="291" y="478" width="38" height="32">
+   <properties>
+    <property name="activates" value="door1, door2"/>
+   </properties>
+  </object>
+  <object name="button3" type="button" x="638" y="492" width="38" height="32">
+   <properties>
+    <property name="activates" value="door2, door4"/>
+   </properties>
+  </object>
+  <object name="button4" type="button" x="924" y="495" width="38" height="32">
+   <properties>
+    <property name="activates" value="door3, door5"/>
+   </properties>
+  </object>
+  <object name="button5" type="button" x="303" y="676" width="38" height="32">
+   <properties>
+    <property name="activates" value="door3, door4"/>
+   </properties>
+  </object>
+  <object name="button6" type="button" x="582" y="692" width="38" height="32">
+   <properties>
+    <property name="activates" value="door4"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="Tile Layer 2" width="64" height="48">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3XSwqAMAwA0Xr/m3hKcelG6I9pknngNs0ggm1NkiRJiuu+6A1Y9tMbsOynN2BV75dOVv37tD/2/Fn2x54/K1P/e9aqZ/f8nnMjy9jUw356A1b1/tNVfz/20xuwMv3/jbA/9vxZVfpX3D8y3n92nnnKu/9jf8zZq9hPb8Cyn96AZT+9wdcDHbQxYgAwAAA=
+  </data>
+ </layer>
+</map>

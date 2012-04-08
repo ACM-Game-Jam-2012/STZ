@@ -5,4 +5,5 @@
 	<resource key="level3" location="maps/level3.tmx" />
 	<resource key="level4" location="maps/level4.tmx" />
 	<resource key="level5" location="maps/level5.tmx" />
+	<resource key="level6" location="maps/level6.tmx" />
 </resources>
