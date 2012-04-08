@@ -18,8 +18,8 @@ public class Player{
 	public static final float DELTA_X = 0.25f;
 	public static final float DELTA_Y = 0.25f;
 
-	public static final int WIDTH = 50;
-	public static final int HEIGHT = 50;
+	public static final int WIDTH = 48;
+	public static final int HEIGHT = 48;
 	
 	private float xPos = 0;
 	private float yPos = 0;
