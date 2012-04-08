@@ -29,8 +29,14 @@ public class MainMenuState extends BasicGameState {
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
-		
 		selection = 0;
+	}
+	
+	@Override
+	public void enter(GameContainer container, StateBasedGame game) {
+		// Clear the isKeyPressed checks still existing
+		container.getInput().isKeyPressed(Input.KEY_DOWN);
+		container.getInput().isKeyPressed(Input.KEY_UP);
 	}
 
 	@Override
