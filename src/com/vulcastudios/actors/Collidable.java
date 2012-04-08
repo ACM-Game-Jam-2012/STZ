@@ -66,7 +66,7 @@ public class Collidable {
 	
 		Color prev = g.getColor();
 		g.setColor(Color.cyan);
-		g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+		//g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 		g.setColor(prev);
 		
 	}
