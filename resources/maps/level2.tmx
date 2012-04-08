@@ -33,7 +33,7 @@
  </layer>
  <layer name="detail" width="64" height="48">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3VOQrCUBSF4Qs2gTRZhTZOjUPrrBsQOy3dh9M+XKlHUAjPvDQW4rv/B6dJlT8heWYAAAAAAAAAAOBbh8bntX3FtVTRb9bNzHqv9TP6PfU/hf139W+D7RJ+JmH/2yQ3m2qzvPo/8U+a6mpF1o70z9W90JYJ9Jffcd3K/St1r7VNQv0DbVSzceT7PybSX36/ntBPP/30d4Kz34vY+e/FMHLee3cqzM7aRbtqt+LXdwQAgD8PCfKfcQAwAAA=
+   H4sIAAAAAAAAC+3VPQ6CQBCG4UlsKPcU0ijagJ6E2EnpPfzhHp7UMbEw6842FsaZ90m+hooXAisCAAAAAAAAAAC+NS0+rx0L17yiX6RrRDavbRv6I/U/5f137R+zHRw/k7y/pPSf+CdL7WqNrQL0v7/j2rz397pdZXvj+z856bfer3f0008//evs7I/COv+jGIzzPrpzErnorrqbbk6/viMAAOJ5AEZZBzEAMAAA
   </data>
  </layer>
  <objectgroup name="objects" width="64" height="48">
