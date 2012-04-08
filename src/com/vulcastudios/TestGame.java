@@ -59,9 +59,9 @@ public class TestGame extends StateBasedGame {
 		this.addState(new LoadState(this.rm));
 		this.addState(new MainMenuState());
 		this.addState(new InGameState());
-		this.addState(new ControlsState());
-		this.addState(new GameOptionsState());
-		this.addState(new CreditsState());
+		this.addState(new ControlsState(this.rm));
+		this.addState(new GameOptionsState(this.rm));
+		this.addState(new CreditsState(this.rm));
 		this.addState(new TransitionState());
 	}
 

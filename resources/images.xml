@@ -9,4 +9,7 @@
 	<resource key="selector" location="images/cog_selector.png" />
 	<resource key="door" location="images/door.png" />
 	<resource key="button" location="images/button.png" />
+	<resource key="creditsScreen" location="images/CreditsScreen.png" />
+	<resource key="optionsScreen" location="images/OptionsScreen.png" />
+	<resource key="loadingScreen" location="images/LoadingScreen.png" />
 </resources>
