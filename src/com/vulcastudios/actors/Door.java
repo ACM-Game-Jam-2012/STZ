@@ -1,5 +1,10 @@
 package com.vulcastudios.actors;
 
+import org.newdawn.slick.Color;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.state.StateBasedGame;
+
 public class Door {
 
 	private String name;
@@ -69,4 +74,15 @@ public class Door {
 		this.open = open;
 	}
 	
+	public void render(GameContainer container, StateBasedGame game, Graphics g){
+		
+		Color prev = g.getColor();
+		if(this.isOpen())
+			g.setColor(Color.white);
+		else
+			g.setColor(Color.orange);
+		g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+		g.setColor(prev);
+		
+	}
 }

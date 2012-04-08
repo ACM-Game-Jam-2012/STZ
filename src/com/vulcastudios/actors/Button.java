@@ -1,5 +1,10 @@
 package com.vulcastudios.actors;
 
+import org.newdawn.slick.Color;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.state.StateBasedGame;
+
 public class Button {
 
 	private String name;
@@ -67,6 +72,15 @@ public class Button {
 
 	public void setDown(boolean down) {
 		this.down = down;
+	}
+	
+	public void render(GameContainer container, StateBasedGame game, Graphics g){
+	
+		Color prev = g.getColor();
+		g.setColor(Color.cyan);
+		g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+		g.setColor(prev);
+		
 	}
 	
 }

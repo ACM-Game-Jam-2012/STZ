@@ -2,6 +2,8 @@ package com.vulcastudios.actors;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -32,10 +34,13 @@ public class Level {
 			for(int j = 0; j < map.getObjectCount(i); j++){
 				String name = map.getObjectName(i, j);
 				String type = map.getObjectType(i, j);
+				System.out.println(name+":"+type);
 				if(type.equals("door")){
+					System.out.println("door");
 					doors.put(name, new Door(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j)));
 				}
 				else if(type.equals("button")){
+					System.out.println("button");
 					buttons.put(name, new Button(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j)));
 				}
 			}
@@ -76,6 +81,16 @@ public class Level {
 		
 		for (Zombie zombie : zombies) {
 			zombie.render(container, g);
+		}
+
+		Set<Entry<String, Button>> buttonEntries = buttons.entrySet();
+		for(Entry<String, Button> entry : buttonEntries){
+			entry.getValue().render(container, game, g);
+		}
+		
+		Set<Entry<String, Door>> doorsEntries = doors.entrySet();
+		for(Entry<String, Door> entry : doorsEntries){
+			entry.getValue().render(container, game, g);
 		}
 		
 		player.render(container, game, g);
