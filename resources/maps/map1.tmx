@@ -35,8 +35,16 @@
   </data>
  </layer>
  <objectgroup name="Object Layer 1" width="100" height="100">
-  <object name="button1" type="button" x="577" y="163" width="28" height="26"/>
-  <object name="door1" type="door" x="448" y="191" width="32" height="130"/>
+  <object name="button1" type="button" x="577" y="163" width="28" height="26">
+   <properties>
+    <property name="activates" value="door1"/>
+   </properties>
+  </object>
+  <object name="door1" type="door" x="448" y="191" width="32" height="130">
+   <properties>
+    <property name="initialState" value="open"/>
+   </properties>
+  </object>
   <object name="end" type="end" x="608" y="512" width="95" height="94"/>
  </objectgroup>
 </map>

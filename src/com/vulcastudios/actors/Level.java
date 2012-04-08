@@ -36,14 +36,13 @@ public class Level {
 			for(int j = 0; j < map.getObjectCount(i); j++){
 				String name = map.getObjectName(i, j);
 				String type = map.getObjectType(i, j);
-				System.out.println(name+":"+type);
 				if(type.equals("door")){
-					System.out.println("door");
-					doors.put(name, new Door(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j)));
+					String initialState = map.getObjectProperty(i, j, "initialState", "closed");
+					doors.put(name, new Door(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), initialState));
 				}
 				else if(type.equals("button")){
-					System.out.println("button");
-					buttons.put(name, new Button(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j)));
+					String activates = map.getObjectProperty(i, j, "activates", "door"+name.substring(6));
+					buttons.put(name, new Button(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), activates));
 				}
 			}
 		}
@@ -114,7 +113,7 @@ public class Level {
 	
 	public void update(GameContainer container, StateBasedGame game, int delta){
 		for(Entry<String, Door> entry : doors.entrySet()){
-			entry.getValue().setOpen(false);
+			entry.getValue().setOpen(entry.getValue().isInitialOpen());
 		}
 		
 		((TestGame)game).checkObjects(player);

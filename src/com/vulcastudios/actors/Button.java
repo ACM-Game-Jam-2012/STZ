@@ -9,6 +9,7 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Button {
 
 	private String name;
+	private String activates;
 	
 	private int x;
 	private int y;
@@ -19,12 +20,13 @@ public class Button {
 	
 	private Level myLevel;
 	
-	public Button(Level myLevel, String name, int x, int y, int width, int height){
+	public Button(Level myLevel, String name, int x, int y, int width, int height, String activates){
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.myLevel = myLevel;
+		this.setActivates(activates);
 	}
 
 	public String getName() {
@@ -86,6 +88,14 @@ public class Button {
 	
 	public Rectangle getBounds(){
 		return new Rectangle(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+	}
+
+	public String getActivates() {
+		return activates;
+	}
+
+	public void setActivates(String activates) {
+		this.activates = activates;
 	}
 	
 }
