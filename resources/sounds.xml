@@ -1,3 +1,5 @@
 <resources>
 	<resource key="menu_button" location="sounds/menu_button.ogg" />
+	<resource key="death_f" location="sounds/death_f.ogg" />
+	<resource key="AHHH2" location="sounds/AHHH2.ogg" />
 </resources>

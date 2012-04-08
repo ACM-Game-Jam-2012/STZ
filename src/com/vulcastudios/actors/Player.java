@@ -30,6 +30,8 @@ public class Player{
 
 	private ResourceManager rm;
 	
+	private Button onButton = null;
+	
 	public Player(ResourceManager rm, int xPos, int yPos){
 		this.alive = true;
 		this.rm = rm;
@@ -144,5 +146,17 @@ public class Player{
 	
 	public void setAlive(boolean alive){
 		this.alive = alive;
+	}
+	
+	public void setOnButton(Button b){
+		if(b == null){
+			this.onButton = null;
+		}else if(this.onButton == null){
+			this.onButton = b;
+			this.rm.getSound("menu_button").play();
+		}else if(!this.onButton.getName().equals(b.getName())){
+			this.onButton = b;
+			this.rm.getSound("menu_button").play();
+		}
 	}
 }
