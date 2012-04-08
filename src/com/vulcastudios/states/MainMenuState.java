@@ -37,6 +37,7 @@ public class MainMenuState extends BasicGameState {
 		// Clear the isKeyPressed checks still existing
 		container.getInput().isKeyPressed(Input.KEY_DOWN);
 		container.getInput().isKeyPressed(Input.KEY_UP);
+		container.getInput().isKeyPressed(Input.KEY_ESCAPE);
 	}
 
 	@Override
@@ -66,6 +67,8 @@ public class MainMenuState extends BasicGameState {
 			}
 		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
 			this.enterSelection(container, game);
+		}else if (container.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
+			container.exit();
 		}
 		
 		
