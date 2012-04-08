@@ -3,6 +3,7 @@ package com.vulcastudios.actors;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -21,6 +22,8 @@ public class Door {
 	private boolean initialOpen;
 
 	private ResourceManager rm;
+	
+	private Image image;
 
 	public Door(ResourceManager rm, String name, int x, int y, int width, int height, String initialState){
 		this.x = x;
@@ -90,10 +93,13 @@ public class Door {
 	public void render(GameContainer container, StateBasedGame game, Graphics g){
 
 		Color prev = g.getColor();
-		if(this.isOpen())
+		if(this.isOpen()){
 			g.setColor(Color.white);
-		else
+		}
+		else{
+			g.drawImage(this.getImage(), this.getX(), this.getY());
 			g.setColor(Color.orange);
+		}
 		g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 		g.setColor(prev);
 
@@ -109,6 +115,12 @@ public class Door {
 
 	public void setInitialOpen(boolean initialOpen) {
 		this.initialOpen = initialOpen;
+	}
+	
+	public Image getImage(){
+		if(this.image == null)
+			this.image = rm.getImage("door").getScaledCopy(this.getWidth(), this.getHeight());
+		return this.image;
 	}
 
 
