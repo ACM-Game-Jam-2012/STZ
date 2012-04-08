@@ -133,7 +133,18 @@ public class Level {
 		for(Entry<String, Door> entry : doors.entrySet()){
 			entry.getValue().setOpen(entry.getValue().isInitialOpen());
 		}
-
+		
+		((TestGame)game).checkObjects(player);
+		for (Zombie zombie : zombies) {
+			((TestGame)game).checkObjects(zombie);
+		}
+		
+		player.update(container, game, delta);
+		
+		for (Zombie zombie : zombies) {
+			zombie.update(container, game, delta);
+		}
+		
 		for(SteamEmitter steamEmitter : steamEmitters){
 			steamEmitter.update(container, game, delta);
 		}
@@ -149,17 +160,6 @@ public class Level {
 		
 		for(Steam steam : deadSteams){
 			steams.remove(steam);
-		}
-		
-		((TestGame)game).checkObjects(player);
-		for (Zombie zombie : zombies) {
-			((TestGame)game).checkObjects(zombie);
-		}
-		
-		player.update(container, game, delta);
-		
-		for (Zombie zombie : zombies) {
-			zombie.update(container, game, delta);
 		}
 		
 		if (container.getInput().isKeyPressed(Input.KEY_SPACE) || !player.isAlive()) {

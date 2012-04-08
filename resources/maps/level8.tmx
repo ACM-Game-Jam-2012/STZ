@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="64" height="48" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="par" value="1"/>
+ </properties>
+ <tileset firstgid="1" name="tileset-blackvolution" tilewidth="16" tileheight="16">
+  <image source="tileset-blackvolution.png" width="128" height="1472"/>
+ </tileset>
+ <tileset firstgid="737" name="tileset-shinygold" tilewidth="16" tileheight="16">
+  <image source="tileset-shinygold.png" width="128" height="4300"/>
+ </tileset>
+ <tileset firstgid="2881" name="button" tilewidth="16" tileheight="16">
+  <image source="button.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="2890" name="cactus" tilewidth="16" tileheight="16">
+  <image source="cactus.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="2899" name="tileset-advance" tilewidth="16" tileheight="16">
+  <image source="tileset-advance.png" width="128" height="8192"/>
+ </tileset>
+ <tileset firstgid="6995" name="door" tilewidth="16" tileheight="16">
+  <image source="door.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="7011" name="steampipe" tilewidth="16" tileheight="16">
+  <image source="steampipe.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Tile Layer 2" width="64" height="48">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3RMQrAIBBFwQXJebx/78FygLWSBMWdB7+z2MEISZIkSX/UW9548mbvboiff3U3xM/Pz8/Pz8/Pz8/Pz5+tlf3V/5+fn5+fn5+fn3/35d9U3S9J0im9EiA9PAAwAAA=
+  </data>
+ </layer>
+ <layer name="Tile Layer 1" width="64" height="48">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2ZMQrCQBBF9xJWG9BLaKGtWiheILfSC4gewTNY6A1irUWsNb0jKMhkAuMShZ39Dz5kYAN5u8kkS5wDAAAAAAC/YpSFJ3b23rl5Fp5O5HPQp+sffDicaT4uXje2S8c9+EcNd7qR+51SsTkY05gJZWrc/xvgb9N/SPXS17Niz4RV/xnVG1/PNhH//FXznrdLxF8L/OFvwV/T6w9UH4VY8Nf0+oLqkxAL/nytJUoacxXuCQv+fK21FEb8QymN+KP/pd3/NO//d//jScVfwsr3D/zDzoU//OHf7vX8G/jDH/5h51rxl/Y12jT9K4yFdcO+RptF5Ov/RNrXaAMAAKBdHnX+zlMAMAAA
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="64" height="48">
+  <object name="button1" type="button" x="608" y="592" width="48" height="48">
+   <properties>
+    <property name="activates" value="door1,door2,door3"/>
+   </properties>
+  </object>
+  <object type="start" x="448" y="608" width="16" height="16"/>
+  <object type="end" x="512" y="176" width="80" height="48"/>
+  <object type="steamEmitter" x="432" y="400" width="16" height="16">
+   <properties>
+    <property name="direction" value="right"/>
+   </properties>
+  </object>
+  <object type="steamEmitter" x="656" y="400" width="16" height="16">
+   <properties>
+    <property name="direction" value="left"/>
+   </properties>
+  </object>
+  <object name="door2" type="door" x="464" y="384" width="16" height="64">
+   <properties>
+    <property name="initialState" value="down"/>
+   </properties>
+  </object>
+  <object name="door3" type="door" x="624" y="384" width="16" height="64">
+   <properties>
+    <property name="initialState" value="down"/>
+   </properties>
+  </object>
+  <object name="door1" type="door" x="528" y="432" width="48" height="48">
+   <properties>
+    <property name="initialState" value="down"/>
+   </properties>
+  </object>
+  <object type="collidable" x="416" y="160" width="16" height="512"/>
+  <object type="collidable" x="672" y="160" width="16" height="512"/>
+  <object type="collidable" x="432" y="160" width="240" height="16"/>
+  <object type="collidable" x="496" y="176" width="16" height="48"/>
+  <object type="collidable" x="592" y="176" width="16" height="48"/>
+  <object type="collidable" x="496" y="272" width="112" height="16"/>
+  <object type="collidable" x="544" y="288" width="16" height="16"/>
+  <object type="collidable" x="432" y="368" width="96" height="16"/>
+  <object type="collidable" x="432" y="448" width="96" height="16"/>
+  <object type="collidable" x="576" y="448" width="96" height="16"/>
+  <object type="collidable" x="432" y="656" width="240" height="16"/>
+  <object type="collidable" x="576" y="368" width="96" height="16"/>
+ </objectgroup>
+</map>

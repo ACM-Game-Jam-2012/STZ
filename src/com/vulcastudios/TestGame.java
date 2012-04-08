@@ -21,6 +21,7 @@ import com.vulcastudios.actors.Level;
 import com.vulcastudios.actors.Player;
 import com.vulcastudios.actors.Steam;
 import com.vulcastudios.actors.Zombie;
+import com.vulcastudios.actors.ZombieMove;
 import com.vulcastudios.states.ControlsState;
 import com.vulcastudios.states.CreditsState;
 import com.vulcastudios.states.GameOptionsState;
@@ -165,9 +166,22 @@ public class TestGame extends StateBasedGame {
 
 	public boolean checkCollision(Steam s){
 
-		boolean playerCol = this.getCurrentLevel().getPlayer().getBounds().intersects(s.getBounds());
-		if(playerCol)
-			this.getCurrentLevel().getPlayer().setAlive(false);
+		Player p = this.getCurrentLevel().getPlayer();
+		boolean playerCol = p.getBounds().intersects(s.getBounds());
+		if(playerCol){
+			p.setAlive(false);
+			ZombieMove move = new ZombieMove();
+			if(p.getXPos() > s.getX())
+				move.addLeft();
+			if(p.getXPos() < s.getX())
+				move.addRight();
+			if(p.getYPos() > s.getY())
+				move.addUp();
+			if(p.getYPos() < s.getY())
+				move.addDown();
+			p.getMovementMap().add(move);
+				
+		}
 
 		boolean zombieCol = false;
 		for(Zombie zombie : this.getCurrentLevel().getZombies()){
