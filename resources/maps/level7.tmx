@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="64" height="48" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="par" value="4"/>
+ </properties>
+ <tileset firstgid="1" name="tileset-blackvolution" tilewidth="16" tileheight="16">
+  <image source="tileset-blackvolution.png" width="128" height="1472"/>
+ </tileset>
+ <tileset firstgid="737" name="tileset-shinygold" tilewidth="16" tileheight="16">
+  <image source="tileset-shinygold.png" width="128" height="4300"/>
+ </tileset>
+ <tileset firstgid="2881" name="button" tilewidth="16" tileheight="16">
+  <image source="button.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="2890" name="cactus" tilewidth="16" tileheight="16">
+  <image source="cactus.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="2899" name="tileset-advance" tilewidth="16" tileheight="16">
+  <image source="tileset-advance.png" width="128" height="8192"/>
+ </tileset>
+ <tileset firstgid="6995" name="door" tilewidth="16" tileheight="16">
+  <image source="door.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="7011" name="steampipe" tilewidth="16" tileheight="16">
+  <image source="steampipe.png" width="256" height="256"/>
+ </tileset>
+ <layer name="Tile Layer 3" width="64" height="48">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3UQQpAQBiG4b+Uo2DnEthYKvc/CnZSU1gY8bz17WYxT1MTIUmSJJ2rKiLqw5p1bWJdGdGvG8r0mad3t9z35ufnz+cfX/SH5fBPP/dv5b47Pz8//37zxX/5a/6/vz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/Pz8/P/8CGs3rxwAwAAA=
+  </data>
+ </layer>
+ <layer name="Tile Layer 4" width="64" height="48">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2ZyU5UQRSGW9gpCRjd3ZsAW8GgW5GdsmB4AWUJbFmgxj0P4PAE6jv4ABIx6k6mgK5UIN1MiVFJ1IX8J80JlaL79q256NSffCFF13D/PlV163RVKklJSUlJSUlJ7aPXWTHvM71+36DdIngKnoHn4FZeqQyD2/nZ8rAnaKy3GHsJvDv5W8QXTf+f0G4ZvAAvwSswhrHHwUR+tjzuCRprFWOvnfhay4rZ0/T/Fe2+SW3vYez7YCrX69OGvuOZtsB2SV//LPjf6sJ4YKdLry+bUvHfjTj1aMZK9L8P3wfgEGTo7w64C0YDzAMV/714vj4L/lnX0NcAGATXA60BFf9DeMYbhv6b7f8jgfz/xHP8Ar8dx580X7D/TwbcA8vK1P+C5t4Zi2zE/zzLZP2TdOLP58YYZPL+I+nEn8+NMcjn+qc84wP42OC9aVPsqb+EL9P5rxL/DdTdBJ8dz38V/z7jX0XdGth1PP99+i+bO4k5dqNzo03xnL7pYf5T7jQtMNvE14ZQ5wrGu5rX61J5xgGbinV1Rev/gcCjJn1VpXoPC+o+bvD/WlYecf63qruS1X8rMPEfm1TWP+dKuorx/Kvin3MlXcUYf5X9L8T57z+1wZgXIsgPQ+R//J1fjsC/z/OfqCeRrBvT9a+7/8XiP1T+3y7+Y4i/vJ+q7C/tEH/Zb0z5X7O7RZv+Zb8q73/X8ae8h+8hGc5/loTPikT1VeC+eaxWdV36r0qfc/7P95PrlvdBzmcudtb50YF8u+O0TPyVyr7Xv3g/s2PZP/fN3v7Aa03yK+Pbv3g/c+TYfxlC7P+6d+6txN+tiv8Q519X/kmit1aauxQm/3XpX0Xk3+RZkv/Tew0VaM9RbWML8ixick9P5z++1zgv0N28fE9/DEa5LL4AMAAA
+  </data>
+ </layer>
+ <layer name="Tile Layer 5" width="64" height="48">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2YS07EMAyGq9mx7bI3A1bACrgB9+Ap8bwaZTdzh3EFkUKUdOzYbjyVP+mXqhkl6p/EtZ2ucxzHcRzHcRyHw9jz9NPLvcvdidxcWLZ9vaj+T8HfGei8gc85noauewa9DLjnifFvDXYE/xfg+xJ0Zcz/B3j6BH0NuOeJ4J2y/9fg+wZ0e8C/RmxJE/zn9p8bxzWxJQE2Pid/c/65tPJPic/gn5s/ctpGz0sQzis2PifiPdKUVUIO3ClLEqv5dym4+ffQdz38b3WdKfHNobTOLepbKvdQ3zyAHof6OZZaZw1ewfcb6J3h3zle0j5HGon40iTtc6SxEF+SdRv2TsTSt1+6Vk8V122WfAdK702998n9Tr0TaUF6Tql7FI+Px8b7b7n/4d6vlMZr9EMaSPrP7X9QnEtr4mwJ/zXfp9z65ebRzqW1xPmvdrz1+8k5JM6/9fuZObh5Kvi3nudKlPxja/M1nP+cf2xtLu1/3Pwq/U0Lbn6Rvp/P+ddEIv7XeP4p44N/bC9J5XvzX5JI+Y/n4dSxubXURCL+qb0i5pwce1zloJwT7bq/Ba17nTWxBy/kOpIAMAAA
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="64" height="48">
+  <object type="steamEmitter" x="400" y="352" width="16" height="16">
+   <properties>
+    <property name="direction" value="left"/>
+   </properties>
+  </object>
+  <object type="collidable" x="224" y="144" width="16" height="624"/>
+  <object type="collidable" x="240" y="160" width="608" height="16"/>
+  <object type="collidable" x="448" y="304" width="16" height="112"/>
+  <object type="collidable" x="400" y="352" width="48" height="16"/>
+  <object type="collidable" x="240" y="256" width="112" height="16"/>
+  <object type="collidable" x="336" y="208" width="16" height="48"/>
+  <object type="collidable" x="832" y="176" width="16" height="80"/>
+  <object type="collidable" x="848" y="144" width="176" height="16"/>
+  <object type="collidable" x="1008" y="160" width="16" height="608"/>
+  <object type="collidable" x="240" y="400" width="64" height="16"/>
+  <object type="collidable" x="384" y="400" width="64" height="16"/>
+  <object type="collidable" x="464" y="400" width="544" height="16"/>
+  <object type="collidable" x="832" y="336" width="16" height="64"/>
+  <object type="collidable" x="832" y="416" width="16" height="64"/>
+  <object type="collidable" x="352" y="608" width="96" height="16"/>
+  <object type="collidable" x="464" y="608" width="48" height="16"/>
+  <object type="collidable" x="624" y="608" width="384" height="16"/>
+  <object type="collidable" x="832" y="560" width="16" height="48"/>
+  <object type="collidable" x="816" y="624" width="16" height="64"/>
+  <object type="collidable" x="448" y="496" width="16" height="272"/>
+  <object type="collidable" x="240" y="752" width="768" height="16"/>
+  <object type="start" x="272" y="208" width="16" height="16"/>
+  <object type="end" x="944" y="688" width="48" height="48"/>
+  <object type="collidable" x="352" y="208" width="192" height="16"/>
+  <object type="steamEmitter" x="768" y="576" width="16" height="16">
+   <properties>
+    <property name="direction" value="up"/>
+   </properties>
+  </object>
+  <object name="button1" type="button" x="928" y="224" width="48" height="48">
+   <properties>
+    <property name="activates" value="door1"/>
+   </properties>
+  </object>
+  <object name="door1" type="door" x="304" y="384" width="80" height="64">
+   <properties>
+    <property name="initialState" value="down"/>
+   </properties>
+  </object>
+  <object name="door2" type="door" x="512" y="576" width="112" height="80">
+   <properties>
+    <property name="initialState" value="down"/>
+   </properties>
+  </object>
+  <object name="button2" type="button" x="928" y="496" width="48" height="48">
+   <properties>
+    <property name="activates" value="door2"/>
+   </properties>
+  </object>
+  <object type="collidable" x="400" y="368" width="48" height="32"/>
+  <object type="collidable" x="784" y="416" width="48" height="32"/>
+  <object type="collidable" x="384" y="624" width="48" height="16"/>
+  <object type="collidable" x="944" y="672" width="64" height="16"/>
+  <object type="collidable" x="944" y="736" width="64" height="16"/>
+  <object type="collidable" x="992" y="688" width="16" height="48"/>
+  <object type="collidable" x="704" y="528" width="48" height="16"/>
+  <object type="collidable" x="400" y="416" width="48" height="16"/>
+ </objectgroup>
+</map>
