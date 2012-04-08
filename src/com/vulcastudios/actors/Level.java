@@ -83,10 +83,6 @@ public class Level {
 	public void render(GameContainer container, StateBasedGame game, Graphics g){
 		map.render(0, 0, 0, 0, 100, 100);
 		
-		for (Zombie zombie : zombies) {
-			zombie.render(container, g);
-		}
-
 		Set<Entry<String, Button>> buttonEntries = buttons.entrySet();
 		for(Entry<String, Button> entry : buttonEntries){
 			entry.getValue().render(container, game, g);
@@ -95,6 +91,10 @@ public class Level {
 		Set<Entry<String, Door>> doorsEntries = doors.entrySet();
 		for(Entry<String, Door> entry : doorsEntries){
 			entry.getValue().render(container, game, g);
+		}
+		
+		for (Zombie zombie : zombies) {
+			zombie.render(container, g);
 		}
 		
 		player.render(container, game, g);

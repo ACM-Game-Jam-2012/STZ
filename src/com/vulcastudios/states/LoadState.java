@@ -47,10 +47,11 @@ public class LoadState extends BasicGameState {
 		
 		/*IntBuffer o = ByteBuffer.allocateDirect(200).asIntBuffer();
 		GL11.glGetInteger(GL11.GL_MAX_TEXTURE_SIZE, o);
-		System.err.println("GL_MAX_TEXTURE_SIZE: " + o.get());
+		System.err.println("GL_MAX_TEXTURE_SIZE: " + o.get());*/
+		
 		LoadingBar lb = new LoadingBar(5, container.getHeight()-35, container.getWidth()-10, 30);
 		lb.setProgress(this.rm.getProgress());
-		lb.render(container, game, g);*/
+		lb.render(container, game, g);
 		
 		g.drawString("VulcaStudios", (container.getWidth()/2)-75, (container.getHeight()/2-150));
 
@@ -86,6 +87,7 @@ public class LoadState extends BasicGameState {
 			((TestGame)game).addLevel(new Level("map1", this.rm));
 			((TestGame)game).addLevel(new Level("level1", this.rm));
 			((TestGame)game).addLevel(new Level("level2", this.rm));
+			((TestGame)game).addLevel(new Level("level3", this.rm));
 			((TestGame)game).getCurrentLevel().initLevel();
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
 		}
