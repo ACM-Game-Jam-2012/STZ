@@ -1,5 +1,5 @@
 <resources>
 	<resource key="Toccata_et_Fugue" location="music/Toccata_et_Fugue_BWV565.ogg"/>
 	<resource key="eva_2.0_destiny" location="music/eva_2.0_destiny.ogg"/>
-	<resource key="bad_ogg" location="music/bad_ugly.ogg"/>
+	<resource key="bad_ugly" location="music/bad_ugly.ogg"/>
 </resources>

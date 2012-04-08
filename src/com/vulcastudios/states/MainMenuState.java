@@ -6,6 +6,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -25,6 +26,9 @@ public class MainMenuState extends BasicGameState {
 	private final int OPTIONS = 2;
 	private final int CREDITS = 3;
 	private final int EXIT = 4;
+	
+	private Music title_song = null;
+	
 
 	public MainMenuState(int x, int y){
 		this.x = x;
@@ -69,6 +73,13 @@ public class MainMenuState extends BasicGameState {
 		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
 			this.enterSelection(container, game);
 		}
+		
+		
+		//play Title Screen song
+		title_song = ((TestGame)game).getResourceManager().getMusic("bad_ugly");
+		if(title_song != null && !title_song.playing()){
+			title_song.loop();
+		}
 	}
 
 	@Override
@@ -80,6 +91,8 @@ public class MainMenuState extends BasicGameState {
 		switch(selection) {
 			case PLAY:
 				System.out.println(menuStrings.get(PLAY));
+				//Stop Title Screen song
+				title_song.fade(2000, 0, true);
 				game.enterState(TestGame.IN_GAME_STATE);
 				break;
 			case CONTROLS:
