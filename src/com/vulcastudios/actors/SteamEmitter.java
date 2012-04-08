@@ -13,6 +13,8 @@ import com.vulcastudios.util.ResourceManager;
 
 public class SteamEmitter {
 
+	public static final int EMIT_WAIT_TIME = 80;
+	
 	private String name;
 	private String direction;
 
@@ -24,6 +26,8 @@ public class SteamEmitter {
 	private ResourceManager rm;
 	private List<Steam> steams;
 	private Steam lastSteam;
+	
+	private int emitWaited = 0;
 	
 	private Image image;
 
@@ -93,9 +97,13 @@ public class SteamEmitter {
 			lastSteam = new Steam(this.rm, (int)r.getX(), (int)r.getY(), (int)r.getWidth(), (int)r.getHeight(), this.direction);
 			steams.add(lastSteam);
 		}
-		if(!lastSteam.getBounds().intersects(r)){
+		
+		this.emitWaited += delta;
+		
+		if(this.emitWaited >= SteamEmitter.EMIT_WAIT_TIME){
 			lastSteam = new Steam(this.rm, (int)r.getX(), (int)r.getY(), (int)r.getWidth(), (int)r.getHeight(), this.direction);
 			steams.add(lastSteam);
+			this.emitWaited = 0;
 		}
 	}
 

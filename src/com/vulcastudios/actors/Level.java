@@ -90,9 +90,9 @@ public class Level {
 	public void render(GameContainer container, StateBasedGame game, Graphics g){
 		map.render(0, 0, 0, 0, 100, 100);
 		
-		for(SteamEmitter steamEmitter : steamEmitters){
+		/*for(SteamEmitter steamEmitter : steamEmitters){
 			steamEmitter.render(container, game, g);
-		}
+		}*/
 		for(Steam steam : steams){
 			steam.render(container, game, g);
 		}
