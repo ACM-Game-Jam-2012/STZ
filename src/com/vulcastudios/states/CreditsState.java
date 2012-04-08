@@ -27,7 +27,7 @@ public class CreditsState extends BasicGameState {
 		g.drawString("Taylor Paschal", 50, 125);
 		g.drawString("Stephanie Reese", 50, 150);
 		g.drawString("Sam Thomas", 50, 175);
-		g.drawString("press esc to return to the main menu", 50, 225);
+		g.drawString("Press esc to return to the main menu", 50, 225);
 	}
 
 	@Override
