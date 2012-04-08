@@ -14,6 +14,7 @@ import org.newdawn.slick.tiled.TiledMap;
 import org.newdawn.slick.util.ResourceLoader;
 
 import com.vulcastudios.actors.Button;
+import com.vulcastudios.actors.Collidable;
 import com.vulcastudios.actors.Door;
 import com.vulcastudios.actors.Level;
 import com.vulcastudios.actors.Player;
@@ -96,8 +97,6 @@ public class TestGame extends StateBasedGame {
 	}
 
 	public boolean checkCollision(Player p){
-		TiledMap map = levels.get(currentLevelIndex).getMap();
-
 		boolean doorCol = false;
 
 		Set<Entry<String, Door>> doors = this.getCurrentLevel().getDoors().entrySet();
@@ -109,18 +108,18 @@ public class TestGame extends StateBasedGame {
 			}
 
 		}
+		
+		boolean collidableCollide = false;
+		
+		for(Collidable collidable : this.getCurrentLevel().getCollidables()){
+			if(p.getBounds().intersects(collidable.getBounds()))
+				collidableCollide = true;
+		}
 
-		int tileTL = map.getTileId((int)(p.getXPos()/map.getTileWidth()),(int)(p.getYPos()/map.getTileHeight()), 1);
-		int tileBL = map.getTileId((int)(p.getXPos()/map.getTileWidth()),(int)((p.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
-		int tileTR = map.getTileId((int)((p.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)(p.getYPos()/map.getTileHeight()), 1);
-		int tileBR = map.getTileId((int)((p.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)((p.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
-
-		return tileTL != 0 || tileBL != 0 || tileTR != 0 || tileBR != 0 || doorCol;
+		return collidableCollide || doorCol;
 	}
 
 	public boolean checkCollision(Zombie z){
-		TiledMap map = levels.get(currentLevelIndex).getMap();
-
 		boolean doorCol = false;
 
 		Set<Entry<String, Door>> doors = this.getCurrentLevel().getDoors().entrySet();
@@ -132,12 +131,15 @@ public class TestGame extends StateBasedGame {
 			}
 
 		}
+		
+		boolean collidableCollide = false;
+		
+		for(Collidable collidable : this.getCurrentLevel().getCollidables()){
+			if(z.getBounds().intersects(collidable.getBounds()))
+				collidableCollide = true;
+		}
 
-		int tile1 = map.getTileId((int)(z.getXPos()/map.getTileWidth()),(int)(z.getYPos()/map.getTileHeight()), 1);
-		int tile2 = map.getTileId((int)(z.getXPos()/map.getTileWidth()),(int)((z.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
-		int tile3 = map.getTileId((int)((z.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)(z.getYPos()/map.getTileHeight()), 1);
-		int tile4 = map.getTileId((int)((z.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)((z.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
-		return tile1 != 0 || tile2 != 0 || tile3 != 0 || tile4 != 0 || doorCol;
+		return collidableCollide || doorCol;
 	}
 	
 	public ResourceManager getResourceManager(){
