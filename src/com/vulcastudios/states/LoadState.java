@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 
 import org.lwjgl.opengl.GL11;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -49,12 +50,15 @@ public class LoadState extends BasicGameState {
 		GL11.glGetInteger(GL11.GL_MAX_TEXTURE_SIZE, o);
 		System.err.println("GL_MAX_TEXTURE_SIZE: " + o.get());*/
 		
+		Color previousColor = g.getColor();
+		
 		LoadingBar lb = new LoadingBar(5, container.getHeight()-35, container.getWidth()-10, 30);
 		lb.setProgress(this.rm.getProgress());
 		lb.render(container, game, g);
 		
 		g.drawString("VulcaStudios", (container.getWidth()/2)-75, (container.getHeight()/2-150));
 
+		g.setColor(previousColor);
 	}
 
 	@Override
