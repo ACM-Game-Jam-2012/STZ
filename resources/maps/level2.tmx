@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="64" height="48" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="tileset-blackvolution" tilewidth="16" tileheight="16">
+  <image source="tileset-blackvolution.png" width="128" height="1472"/>
+ </tileset>
+ <tileset firstgid="737" name="tileset-shinygold" tilewidth="16" tileheight="16">
+  <image source="tileset-shinygold.png" width="128" height="4300"/>
+ </tileset>
+ <tileset firstgid="2881" name="button" tilewidth="16" tileheight="16">
+  <image source="button.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="2890" name="cactus" tilewidth="16" tileheight="16">
+  <image source="cactus.png" width="48" height="48"/>
+ </tileset>
+ <tileset firstgid="2899" name="tileset-advance" tilewidth="16" tileheight="16">
+  <image source="tileset-advance.png" width="128" height="15971"/>
+ </tileset>
+ <tileset firstgid="10883" name="door" tilewidth="16" tileheight="16">
+  <image source="door.png" width="64" height="64"/>
+ </tileset>
+ <layer name="background" width="64" height="48">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2XTQ4BQRBGm166hdtghRWu4CxigVj4uaalrqQXE3RHRmVkqt5LvlmR9MvLdAgBAAAAAAAA2nJIewx0dvy3TAvEPwx1du347Bpo9u+rv/f+cnb6/74++zc7futL/2Cyv6f3/yIPx/3Hsbzt6PNq37HCruK/N+RZwrv/qeJ/NuTP/R9c3//i7/n/H/3pT3/60/99k/Q7Z5o3i/76z5PzIm8Zy5+z2v/Vn/71WfNfJed13sao/00eSvf/veOzAwAAeOAJVCojOQAwAAA=
+  </data>
+ </layer>
+ <layer name="moreDetail" width="64" height="48">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2YvQ4BQRRGh21GVOKd8AToaCRqOjoSvwkqVKjwmL5ii5u7EzYImZnvJCdb3EyyZ3M32awxhBBCCCGEEEI+ZZYYM4cLeIJneIE1WE9tqJk84zsbNGzhDl7hDd4d/XImz/jOHg0HeFRdul/O5Bnfkbssu3S/nIW6/7JL98sZ95/7z/0PY/9lS979D6lf7nXe/Q/h/V/i3lcOX+E6s/b4ORBCyDMGNuvQ/vuufsfIZh1H1D+xWacR9RMSCwV8yxaVSUTftyW0tmAztQ3LEfVX0NpJe3u4diPr17A/vv6meP/7sBpov+tfxjsSQggh5Ps8AAoTerUAMAAA
+  </data>
+ </layer>
+ <layer name="detail" width="64" height="48">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3VOQrCUBhF4R9shOxDQZwah9ZZNyB2WroP53lYgiv1igoh8KzEYN754PY5eQnPDAAAAAAAAADwLbOc2VxbaMtc3E/zeys1r7WNtvWsf5Iy26l5rx20ozZOxf1Uv/PoP6n5rF20q4f9xbRZ6bVymn6f+h+i/Tf1DyMbJfidRPvfGoFZU2sFz+/kn2XUlXUs7+hvq7ujdRPQHz7jTwv399Td1wYJ6q9otQ+rO/7/aUL6w+frE/rpp5/+QuTu94Xr/vdF1XHfAwAAxO0OLTVQdgAwAAA=
+  </data>
+ </layer>
+ <objectgroup name="objects" width="64" height="48">
+  <object type="collidable" x="448" y="208" width="16" height="224"/>
+  <object type="collidable" x="528" y="208" width="16" height="224"/>
+  <object type="collidable" x="528" y="432" width="96" height="16"/>
+  <object type="collidable" x="608" y="448" width="16" height="48"/>
+  <object type="collidable" x="528" y="496" width="96" height="16"/>
+  <object type="collidable" x="448" y="560" width="16" height="32"/>
+  <object type="collidable" x="464" y="560" width="48" height="16"/>
+  <object type="collidable" x="496" y="576" width="16" height="48"/>
+  <object type="collidable" x="448" y="624" width="64" height="16"/>
+  <object type="collidable" x="480" y="576" width="16" height="16"/>
+  <object name="button1" type="button" x="568" y="457" width="32" height="32">
+   <properties>
+    <property name="activates" value="door1"/>
+   </properties>
+  </object>
+  <object name="door1" type="door" x="464" y="336" width="64" height="64">
+   <properties>
+    <property name="initialState" value="closed"/>
+   </properties>
+  </object>
+  <object type="collidable" x="320" y="432" width="16" height="224"/>
+  <object type="collidable" x="656" y="432" width="16" height="224"/>
+  <object type="collidable" x="320" y="656" width="352" height="16"/>
+  <object type="collidable" x="320" y="416" width="128" height="16"/>
+  <object type="collidable" x="544" y="416" width="128" height="16"/>
+  <object type="collidable" x="336" y="192" width="320" height="16"/>
+  <object name="end1" type="end" x="464" y="224" width="64" height="32"/>
+  <object name="start" type="start" x="464" y="592" width="32" height="32"/>
+ </objectgroup>
+</map>
