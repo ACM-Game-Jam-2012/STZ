@@ -47,5 +47,10 @@
   </object>
   <object name="end" type="end" x="608" y="512" width="95" height="94"/>
   <object name="start" type="start" x="44" y="38" width="24" height="24"/>
+  <object name="col1" type="collidable" x="160" y="128" width="32" height="288"/>
+  <object name="col2" type="collidable" x="192" y="384" width="288" height="32"/>
+  <object name="col3" type="collidable" x="448" y="320" width="32" height="64"/>
+  <object name="col4" type="collidable" x="448" y="128" width="32" height="64"/>
+  <object name="col5" type="collidable" x="192" y="128" width="256" height="32"/>
  </objectgroup>
 </map>
