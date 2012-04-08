@@ -68,6 +68,8 @@ public class LoadState extends BasicGameState {
 				if(game instanceof TestGame){
 					((TestGame)game).addLevel(new Level("map1", this.rm));
 					((TestGame)game).getCurrentLevel().initLevel();
+					
+					((TestGame)game).addLevel(new Level("map1", this.rm));
 				}
 
 			}
