@@ -6,4 +6,5 @@
 	<resource key="player1" location="images/test_sprite.png" />
 	<resource key="titleScreen" location="images/TitleScreen.png" />
 	<resource key="selector" location="images/cog_selector.png" />
+	<resource key="door" location="images/door.png" />
 </resources>
