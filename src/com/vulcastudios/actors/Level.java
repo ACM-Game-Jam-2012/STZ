@@ -25,6 +25,7 @@ public class Level {
 	private long finalTime = 0;
 	private HashMap<String, Button> buttons = new HashMap<String, Button>();
 	private HashMap<String, Door> doors = new HashMap<String, Door>();
+	private ArrayList<Collidable> collidables = new ArrayList<Collidable>();
 	private End end;
 	private Start startingPoint;
 	
@@ -39,6 +40,7 @@ public class Level {
 			for(int j = 0; j < map.getObjectCount(i); j++){
 				String name = map.getObjectName(i, j);
 				String type = map.getObjectType(i, j);
+				System.out.println(name+":"+type);
 				if(type.equals("door")){
 					String initialState = map.getObjectProperty(i, j, "initialState", "closed");
 					doors.put(name, new Door(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), initialState));
@@ -48,6 +50,9 @@ public class Level {
 				} else if (type.equals("end")) {
 					System.out.println("end");
 					end = new End(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j));
+				}
+				else if(type.equals("collidable")){
+					collidables.add(new Collidable(name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j)));
 				}
 				else if(type.equals("start")){
 					startingPoint = new Start(name, map.getObjectY(i, j), map.getObjectWidth(i, j));
@@ -161,6 +166,10 @@ public class Level {
 	
 	public HashMap<String, Door> getDoors(){
 		return this.doors;
+	}
+	
+	public ArrayList<Collidable> getCollidables(){
+		return this.collidables;
 	}
 	
 	public End getEnd() {
