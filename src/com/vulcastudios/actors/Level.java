@@ -22,6 +22,7 @@ public class Level {
 	private Player player;
 	private ArrayList<Zombie> zombies = new ArrayList<Zombie>();
 	private long startTime;
+	private long finalTime = 0;
 	private HashMap<String, Button> buttons = new HashMap<String, Button>();
 	private HashMap<String, Door> doors = new HashMap<String, Door>();
 	private End end;
@@ -136,6 +137,14 @@ public class Level {
 		startTime = System.currentTimeMillis();
 		createPlayer();
 		zombies.clear();
+	}
+	
+	public void setFinalTime(long finalTime) {
+		this.finalTime = finalTime;
+	}
+	
+	public long getFinalTime() {
+		return this.finalTime;
 	}
 
 	public int getNumberOfZombies(){
