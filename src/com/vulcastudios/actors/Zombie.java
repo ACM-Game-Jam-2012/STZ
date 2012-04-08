@@ -49,12 +49,19 @@ public class Zombie{
 		
 		if(!movementMap.isEmpty()){
 			ZombieMove move = movementMap.pop();
+			
+			// Vertical
 			if(move.isUp()){
 				this.setYPos(getYPos() - (Player.DELTA_Y * delta));
 			}
 			if(move.isDown()){
 				this.setYPos(getYPos() + (Player.DELTA_Y * delta));
 			}
+			if(((TestGame)game).checkCollision(this)){
+				this.setYPos(oldY);
+			}
+			
+			// Horizontal
 			if(move.isLeft()){
 				this.setXPos(getXPos() - (Player.DELTA_X * delta));
 			}
@@ -64,7 +71,6 @@ public class Zombie{
 			
 			if(((TestGame)game).checkCollision(this)){
 				this.setXPos(oldX);
-				this.setYPos(oldY);
 			}
 			
 		}

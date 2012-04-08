@@ -45,6 +45,8 @@ public class Player{
 		
 		ZombieMove move = new ZombieMove();
 		// Handle player movement
+		
+		// Vertical
 		if(container.getInput().isKeyDown(Input.KEY_UP)){
 			this.setYPos(getYPos() - (Player.DELTA_Y * delta));
 			move.addUp();
@@ -53,6 +55,23 @@ public class Player{
 			this.setYPos(getYPos() + (Player.DELTA_Y * delta));
 			move.addDown();
 		}
+		
+		if(this.getYPos() > container.getHeight() - Player.HEIGHT){
+			this.setYPos(container.getHeight() - Player.HEIGHT);
+			move.noDown();
+		}
+
+		if(this.getYPos() < 0){
+			this.setYPos(0);
+			move.noUP();
+		}
+
+		if(((TestGame)game).checkCollision(this)){
+			this.setYPos(oldY);
+		}
+				
+		
+		// Horizontal
 		if(container.getInput().isKeyDown(Input.KEY_LEFT)){
 			this.setXPos(getXPos() - (Player.DELTA_X * delta));
 			move.addLeft();
@@ -67,24 +86,15 @@ public class Player{
 			move.noLeft();
 		}
 
-		if(this.getYPos() < 0){
-			this.setYPos(0);
-			move.noUP();
-		}
 
 		if(this.getXPos() > container.getWidth() - Player.WIDTH){
 			this.setXPos(container.getWidth() - Player.WIDTH);
 			move.noRight();
 		}
 		
-		if(this.getYPos() > container.getHeight() - Player.HEIGHT){
-			this.setYPos(container.getHeight() - Player.HEIGHT);
-			move.noDown();
-		}
-		
+
 		if(((TestGame)game).checkCollision(this)){
 			this.setXPos(oldX);
-			this.setYPos(oldY);
 		}
 
 		movementMap.add(move);

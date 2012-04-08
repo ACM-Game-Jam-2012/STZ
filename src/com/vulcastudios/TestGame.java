@@ -138,7 +138,11 @@ public class TestGame extends StateBasedGame {
 		int tile4 = map.getTileId((int)((z.getXPos()+Player.WIDTH)/map.getTileWidth()),(int)((z.getYPos()+Player.HEIGHT)/map.getTileHeight()), 1);
 		return tile1 != 0 || tile2 != 0 || tile3 != 0 || tile4 != 0 || doorCol;
 	}
-
+	
+	public ResourceManager getResourceManager(){
+		return this.rm;
+	}
+	
 	public static void main(String[] args){
 		Properties props = new Properties();
 		try {

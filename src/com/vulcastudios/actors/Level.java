@@ -20,6 +20,7 @@ public class Level {
 	private ResourceManager resourceManager;
 	private Player player;
 	private ArrayList<Zombie> zombies = new ArrayList<Zombie>();
+	private long startTime;
 	private HashMap<String, Button> buttons = new HashMap<String, Button>();
 	private HashMap<String, Door> doors = new HashMap<String, Door>();
 	
@@ -65,7 +66,7 @@ public class Level {
 	
 	public void initLevel(){
 		player = new Player(this.resourceManager, 0, 0);
-		
+		startTime = System.currentTimeMillis();
 	}
 	
 	public TiledMap getMap(){
@@ -74,6 +75,10 @@ public class Level {
 	
 	public String getPar() {
 		return this.par;
+	}
+	
+	public long getStartTime() {
+		return this.startTime;
 	}
 	
 	public void render(GameContainer container, StateBasedGame game, Graphics g){
