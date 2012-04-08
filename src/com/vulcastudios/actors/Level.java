@@ -112,7 +112,7 @@ public class Level {
 			zombie.update(container, game, delta);
 		}
 		
-		if (container.getInput().isKeyPressed(Input.KEY_SPACE)) {
+		if (container.getInput().isKeyPressed(Input.KEY_SPACE) || !player.isAlive()) {
 			initLevelWithNewZombie();
 		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
 			restartLevel();
@@ -126,6 +126,14 @@ public class Level {
 
 	public int getNumberOfZombies(){
 		return zombies.size();
+	}
+	
+	public HashMap<String, Button> getButtons(){
+		return this.buttons;
+	}
+	
+	public HashMap<String, Door> getDoors(){
+		return this.doors;
 	}
 	
 }

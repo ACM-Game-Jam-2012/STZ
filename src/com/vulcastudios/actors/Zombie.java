@@ -6,6 +6,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import com.vulcastudios.TestGame;
@@ -13,6 +14,8 @@ import com.vulcastudios.util.ResourceManager;
 
 public class Zombie{
 
+	private static final int HEIGHT = 50;
+	private static final int WIDTH = 50;
 	private float xPos = 0;
 	private float yPos = 0;
 	
@@ -63,12 +66,15 @@ public class Zombie{
 				this.setXPos(oldX);
 				this.setYPos(oldY);
 			}
+			
 		}
+		
+		((TestGame)game).checkObjects(this);
 	}
 	
 	public void render(GameContainer container, Graphics g){
 		g.setColor(Color.green);
-		g.drawRect(this.getXPos(), this.getYPos(), 50, 50);
+		g.drawRect(this.getXPos(), this.getYPos(), WIDTH, HEIGHT);
 	}
 	
 	public float getXPos() {
@@ -85,6 +91,10 @@ public class Zombie{
 
 	public void setYPos(float yPos) {
 		this.yPos = yPos;
+	}
+	
+	public Rectangle getBounds(){
+		return new Rectangle(this.getXPos(), this.getYPos(), Zombie.WIDTH, Zombie.HEIGHT);
 	}
 	
 }
