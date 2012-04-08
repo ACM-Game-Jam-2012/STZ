@@ -4,6 +4,7 @@
 	<resource key="image3" location="images/image3.png" />
 	<resource key="image4" location="images/image4.png" />
 	<resource key="player1" location="images/test_sprite.png" />
+	<resource key="zombie" location="images/test_zombie.png" />
 	<resource key="titleScreen" location="images/TitleScreen.png" />
 	<resource key="selector" location="images/cog_selector.png" />
 	<resource key="door" location="images/door.png" />
