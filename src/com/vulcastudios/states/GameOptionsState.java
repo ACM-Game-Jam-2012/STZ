@@ -37,22 +37,19 @@ public class GameOptionsState extends BasicGameState {
 		if (container.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
 		} else if (container.getInput().isKeyPressed(Input.KEY_RIGHT)) {
-			// Shouldn't need -1
-			if (level == ((TestGame)game).getLevels().size()-1) {
+			if (level == ((TestGame)game).getLevels().size()) {
 				level = 1;
 			} else {
 				level++;
 			}
 		} else if (container.getInput().isKeyPressed(Input.KEY_LEFT)) {
 			if (level == 1) {
-				// Shouldn't need -1
-				level = ((TestGame)game).getLevels().size()-1;
+				level = ((TestGame)game).getLevels().size();
 			} else {
 				level--;
 			}
 		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
-			// Should be level -1
-			((TestGame)game).goToLevel(level);
+			((TestGame)game).goToLevel(level-1);
 			((TestGame)game).getCurrentLevel().restartLevel();
 			game.enterState(TestGame.IN_GAME_STATE);
 		}
