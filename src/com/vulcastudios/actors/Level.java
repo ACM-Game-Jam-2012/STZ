@@ -48,6 +48,8 @@ public class Level {
 			}
 		}
 		
+		startTime = System.currentTimeMillis();
+		
 		/*for(int i = 0; i < map.getWidth(); i++){
 			for(int j = 0; j < map.getWidth(); j++){
 				int tile = map.getTileId(i, j, 2);
@@ -67,7 +69,6 @@ public class Level {
 	
 	public void initLevel(){
 		player = new Player(this.resourceManager, 0, 0);
-		startTime = System.currentTimeMillis();
 	}
 	
 	public TiledMap getMap(){
@@ -135,6 +136,7 @@ public class Level {
 	}
 	
 	public void restartLevel(){
+		startTime = System.currentTimeMillis();
 		initLevel();
 		zombies.clear();
 	}
