@@ -9,6 +9,7 @@ import java.util.Set;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 import org.newdawn.slick.util.ResourceLoader;
@@ -25,6 +26,7 @@ import com.vulcastudios.states.GameOptionsState;
 import com.vulcastudios.states.InGameState;
 import com.vulcastudios.states.LoadState;
 import com.vulcastudios.states.MainMenuState;
+import com.vulcastudios.states.TransitionState;
 import com.vulcastudios.util.Config;
 import com.vulcastudios.util.ResourceManager;
 
@@ -37,6 +39,7 @@ public class TestGame extends StateBasedGame {
 	public static final int CONTROLS_STATE = 4;
 	public static final int GAME_OPTIONS_STATE = 5;
 	public static final int CREDITS_STATE = 6;
+	public static final int TRANSITION_STATE = 7;
 
 	private ArrayList<Level> levels;
 	private int currentLevelIndex = 0;
@@ -57,6 +60,7 @@ public class TestGame extends StateBasedGame {
 		this.addState(new ControlsState());
 		this.addState(new GameOptionsState());
 		this.addState(new CreditsState());
+		this.addState(new TransitionState());
 	}
 
 	public void goToNextLevel(){
@@ -74,6 +78,17 @@ public class TestGame extends StateBasedGame {
 
 	public Level getCurrentLevel() {
 		return levels.get(currentLevelIndex);
+	}
+	
+	public void checkEndPoint(Player p) {
+		Rectangle endBounds = this.getCurrentLevel().getEnd().getBounds();
+		Rectangle playerBounds = p.getBounds();
+		
+		if (playerBounds.intersects(endBounds)) {
+			long finalTime = System.currentTimeMillis() - this.getCurrentLevel().getStartTime();
+			this.getCurrentLevel().setFinalTime(finalTime);
+			this.enterState(TRANSITION_STATE);
+		}
 	}
 
 	public void checkObjects(Player p){
