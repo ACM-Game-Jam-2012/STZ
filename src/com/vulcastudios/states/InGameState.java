@@ -4,6 +4,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -12,7 +13,7 @@ import com.vulcastudios.TestGame;
 
 public class InGameState extends BasicGameState {
 	
-	
+
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
@@ -55,13 +56,18 @@ public class InGameState extends BasicGameState {
 		}
 		
 		((TestGame)game).getCurrentLevel().update(container, game, delta);
+		
 	}
 
 	@Override
 	public int getID() {
 		return TestGame.IN_GAME_STATE;
 	}
-
+	
+	@Override
+	public void leave(GameContainer container, StateBasedGame game){
+		((TestGame)game).getCurrentLevel().stopLevelSong(game);
+	}
 	
 	private String formatTime(long ellapsedTime) {
 		double seconds = ellapsedTime / 1000.0;
