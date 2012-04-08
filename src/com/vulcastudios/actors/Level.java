@@ -26,6 +26,7 @@ public class Level {
 	private HashMap<String, Button> buttons = new HashMap<String, Button>();
 	private HashMap<String, Door> doors = new HashMap<String, Door>();
 	private End end;
+	private Start startingPoint;
 	
 	public Level(String mapName, ResourceManager resourceManager){
 		this.resourceManager = resourceManager;
@@ -47,6 +48,9 @@ public class Level {
 				} else if (type.equals("end")) {
 					System.out.println("end");
 					end = new End(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j));
+				}
+				else if(type.equals("start")){
+					startingPoint = new Start(name, map.getObjectY(i, j), map.getObjectWidth(i, j));
 				}
 			}
 		}
@@ -93,14 +97,14 @@ public class Level {
 	}
 	
 	public void createPlayer() {
-		player = new Player(this.resourceManager, 0, 0);
+		player = new Player(this.resourceManager, startingPoint.getX(), startingPoint.getY());
 	}
 	
 	public void initLevelWithNewZombie() {
 		for(Zombie z: zombies){
 			z.restartZombie();
 		}
-		zombies.add(new Zombie(this.resourceManager, 0, 0, player.getMovementMap()));
+		zombies.add(new Zombie(this.resourceManager, startingPoint.getX(), startingPoint.getY(), player.getMovementMap()));
 		createPlayer();
 	}
 	
