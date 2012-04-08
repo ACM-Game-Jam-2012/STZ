@@ -4,4 +4,5 @@
 	<resource key="image3" location="images/image3.png" />
 	<resource key="image4" location="images/image4.png" />
 	<resource key="player1" location="images/player1.png" />
+	<resource key="titleScreen" location="images/TitleScreen.png" />
 </resources>
