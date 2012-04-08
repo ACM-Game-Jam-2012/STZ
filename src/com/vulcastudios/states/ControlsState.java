@@ -8,9 +8,16 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import com.vulcastudios.TestGame;
+import com.vulcastudios.util.ResourceManager;
 
 public class ControlsState extends BasicGameState {
 
+	private ResourceManager rm;
+	
+	public ControlsState(ResourceManager rm){
+		this.rm = rm;
+	}
+	
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
@@ -21,6 +28,7 @@ public class ControlsState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		g.drawImage(this.rm.getImage("creditsScreen"), 0, 0);
 		g.drawString("Directional arrows: move", 50, 50);
 		g.drawString("Space bar: suicide", 50, 75);
 		g.drawString("Enter: restart level", 50, 100);

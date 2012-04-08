@@ -25,6 +25,7 @@ public class LoadState extends BasicGameState {
 	private ResourceManager rm;
 	private Iterator<Entry<String, Resource>> images, maps;
 	//private Iterator<Entry<String, Resource>> animations;
+	private Image backgroundImage;
 
 	public LoadState(ResourceManager rm){
 		this.rm = rm;
@@ -37,19 +38,22 @@ public class LoadState extends BasicGameState {
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
 		rm.startLoad();
+		this.backgroundImage = new Image("./images/LoadingScreen.png");
+		rm.load("loadingScreen", this.backgroundImage);
 
 	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		g.drawImage(this.backgroundImage, 0, 0);
 		//g.drawString("Progress: "+this.rm.getProgress(), 50, 50);
 		
 		/*IntBuffer o = ByteBuffer.allocateDirect(200).asIntBuffer();
 		GL11.glGetInteger(GL11.GL_MAX_TEXTURE_SIZE, o);
 		System.err.println("GL_MAX_TEXTURE_SIZE: " + o.get());*/
 		
-		LoadingBar lb = new LoadingBar(5, container.getHeight()-35, container.getWidth()-10, 30);
+		LoadingBar lb = new LoadingBar(15, container.getHeight()-50, container.getWidth()-30, 30);
 		lb.setProgress(this.rm.getProgress());
 		lb.render(container, game, g);
 		

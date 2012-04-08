@@ -9,10 +9,16 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
 import com.vulcastudios.TestGame;
+import com.vulcastudios.util.ResourceManager;
 
 public class GameOptionsState extends BasicGameState {
 	
 	private int level = 1;
+	private ResourceManager rm;
+	
+	public GameOptionsState(ResourceManager rm){
+		this.rm = rm;
+	}
 
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
@@ -24,6 +30,7 @@ public class GameOptionsState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		g.drawImage(this.rm.getImage("optionsScreen"), 0, 0);
 		TiledMap tiledMap = ((TestGame)game).getResourceManager().maps.get("level" + level);
 		tiledMap.render(0, 0);
 		g.drawString("Level " + level, 50, 50);

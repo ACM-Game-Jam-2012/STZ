@@ -8,9 +8,15 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 import com.vulcastudios.TestGame;
+import com.vulcastudios.util.ResourceManager;
 
 public class CreditsState extends BasicGameState {
-
+	
+	private ResourceManager rm;
+	
+	public CreditsState(ResourceManager rm){
+		this.rm = rm;
+	}
 	@Override
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
@@ -21,6 +27,7 @@ public class CreditsState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		g.drawImage(this.rm.getImage("creditsScreen"), 0, 0);
 		g.drawString("Alex Meade", 50, 50);
 		g.drawString("Forrest Meade", 50, 75);
 		g.drawString("Andrew Melton", 50, 100);
