@@ -46,5 +46,6 @@
    </properties>
   </object>
   <object name="end" type="end" x="608" y="512" width="95" height="94"/>
+  <object name="start" type="start" x="44" y="38" width="24" height="24"/>
  </objectgroup>
 </map>
