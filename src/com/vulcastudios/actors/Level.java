@@ -9,6 +9,7 @@ import java.util.Set;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
@@ -31,6 +32,8 @@ public class Level {
 	private ArrayList<Steam> steams = new ArrayList<Steam>();
 	private End end;
 	private Start startingPoint;
+	
+	private Music levelSong;
 	
 	public Level(String mapName, ResourceManager resourceManager){
 		this.resourceManager = resourceManager;
@@ -167,9 +170,39 @@ public class Level {
 		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
 			restartLevel();
 		}
+		
+		playLevelSong(game);
+
 	}
 	
 	public void end() {
+		
+	}
+	
+	public void playLevelSong(StateBasedGame game){
+		//play Level song
+		int num = (int) (Math.random() * 3.0);
+		if(levelSong == null){
+			if(num == 0)
+				levelSong = ((TestGame)game).getResourceManager().getMusic("ambiance");
+			else if(num == 1){
+				levelSong = ((TestGame)game).getResourceManager().getMusic("desert_drones");
+			}
+			else{
+				levelSong = ((TestGame)game).getResourceManager().getMusic("desert_lonesome");
+			}
+		}
+		if(levelSong != null && !levelSong.playing()){
+			levelSong.loop();
+		}
+		
+	}
+	
+	public void stopLevelSong(StateBasedGame game){
+		//play Level song
+		if(levelSong != null && levelSong.playing()){
+			levelSong.stop();
+		}
 		
 	}
 	
