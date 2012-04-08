@@ -1,6 +1,7 @@
 package com.vulcastudios.actors;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -17,6 +18,8 @@ public class Level {
 	private ResourceManager resourceManager;
 	private Player player;
 	private ArrayList<Zombie> zombies = new ArrayList<Zombie>();
+	private HashMap<String, Button> buttons = new HashMap<String, Button>();
+	private HashMap<String, Door> doors = new HashMap<String, Door>();
 	
 	public Level(String mapName, ResourceManager resourceManager){
 		this.resourceManager = resourceManager;
@@ -24,6 +27,35 @@ public class Level {
 		System.out.println(this.resourceManager.maps.size());
 		map = this.resourceManager.maps.get(mapName);
 		par = map.getMapProperty("par", "3");
+		
+		for(int i = 0; i < map.getObjectGroupCount(); i++){
+			for(int j = 0; j < map.getObjectCount(i); j++){
+				String name = map.getObjectName(i, j);
+				String type = map.getObjectType(i, j);
+				if(type.equals("door")){
+					doors.put(name, new Door(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j)));
+				}
+				else if(type.equals("button")){
+					buttons.put(name, new Button(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j)));
+				}
+			}
+		}
+		
+		/*for(int i = 0; i < map.getWidth(); i++){
+			for(int j = 0; j < map.getWidth(); j++){
+				int tile = map.getTileId(i, j, 2);
+				if(tile != 0){
+					String name = map.getTileProperty(tile, "name", "default");
+					String type = map.getTileProperty(tile, "type", "default");
+					if(type.equals("button")){
+						buttons.put(name, new Button(this, name, i,j, map.getTileWidth(), map.getTileHeight()));
+					}
+					else if(type.equals("door")){
+						doors.put(name, new Door(this, name, i,j, map.getTileWidth(), map.getTileHeight()));
+					}
+				}
+			}
+		}*/
 	}
 	
 	public void initLevel(){
