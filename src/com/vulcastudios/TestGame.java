@@ -80,6 +80,11 @@ public class TestGame extends StateBasedGame {
 		return levels.get(currentLevelIndex);
 	}
 	
+
+	public boolean isOnLastLevel() {
+		return currentLevelIndex == (levels.size()-1);
+	}
+	
 	public void checkEndPoint(Player p) {
 		Rectangle endBounds = this.getCurrentLevel().getEnd().getBounds();
 		Rectangle playerBounds = p.getBounds();
