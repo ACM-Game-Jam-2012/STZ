@@ -22,10 +22,11 @@ public class Level {
 	private Player player;
 	private ArrayList<Zombie> zombies = new ArrayList<Zombie>();
 	private long startTime;
+	private long finalTime = 0;
 	private HashMap<String, Button> buttons = new HashMap<String, Button>();
 	private HashMap<String, Door> doors = new HashMap<String, Door>();
+	private End end;
 	private Start startingPoint;
-	
 	
 	public Level(String mapName, ResourceManager resourceManager){
 		this.resourceManager = resourceManager;
@@ -41,10 +42,12 @@ public class Level {
 				if(type.equals("door")){
 					String initialState = map.getObjectProperty(i, j, "initialState", "closed");
 					doors.put(name, new Door(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), initialState));
-				}
-				else if(type.equals("button")){
+				} else if(type.equals("button")){
 					String activates = map.getObjectProperty(i, j, "activates", "door"+name.substring(6));
 					buttons.put(name, new Button(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j), activates));
+				} else if (type.equals("end")) {
+					System.out.println("end");
+					end = new End(this, name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j));
 				}
 				else if(type.equals("start")){
 					startingPoint = new Start(name, map.getObjectY(i, j), map.getObjectWidth(i, j));
@@ -106,6 +109,8 @@ public class Level {
 	}
 	
 	public void update(GameContainer container, StateBasedGame game, int delta){
+		((TestGame)game).checkEndPoint(player);
+		
 		for(Entry<String, Door> entry : doors.entrySet()){
 			entry.getValue().setOpen(entry.getValue().isInitialOpen());
 		}
@@ -128,10 +133,22 @@ public class Level {
 		}
 	}
 	
+	public void end() {
+		
+	}
+	
 	public void restartLevel(){
 		startTime = System.currentTimeMillis();
 		createPlayer();
 		zombies.clear();
+	}
+	
+	public void setFinalTime(long finalTime) {
+		this.finalTime = finalTime;
+	}
+	
+	public long getFinalTime() {
+		return this.finalTime;
 	}
 
 	public int getNumberOfZombies(){
@@ -144,6 +161,10 @@ public class Level {
 	
 	public HashMap<String, Door> getDoors(){
 		return this.doors;
+	}
+	
+	public End getEnd() {
+		return this.end;
 	}
 	
 }
