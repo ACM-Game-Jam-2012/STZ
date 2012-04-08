@@ -26,6 +26,7 @@ public class TransitionState extends BasicGameState {
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
 			throws SlickException {
+		((TestGame)game).getCurrentLevel().render(container, game, g);
 
 		double seconds = finalTime / 1000.0;
 		g.drawString("Final Time: " + seconds + " seconds", 50, 50);
@@ -37,8 +38,6 @@ public class TransitionState extends BasicGameState {
 		else{
 			g.drawString("The Game Is Done!", 50, 150);
 		}
-		
-		((TestGame)game).getCurrentLevel().render(container, game, g);
 	}
 
 	@Override
