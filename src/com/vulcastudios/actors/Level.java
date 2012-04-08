@@ -55,7 +55,7 @@ public class Level {
 					collidables.add(new Collidable(name, map.getObjectX(i, j), map.getObjectY(i, j), map.getObjectWidth(i, j), map.getObjectHeight(i, j)));
 				}
 				else if(type.equals("start")){
-					startingPoint = new Start(name, map.getObjectY(i, j), map.getObjectWidth(i, j));
+					startingPoint = new Start(name, map.getObjectX(i, j), map.getObjectY(i, j));
 				}
 			}
 		}
