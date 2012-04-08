@@ -74,8 +74,6 @@ public class Zombie{
 			}
 			
 		}
-		
-		((TestGame)game).checkObjects(this);
 	}
 	
 	public void render(GameContainer container, Graphics g){
