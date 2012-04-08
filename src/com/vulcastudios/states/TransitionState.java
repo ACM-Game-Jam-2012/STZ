@@ -24,12 +24,14 @@ public class TransitionState extends BasicGameState {
 		long finalTime = ((TestGame)game).getCurrentLevel().getFinalTime();
 		double seconds = finalTime / 1000.0;
 		g.drawString("Final Time: " + seconds + " seconds", 50, 50);
-		//TODO output number of zombies against par
+		int numOfZombies = ((TestGame)game).getCurrentLevel().getNumberOfZombies();
+		String par = ((TestGame)game).getCurrentLevel().getPar();
+		g.drawString("Zombies Used: " + numOfZombies + " Par: " + par, 50, 100);
 		if(!((TestGame)game).isOnLastLevel()){
-			g.drawString("Press Enter to continue to the next level", 50, 100);
+			g.drawString("Press Enter to continue to the next level", 50, 150);
 		}
 		else{
-			g.drawString("The Game Is Done!", 50, 100);
+			g.drawString("The Game Is Done!", 50, 150);
 		}
 	}
 
