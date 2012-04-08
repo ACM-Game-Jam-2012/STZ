@@ -45,6 +45,7 @@ public class InGameState extends BasicGameState {
 			throws SlickException {
 		if (container.getInput().isKeyPressed(Input.KEY_ESCAPE)) {
 			game.enterState(TestGame.MAIN_MENU_STATE_ID);
+			((TestGame)game).getCurrentLevel().restartLevel();
 		}
 		
 		((TestGame)game).getCurrentLevel().update(container, game, delta);
