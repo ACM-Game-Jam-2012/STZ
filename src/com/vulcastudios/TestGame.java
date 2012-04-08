@@ -133,6 +133,9 @@ public class TestGame extends StateBasedGame {
 					String trimmedName = doorName.trim();
 					Door door = this.getCurrentLevel().getDoors().get(trimmedName);
 					door.setOpen(!door.isOpen());
+					if(!door.isOpen() && this.getCurrentLevel().getPlayer().getBounds().intersects(door.getBounds())){
+						this.getCurrentLevel().getPlayer().setAlive(false);
+					}
 				}
 			}
 		}
