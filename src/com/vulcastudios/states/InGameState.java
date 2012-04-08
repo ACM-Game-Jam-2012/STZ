@@ -17,6 +17,11 @@ public class InGameState extends BasicGameState {
 	public void init(GameContainer container, StateBasedGame game)
 			throws SlickException {
 	}
+	
+	@Override
+	public void enter(GameContainer container, StateBasedGame game) {
+		((TestGame)game).getCurrentLevel().initLevel();
+	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g)
