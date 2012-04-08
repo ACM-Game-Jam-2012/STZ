@@ -45,6 +45,8 @@ public class LoadState extends BasicGameState {
 		LoadingBar lb = new LoadingBar(5, container.getHeight()-35, container.getWidth()-10, 30);
 		lb.setProgress(this.rm.getProgress());
 		lb.render(container, game, g);
+		
+		g.drawString("VulcaStudios", (container.getWidth()/2)-75, (container.getHeight()/2-150));
 
 	}
 
