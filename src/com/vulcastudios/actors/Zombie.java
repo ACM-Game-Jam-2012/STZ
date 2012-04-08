@@ -14,8 +14,8 @@ import com.vulcastudios.util.ResourceManager;
 
 public class Zombie{
 
-	private static final int HEIGHT = 50;
-	private static final int WIDTH = 50;
+	private static final int WIDTH = 16;
+	private static final int HEIGHT = 20;
 	private float xPos = 0;
 	private float yPos = 0;
 	
