@@ -68,7 +68,7 @@ public class End {
 
 		Color prev = g.getColor();
 		g.setColor(Color.white);
-		g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+		//g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 		g.setColor(prev);
 
 	}

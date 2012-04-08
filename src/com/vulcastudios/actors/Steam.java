@@ -106,7 +106,7 @@ public class Steam {
 		Color prev = g.getColor();
 		g.drawImage(this.getImage(), this.getX(), this.getY());
 		g.setColor(Color.orange);
-		g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+		//g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 		g.setColor(prev);
 
 	}

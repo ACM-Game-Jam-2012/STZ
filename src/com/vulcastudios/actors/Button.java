@@ -87,7 +87,7 @@ public class Button {
 		Color prev = g.getColor();
 		g.setColor(Color.cyan);
 		g.drawImage(this.getImage(), this.getX(), this.getY());
-		g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+		//g.drawRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
 		g.setColor(prev);
 		
 	}
