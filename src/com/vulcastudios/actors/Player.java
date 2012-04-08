@@ -42,6 +42,10 @@ public class Player{
 
 	public void update(GameContainer container, StateBasedGame game, int delta){
 
+		if(((TestGame)game).checkCollision(this)){
+			this.setAlive(false);
+		}
+		
 		float oldX = this.getXPos();
 		float oldY = this.getYPos();
 		
