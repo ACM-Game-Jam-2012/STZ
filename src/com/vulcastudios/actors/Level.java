@@ -163,7 +163,7 @@ public class Level {
 		}
 		
 		if (container.getInput().isKeyPressed(Input.KEY_SPACE) || !player.isAlive()) {
-			this.resourceManager.getSound("AHHH2").play(1.0f, 0.5f);
+			this.resourceManager.getSound("death").play(1.0f, 0.5f);
 			initLevelWithNewZombie();
 		} else if (container.getInput().isKeyPressed(Input.KEY_ENTER)) {
 			restartLevel();
