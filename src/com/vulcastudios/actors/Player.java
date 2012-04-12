@@ -49,7 +49,7 @@ public class Player{
 		float oldX = this.getXPos();
 		float oldY = this.getYPos();
 		
-		ZombieMove move = new ZombieMove();
+		ZombieMove move = new ZombieMove(delta);
 		// Handle player movement
 		
 		// Vertical

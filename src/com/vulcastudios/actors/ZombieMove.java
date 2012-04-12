@@ -5,6 +5,11 @@ public class ZombieMove {
 	private boolean down = false;
 	private boolean left = false;
 	private boolean right = false;
+	private int delta;
+	
+	public ZombieMove(int delta){
+		this.setDelta(delta);
+	}
 	
 	
 	public boolean isRight() {
@@ -53,5 +58,25 @@ public class ZombieMove {
 	
 	public void noLeft(){
 		left = false;
+	}
+
+
+	public int getDelta() {
+		return delta;
+	}
+
+	public void setDelta(int delta) {
+		this.delta = delta;
+	}
+	
+	@Override
+	public ZombieMove clone(){
+		ZombieMove clone = new ZombieMove(this.delta);
+		clone.down = this.down;
+		clone.up = this.up;
+		clone.left = this.left;
+		clone.right = this.right;
+		return clone;
+		
 	}
 }
