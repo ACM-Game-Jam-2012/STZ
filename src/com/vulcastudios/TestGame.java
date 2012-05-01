@@ -170,7 +170,7 @@ public class TestGame extends StateBasedGame {
 		boolean playerCol = p.getBounds().intersects(s.getBounds());
 		if(playerCol){
 			p.setAlive(false);
-			ZombieMove move = new ZombieMove();
+			ZombieMove move = new ZombieMove(1);
 			if(p.getXPos() > s.getX())
 				move.addLeft();
 			if(p.getXPos() < s.getX())
